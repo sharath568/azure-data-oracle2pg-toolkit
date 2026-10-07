@@ -1,0 +1,4354 @@
+{
+ "metadata": {
+  "collector_version": "0.1.0",
+  "collected_at": "2026-10-01T14:05:11Z",
+  "db_name": "ORCLPDB1",
+  "db_version": "19.0.0.0.0",
+  "character_set": "WE8MSWIN1252",
+  "nchar_character_set": "AL16UTF16",
+  "nls_length_semantics": "BYTE",
+  "schemas": "HR,SALES"
+ },
+ "tables": [
+  {
+   "owner": "HR",
+   "name": "DEPARTMENTS",
+   "temporary": "N",
+   "duration": null,
+   "iot_type": null,
+   "partitioned": "NO",
+   "num_rows": 27,
+   "compression": "DISABLED",
+   "compress_for": null,
+   "logging": "YES",
+   "cluster_name": null,
+   "degree": "1"
+  },
+  {
+   "owner": "HR",
+   "name": "EMPLOYEES",
+   "temporary": "N",
+   "duration": null,
+   "iot_type": null,
+   "partitioned": "NO",
+   "num_rows": 48210,
+   "compression": "DISABLED",
+   "compress_for": null,
+   "logging": "YES",
+   "cluster_name": null,
+   "degree": "1"
+  },
+  {
+   "owner": "HR",
+   "name": "JOBS",
+   "temporary": "N",
+   "duration": null,
+   "iot_type": null,
+   "partitioned": "NO",
+   "num_rows": 19,
+   "compression": "DISABLED",
+   "compress_for": null,
+   "logging": "YES",
+   "cluster_name": null,
+   "degree": "1"
+  },
+  {
+   "owner": "HR",
+   "name": "JOB_HISTORY",
+   "temporary": "N",
+   "duration": null,
+   "iot_type": null,
+   "partitioned": "NO",
+   "num_rows": 112345,
+   "compression": "DISABLED",
+   "compress_for": null,
+   "logging": "YES",
+   "cluster_name": null,
+   "degree": "1"
+  },
+  {
+   "owner": "HR",
+   "name": "LOCATIONS",
+   "temporary": "N",
+   "duration": null,
+   "iot_type": null,
+   "partitioned": "NO",
+   "num_rows": 23,
+   "compression": "DISABLED",
+   "compress_for": null,
+   "logging": "YES",
+   "cluster_name": null,
+   "degree": "1"
+  },
+  {
+   "owner": "HR",
+   "name": "COUNTRY_CODES",
+   "temporary": "N",
+   "duration": null,
+   "iot_type": "IOT",
+   "partitioned": "NO",
+   "num_rows": 25,
+   "compression": null,
+   "compress_for": null,
+   "logging": "YES",
+   "cluster_name": null,
+   "degree": "1"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_AUDIT_LOG",
+   "temporary": "N",
+   "duration": null,
+   "iot_type": null,
+   "partitioned": "NO",
+   "num_rows": 2875310,
+   "compression": "DISABLED",
+   "compress_for": null,
+   "logging": "NO",
+   "cluster_name": null,
+   "degree": "1"
+  },
+  {
+   "owner": "SALES",
+   "name": "CUSTOMERS",
+   "temporary": "N",
+   "duration": null,
+   "iot_type": null,
+   "partitioned": "NO",
+   "num_rows": 1904221,
+   "compression": "DISABLED",
+   "compress_for": null,
+   "logging": "YES",
+   "cluster_name": null,
+   "degree": "1"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS",
+   "temporary": "N",
+   "duration": null,
+   "iot_type": null,
+   "partitioned": "YES",
+   "num_rows": 182400311,
+   "compression": null,
+   "compress_for": null,
+   "logging": "YES",
+   "cluster_name": null,
+   "degree": "1"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_ITEMS",
+   "temporary": "N",
+   "duration": null,
+   "iot_type": null,
+   "partitioned": "YES",
+   "num_rows": 640118902,
+   "compression": null,
+   "compress_for": null,
+   "logging": "YES",
+   "cluster_name": null,
+   "degree": "1"
+  },
+  {
+   "owner": "SALES",
+   "name": "PRODUCTS",
+   "temporary": "N",
+   "duration": null,
+   "iot_type": null,
+   "partitioned": "NO",
+   "num_rows": 8812,
+   "compression": "DISABLED",
+   "compress_for": null,
+   "logging": "YES",
+   "cluster_name": null,
+   "degree": "1"
+  },
+  {
+   "owner": "SALES",
+   "name": "PRODUCT_DOCS",
+   "temporary": "N",
+   "duration": null,
+   "iot_type": null,
+   "partitioned": "NO",
+   "num_rows": 30117,
+   "compression": "DISABLED",
+   "compress_for": null,
+   "logging": "YES",
+   "cluster_name": null,
+   "degree": "1"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_STAGE",
+   "temporary": "Y",
+   "duration": "SYS$TRANSACTION",
+   "iot_type": null,
+   "partitioned": "NO",
+   "num_rows": null,
+   "compression": "DISABLED",
+   "compress_for": null,
+   "logging": "NO",
+   "cluster_name": null,
+   "degree": "1"
+  },
+  {
+   "owner": "SALES",
+   "name": "SALES_HISTORY",
+   "temporary": "N",
+   "duration": null,
+   "iot_type": null,
+   "partitioned": "YES",
+   "num_rows": 1250000000,
+   "compression": "ENABLED",
+   "compress_for": "ADVANCED",
+   "logging": "YES",
+   "cluster_name": null,
+   "degree": "1"
+  }
+ ],
+ "columns": [
+  {
+   "owner": "HR",
+   "table_name": "DEPARTMENTS",
+   "name": "DEPARTMENT_ID",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 4,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "DEPARTMENTS",
+   "name": "DEPARTMENT_NAME",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 30,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 30,
+   "char_used": "B",
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "DEPARTMENTS",
+   "name": "MANAGER_ID",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 6,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "DEPARTMENTS",
+   "name": "LOCATION_ID",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 4,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMPLOYEES",
+   "name": "EMPLOYEE_ID",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 6,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "N",
+   "data_default": "\"HR\".\"EMPLOYEES_SEQ\".\"NEXTVAL\"",
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMPLOYEES",
+   "name": "FIRST_NAME",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 20,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 20,
+   "char_used": "B",
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMPLOYEES",
+   "name": "LAST_NAME",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 25,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 25,
+   "char_used": "B",
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMPLOYEES",
+   "name": "EMAIL",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 25,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 25,
+   "char_used": "B",
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMPLOYEES",
+   "name": "PHONE_NUMBER",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 20,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 20,
+   "char_used": "B",
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMPLOYEES",
+   "name": "HIRE_DATE",
+   "data_type": "DATE",
+   "data_type_owner": null,
+   "data_length": 7,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "N",
+   "data_default": "SYSDATE",
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMPLOYEES",
+   "name": "JOB_ID",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 10,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 10,
+   "char_used": "B",
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMPLOYEES",
+   "name": "SALARY",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 8,
+   "data_scale": 2,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMPLOYEES",
+   "name": "COMMISSION_PCT",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 2,
+   "data_scale": 2,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMPLOYEES",
+   "name": "MANAGER_ID",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 6,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMPLOYEES",
+   "name": "DEPARTMENT_ID",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 4,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMPLOYEES",
+   "name": "BONUS_FACTOR",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMPLOYEES",
+   "name": "FULL_NAME",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 46,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 46,
+   "char_used": "B",
+   "nullable": "Y",
+   "data_default": "\"FIRST_NAME\"||' '||\"LAST_NAME\"",
+   "virtual": "YES",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMPLOYEES",
+   "name": "LAST_UPDATED",
+   "data_type": "TIMESTAMP(6) WITH LOCAL TIME ZONE",
+   "data_type_owner": null,
+   "data_length": 11,
+   "data_precision": null,
+   "data_scale": 6,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMPLOYEES",
+   "name": "ROW_GUID",
+   "data_type": "RAW",
+   "data_type_owner": null,
+   "data_length": 16,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": "SYS_GUID()",
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "JOBS",
+   "name": "JOB_ID",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 10,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 10,
+   "char_used": "B",
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "JOBS",
+   "name": "JOB_TITLE",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 35,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 35,
+   "char_used": "B",
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "JOBS",
+   "name": "MIN_SALARY",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 6,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "JOBS",
+   "name": "MAX_SALARY",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 6,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "JOB_HISTORY",
+   "name": "EMPLOYEE_ID",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 6,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "JOB_HISTORY",
+   "name": "START_DATE",
+   "data_type": "DATE",
+   "data_type_owner": null,
+   "data_length": 7,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "JOB_HISTORY",
+   "name": "END_DATE",
+   "data_type": "DATE",
+   "data_type_owner": null,
+   "data_length": 7,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "JOB_HISTORY",
+   "name": "JOB_ID",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 10,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 10,
+   "char_used": "B",
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "JOB_HISTORY",
+   "name": "DEPARTMENT_ID",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 4,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "LOCATIONS",
+   "name": "LOCATION_ID",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 4,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "LOCATIONS",
+   "name": "STREET_ADDRESS",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 40,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 40,
+   "char_used": "B",
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "LOCATIONS",
+   "name": "POSTAL_CODE",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 12,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 12,
+   "char_used": "B",
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "LOCATIONS",
+   "name": "CITY",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 30,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 30,
+   "char_used": "B",
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "LOCATIONS",
+   "name": "STATE_PROVINCE",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 25,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 25,
+   "char_used": "B",
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "LOCATIONS",
+   "name": "COUNTRY_ID",
+   "data_type": "CHAR",
+   "data_type_owner": null,
+   "data_length": 2,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 2,
+   "char_used": "B",
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "LOCATIONS",
+   "name": "GEO_LOCATION",
+   "data_type": "SDO_GEOMETRY",
+   "data_type_owner": "MDSYS",
+   "data_length": 1,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "COUNTRY_CODES",
+   "name": "COUNTRY_ID",
+   "data_type": "CHAR",
+   "data_type_owner": null,
+   "data_length": 2,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 2,
+   "char_used": "B",
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "COUNTRY_CODES",
+   "name": "COUNTRY_NAME",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 40,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 40,
+   "char_used": "B",
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "COUNTRY_CODES",
+   "name": "REGION_ID",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMP_AUDIT_LOG",
+   "name": "AUDIT_TS",
+   "data_type": "TIMESTAMP(9)",
+   "data_type_owner": null,
+   "data_length": 11,
+   "data_precision": null,
+   "data_scale": 9,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": "SYSTIMESTAMP",
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMP_AUDIT_LOG",
+   "name": "EMPLOYEE_ID",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 6,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMP_AUDIT_LOG",
+   "name": "ACTION",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 10,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 10,
+   "char_used": "B",
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMP_AUDIT_LOG",
+   "name": "CHANGED_BY",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 30,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 30,
+   "char_used": "B",
+   "nullable": "Y",
+   "data_default": "USER",
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMP_AUDIT_LOG",
+   "name": "OLD_VALUES",
+   "data_type": "LONG",
+   "data_type_owner": null,
+   "data_length": 0,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMP_AUDIT_LOG",
+   "name": "SOURCE_ROWID",
+   "data_type": "ROWID",
+   "data_type_owner": null,
+   "data_length": 10,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "CUSTOMERS",
+   "name": "CUSTOMER_ID",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 12,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "N",
+   "data_default": "\"SALES\".\"ISEQ$$_74512\".nextval",
+   "virtual": "NO",
+   "identity": "YES"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "CUSTOMERS",
+   "name": "CUST_FIRST_NAME",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 50,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 50,
+   "char_used": "B",
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "CUSTOMERS",
+   "name": "CUST_LAST_NAME",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 50,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 50,
+   "char_used": "B",
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "CUSTOMERS",
+   "name": "EMAIL",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 100,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 100,
+   "char_used": "B",
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "CUSTOMERS",
+   "name": "ADDRESS",
+   "data_type": "ADDRESS_T",
+   "data_type_owner": "SALES",
+   "data_length": 1,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "CUSTOMERS",
+   "name": "PHONES",
+   "data_type": "PHONE_LIST_T",
+   "data_type_owner": "SALES",
+   "data_length": 1,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "CUSTOMERS",
+   "name": "LIMIT",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 9,
+   "data_scale": 2,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "CUSTOMERS",
+   "name": "CREDIT_CARD_NO",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 19,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 19,
+   "char_used": "B",
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "CUSTOMERS",
+   "name": "CREATED_AT",
+   "data_type": "DATE",
+   "data_type_owner": null,
+   "data_length": 7,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": "SYSDATE",
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "CUSTOMERS",
+   "name": "STATUS",
+   "data_type": "CHAR",
+   "data_type_owner": null,
+   "data_length": 10,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 10,
+   "char_used": "B",
+   "nullable": "Y",
+   "data_default": "'ACTIVE'",
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "CUSTOMERS",
+   "name": "Notes",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 4000,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 4000,
+   "char_used": "B",
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "name": "ORDER_ID",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 12,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "name": "ORDER_DATE",
+   "data_type": "DATE",
+   "data_type_owner": null,
+   "data_length": 7,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "name": "ORDER_MODE",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 8,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 8,
+   "char_used": "B",
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "name": "CUSTOMER_ID",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 12,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "name": "ORDER_STATUS",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 2,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "name": "ORDER_TOTAL",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 10,
+   "data_scale": 2,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "name": "SALES_REP_ID",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 6,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "name": "PROMOTION_ID",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 6,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "name": "ORDER_TZ_TS",
+   "data_type": "TIMESTAMP(6) WITH TIME ZONE",
+   "data_type_owner": null,
+   "data_length": 13,
+   "data_precision": null,
+   "data_scale": 6,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "name": "ORDER_ID",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 12,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "name": "LINE_ITEM_ID",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 3,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "name": "PRODUCT_ID",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 6,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "name": "UNIT_PRICE",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 8,
+   "data_scale": 2,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "name": "QUANTITY",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 8,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "name": "DISCOUNT",
+   "data_type": "BINARY_DOUBLE",
+   "data_type_owner": null,
+   "data_length": 8,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "PRODUCTS",
+   "name": "PRODUCT_ID",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 6,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "PRODUCTS",
+   "name": "PRODUCT_NAME",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 50,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 50,
+   "char_used": "C",
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "PRODUCTS",
+   "name": "DESCRIPTION",
+   "data_type": "CLOB",
+   "data_type_owner": null,
+   "data_length": 4000,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "PRODUCTS",
+   "name": "SPECS",
+   "data_type": "XMLTYPE",
+   "data_type_owner": "SYS",
+   "data_length": 2000,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "PRODUCTS",
+   "name": "LIST_PRICE",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 8,
+   "data_scale": 2,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "PRODUCTS",
+   "name": "IMAGE",
+   "data_type": "BLOB",
+   "data_type_owner": null,
+   "data_length": 4000,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "PRODUCTS",
+   "name": "WARRANTY_PERIOD",
+   "data_type": "INTERVAL YEAR(2) TO MONTH",
+   "data_type_owner": null,
+   "data_length": 5,
+   "data_precision": 2,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "PRODUCT_DOCS",
+   "name": "DOC_ID",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 10,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "PRODUCT_DOCS",
+   "name": "PRODUCT_ID",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 6,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "PRODUCT_DOCS",
+   "name": "DOC_FILE",
+   "data_type": "BFILE",
+   "data_type_owner": null,
+   "data_length": 530,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_STAGE",
+   "name": "ORDER_ID",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 12,
+   "data_scale": 0,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_STAGE",
+   "name": "PAYLOAD",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 4000,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 4000,
+   "char_used": "B",
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "name": "SALE_ID",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "name": "SALE_DATE",
+   "data_type": "DATE",
+   "data_type_owner": null,
+   "data_length": 7,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "name": "REGION_CODE",
+   "data_type": "VARCHAR2",
+   "data_type_owner": null,
+   "data_length": 10,
+   "data_precision": null,
+   "data_scale": null,
+   "char_length": 10,
+   "char_used": "B",
+   "nullable": "N",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "name": "AMOUNT",
+   "data_type": "NUMBER",
+   "data_type_owner": null,
+   "data_length": 22,
+   "data_precision": 12,
+   "data_scale": 2,
+   "char_length": 0,
+   "char_used": null,
+   "nullable": "Y",
+   "data_default": null,
+   "virtual": "NO",
+   "identity": "NO"
+  }
+ ],
+ "constraints": [
+  {
+   "owner": "HR",
+   "table_name": "DEPARTMENTS",
+   "name": "DEPT_ID_PK",
+   "type": "P",
+   "columns": "DEPARTMENT_ID",
+   "search_condition": null,
+   "r_owner": null,
+   "r_constraint_name": null,
+   "delete_rule": null,
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "HR",
+   "table_name": "DEPARTMENTS",
+   "name": "DEPT_LOC_FK",
+   "type": "R",
+   "columns": "LOCATION_ID",
+   "search_condition": null,
+   "r_owner": "HR",
+   "r_constraint_name": "LOC_ID_PK",
+   "delete_rule": "NO ACTION",
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMPLOYEES",
+   "name": "EMP_EMP_ID_PK",
+   "type": "P",
+   "columns": "EMPLOYEE_ID",
+   "search_condition": null,
+   "r_owner": null,
+   "r_constraint_name": null,
+   "delete_rule": null,
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMPLOYEES",
+   "name": "EMP_EMAIL_UK",
+   "type": "U",
+   "columns": "EMAIL",
+   "search_condition": null,
+   "r_owner": null,
+   "r_constraint_name": null,
+   "delete_rule": null,
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMPLOYEES",
+   "name": "SYS_C0012345",
+   "type": "C",
+   "columns": "LAST_NAME",
+   "search_condition": "\"LAST_NAME\" IS NOT NULL",
+   "r_owner": null,
+   "r_constraint_name": null,
+   "delete_rule": null,
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMPLOYEES",
+   "name": "EMP_SALARY_MIN",
+   "type": "C",
+   "columns": "SALARY",
+   "search_condition": "salary > 0",
+   "r_owner": null,
+   "r_constraint_name": null,
+   "delete_rule": null,
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMPLOYEES",
+   "name": "EMP_DEPT_FK",
+   "type": "R",
+   "columns": "DEPARTMENT_ID",
+   "search_condition": null,
+   "r_owner": "HR",
+   "r_constraint_name": "DEPT_ID_PK",
+   "delete_rule": "NO ACTION",
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMPLOYEES",
+   "name": "EMP_JOB_FK",
+   "type": "R",
+   "columns": "JOB_ID",
+   "search_condition": null,
+   "r_owner": "HR",
+   "r_constraint_name": "JOB_ID_PK",
+   "delete_rule": "NO ACTION",
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "HR",
+   "table_name": "EMPLOYEES",
+   "name": "EMP_MANAGER_FK",
+   "type": "R",
+   "columns": "MANAGER_ID",
+   "search_condition": null,
+   "r_owner": "HR",
+   "r_constraint_name": "EMP_EMP_ID_PK",
+   "delete_rule": "NO ACTION",
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "HR",
+   "table_name": "JOBS",
+   "name": "JOB_ID_PK",
+   "type": "P",
+   "columns": "JOB_ID",
+   "search_condition": null,
+   "r_owner": null,
+   "r_constraint_name": null,
+   "delete_rule": null,
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "HR",
+   "table_name": "JOB_HISTORY",
+   "name": "JHIST_EMP_ID_ST_DATE_PK",
+   "type": "P",
+   "columns": "EMPLOYEE_ID,START_DATE",
+   "search_condition": null,
+   "r_owner": null,
+   "r_constraint_name": null,
+   "delete_rule": null,
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "HR",
+   "table_name": "JOB_HISTORY",
+   "name": "JHIST_EMP_FK",
+   "type": "R",
+   "columns": "EMPLOYEE_ID",
+   "search_condition": null,
+   "r_owner": "HR",
+   "r_constraint_name": "EMP_EMP_ID_PK",
+   "delete_rule": "NO ACTION",
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "HR",
+   "table_name": "JOB_HISTORY",
+   "name": "JHIST_JOB_FK",
+   "type": "R",
+   "columns": "JOB_ID",
+   "search_condition": null,
+   "r_owner": "HR",
+   "r_constraint_name": "JOB_ID_PK",
+   "delete_rule": "NO ACTION",
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "HR",
+   "table_name": "JOB_HISTORY",
+   "name": "JHIST_DATE_INTERVAL",
+   "type": "C",
+   "columns": "START_DATE,END_DATE",
+   "search_condition": "end_date > start_date",
+   "r_owner": null,
+   "r_constraint_name": null,
+   "delete_rule": null,
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "HR",
+   "table_name": "LOCATIONS",
+   "name": "LOC_ID_PK",
+   "type": "P",
+   "columns": "LOCATION_ID",
+   "search_condition": null,
+   "r_owner": null,
+   "r_constraint_name": null,
+   "delete_rule": null,
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "HR",
+   "table_name": "COUNTRY_CODES",
+   "name": "COUNTRY_C_ID_PK",
+   "type": "P",
+   "columns": "COUNTRY_ID",
+   "search_condition": null,
+   "r_owner": null,
+   "r_constraint_name": null,
+   "delete_rule": null,
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "CUSTOMERS",
+   "name": "CUSTOMERS_PK",
+   "type": "P",
+   "columns": "CUSTOMER_ID",
+   "search_condition": null,
+   "r_owner": null,
+   "r_constraint_name": null,
+   "delete_rule": null,
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "CUSTOMERS",
+   "name": "CUST_STATUS_CHK",
+   "type": "C",
+   "columns": "STATUS",
+   "search_condition": "status IN ('ACTIVE', 'CLOSED', 'BLOCKED')",
+   "r_owner": null,
+   "r_constraint_name": null,
+   "delete_rule": null,
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "name": "ORDERS_PK",
+   "type": "P",
+   "columns": "ORDER_ID",
+   "search_condition": null,
+   "r_owner": null,
+   "r_constraint_name": null,
+   "delete_rule": null,
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "name": "ORDERS_CUSTOMER_FK",
+   "type": "R",
+   "columns": "CUSTOMER_ID",
+   "search_condition": null,
+   "r_owner": "SALES",
+   "r_constraint_name": "CUSTOMERS_PK",
+   "delete_rule": "NO ACTION",
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "name": "ORDER_ITEMS_PK",
+   "type": "P",
+   "columns": "ORDER_ID,LINE_ITEM_ID",
+   "search_condition": null,
+   "r_owner": null,
+   "r_constraint_name": null,
+   "delete_rule": null,
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "name": "ORDER_ITEMS_ORDER_FK",
+   "type": "R",
+   "columns": "ORDER_ID",
+   "search_condition": null,
+   "r_owner": "SALES",
+   "r_constraint_name": "ORDERS_PK",
+   "delete_rule": "CASCADE",
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "name": "ORDER_ITEMS_PRODUCT_FK",
+   "type": "R",
+   "columns": "PRODUCT_ID",
+   "search_condition": null,
+   "r_owner": "SALES",
+   "r_constraint_name": "PRODUCTS_PK",
+   "delete_rule": "NO ACTION",
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "PRODUCTS",
+   "name": "PRODUCTS_PK",
+   "type": "P",
+   "columns": "PRODUCT_ID",
+   "search_condition": null,
+   "r_owner": null,
+   "r_constraint_name": null,
+   "delete_rule": null,
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "PRODUCT_DOCS",
+   "name": "PRODUCT_DOCS_PK",
+   "type": "P",
+   "columns": "DOC_ID",
+   "search_condition": null,
+   "r_owner": null,
+   "r_constraint_name": null,
+   "delete_rule": null,
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "name": "SALES_HISTORY_PK",
+   "type": "P",
+   "columns": "SALE_ID,SALE_DATE",
+   "search_condition": null,
+   "r_owner": null,
+   "r_constraint_name": null,
+   "delete_rule": null,
+   "status": "ENABLED",
+   "validated": "VALIDATED",
+   "deferrable": "NOT DEFERRABLE"
+  }
+ ],
+ "indexes": [
+  {
+   "owner": "HR",
+   "name": "DEPT_ID_PK",
+   "table_owner": "HR",
+   "table_name": "DEPARTMENTS",
+   "index_type": "NORMAL",
+   "uniqueness": "UNIQUE",
+   "columns": "DEPARTMENT_ID",
+   "partitioned": "NO",
+   "ityp_name": null
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_EMP_ID_PK",
+   "table_owner": "HR",
+   "table_name": "EMPLOYEES",
+   "index_type": "NORMAL",
+   "uniqueness": "UNIQUE",
+   "columns": "EMPLOYEE_ID",
+   "partitioned": "NO",
+   "ityp_name": null
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_EMAIL_UK",
+   "table_owner": "HR",
+   "table_name": "EMPLOYEES",
+   "index_type": "NORMAL",
+   "uniqueness": "UNIQUE",
+   "columns": "EMAIL",
+   "partitioned": "NO",
+   "ityp_name": null
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_DEPARTMENT_IX",
+   "table_owner": "HR",
+   "table_name": "EMPLOYEES",
+   "index_type": "NORMAL",
+   "uniqueness": "NONUNIQUE",
+   "columns": "DEPARTMENT_ID",
+   "partitioned": "NO",
+   "ityp_name": null
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_JOB_IX",
+   "table_owner": "HR",
+   "table_name": "EMPLOYEES",
+   "index_type": "NORMAL",
+   "uniqueness": "NONUNIQUE",
+   "columns": "JOB_ID",
+   "partitioned": "NO",
+   "ityp_name": null
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_UPPER_LNAME_IX",
+   "table_owner": "HR",
+   "table_name": "EMPLOYEES",
+   "index_type": "FUNCTION-BASED NORMAL",
+   "uniqueness": "NONUNIQUE",
+   "columns": "SYS_NC00020$",
+   "partitioned": "NO",
+   "ityp_name": null
+  },
+  {
+   "owner": "HR",
+   "name": "JOB_ID_PK",
+   "table_owner": "HR",
+   "table_name": "JOBS",
+   "index_type": "NORMAL",
+   "uniqueness": "UNIQUE",
+   "columns": "JOB_ID",
+   "partitioned": "NO",
+   "ityp_name": null
+  },
+  {
+   "owner": "HR",
+   "name": "JHIST_EMP_ID_ST_DATE_PK",
+   "table_owner": "HR",
+   "table_name": "JOB_HISTORY",
+   "index_type": "NORMAL",
+   "uniqueness": "UNIQUE",
+   "columns": "EMPLOYEE_ID,START_DATE",
+   "partitioned": "NO",
+   "ityp_name": null
+  },
+  {
+   "owner": "HR",
+   "name": "LOC_ID_PK",
+   "table_owner": "HR",
+   "table_name": "LOCATIONS",
+   "index_type": "NORMAL",
+   "uniqueness": "UNIQUE",
+   "columns": "LOCATION_ID",
+   "partitioned": "NO",
+   "ityp_name": null
+  },
+  {
+   "owner": "HR",
+   "name": "COUNTRY_C_ID_PK",
+   "table_owner": "HR",
+   "table_name": "COUNTRY_CODES",
+   "index_type": "IOT - TOP",
+   "uniqueness": "UNIQUE",
+   "columns": "COUNTRY_ID",
+   "partitioned": "NO",
+   "ityp_name": null
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_AUDIT_EMP_IX",
+   "table_owner": "HR",
+   "table_name": "EMP_AUDIT_LOG",
+   "index_type": "NORMAL/REV",
+   "uniqueness": "NONUNIQUE",
+   "columns": "EMPLOYEE_ID",
+   "partitioned": "NO",
+   "ityp_name": null
+  },
+  {
+   "owner": "SALES",
+   "name": "CUSTOMERS_PK",
+   "table_owner": "SALES",
+   "table_name": "CUSTOMERS",
+   "index_type": "NORMAL",
+   "uniqueness": "UNIQUE",
+   "columns": "CUSTOMER_ID",
+   "partitioned": "NO",
+   "ityp_name": null
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_PK",
+   "table_owner": "SALES",
+   "table_name": "ORDERS",
+   "index_type": "NORMAL",
+   "uniqueness": "UNIQUE",
+   "columns": "ORDER_ID",
+   "partitioned": "NO",
+   "ityp_name": null
+  },
+  {
+   "owner": "SALES",
+   "name": "ORD_CUSTOMER_IX",
+   "table_owner": "SALES",
+   "table_name": "ORDERS",
+   "index_type": "NORMAL",
+   "uniqueness": "NONUNIQUE",
+   "columns": "CUSTOMER_ID",
+   "partitioned": "YES",
+   "ityp_name": null
+  },
+  {
+   "owner": "SALES",
+   "name": "ORD_STATUS_BIX",
+   "table_owner": "SALES",
+   "table_name": "ORDERS",
+   "index_type": "BITMAP",
+   "uniqueness": "NONUNIQUE",
+   "columns": "ORDER_STATUS",
+   "partitioned": "YES",
+   "ityp_name": null
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_ITEMS_PK",
+   "table_owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "index_type": "NORMAL",
+   "uniqueness": "UNIQUE",
+   "columns": "ORDER_ID,LINE_ITEM_ID",
+   "partitioned": "YES",
+   "ityp_name": null
+  },
+  {
+   "owner": "SALES",
+   "name": "IX_ORDER_ITEMS_PRODUCT_ID_UNIT_PRICE_QUANTITY_DISCOUNT_FOR_MONTHLY_REPORTING",
+   "table_owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "index_type": "NORMAL",
+   "uniqueness": "NONUNIQUE",
+   "columns": "PRODUCT_ID,UNIT_PRICE,QUANTITY,DISCOUNT",
+   "partitioned": "NO",
+   "ityp_name": null
+  },
+  {
+   "owner": "SALES",
+   "name": "PRODUCTS_PK",
+   "table_owner": "SALES",
+   "table_name": "PRODUCTS",
+   "index_type": "NORMAL",
+   "uniqueness": "UNIQUE",
+   "columns": "PRODUCT_ID",
+   "partitioned": "NO",
+   "ityp_name": null
+  },
+  {
+   "owner": "SALES",
+   "name": "PROD_DESC_CTX",
+   "table_owner": "SALES",
+   "table_name": "PRODUCTS",
+   "index_type": "DOMAIN",
+   "uniqueness": "NONUNIQUE",
+   "columns": "DESCRIPTION",
+   "partitioned": "NO",
+   "ityp_name": "CONTEXT"
+  },
+  {
+   "owner": "SALES",
+   "name": "PRODUCT_DOCS_PK",
+   "table_owner": "SALES",
+   "table_name": "PRODUCT_DOCS",
+   "index_type": "NORMAL",
+   "uniqueness": "UNIQUE",
+   "columns": "DOC_ID",
+   "partitioned": "NO",
+   "ityp_name": null
+  },
+  {
+   "owner": "SALES",
+   "name": "SALES_HISTORY_PK",
+   "table_owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "index_type": "NORMAL",
+   "uniqueness": "UNIQUE",
+   "columns": "SALE_ID,SALE_DATE",
+   "partitioned": "YES",
+   "ityp_name": null
+  }
+ ],
+ "sequences": [
+  {
+   "owner": "HR",
+   "name": "EMPLOYEES_SEQ",
+   "min_value": 1,
+   "max_value": 9999999999999999999999999999,
+   "increment_by": 1,
+   "cycle": "N",
+   "order": "N",
+   "cache_size": 20,
+   "last_number": 48301
+  },
+  {
+   "owner": "HR",
+   "name": "DEPARTMENTS_SEQ",
+   "min_value": 1,
+   "max_value": 9990,
+   "increment_by": 10,
+   "cycle": "N",
+   "order": "N",
+   "cache_size": 0,
+   "last_number": 280
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_SEQ",
+   "min_value": 1,
+   "max_value": 9999999999999999999999999999,
+   "increment_by": 1,
+   "cycle": "N",
+   "order": "N",
+   "cache_size": 1000,
+   "last_number": 182401001
+  }
+ ],
+ "views": [
+  {
+   "owner": "HR",
+   "name": "EMP_DETAILS_VIEW",
+   "text": "SELECT e.employee_id, e.job_id, e.manager_id, e.department_id, d.location_id, l.country_id,\n       e.first_name, e.last_name, e.salary, e.commission_pct, d.department_name,\n       j.job_title, l.city, l.state_province, c.country_name\n  FROM employees e, departments d, jobs j, locations l, country_codes c\n WHERE e.department_id = d.department_id (+)\n   AND d.location_id = l.location_id (+)\n   AND l.country_id = c.country_id (+)\n   AND j.job_id = e.job_id\n  WITH READ ONLY",
+   "text_length": 474
+  },
+  {
+   "owner": "HR",
+   "name": "ORG_CHART",
+   "text": "SELECT LEVEL AS depth, employee_id, manager_id,\n       LPAD(' ', 2 * (LEVEL - 1)) || last_name AS org_name,\n       SYS_CONNECT_BY_PATH(last_name, '/') AS reporting_path\n  FROM employees\n START WITH manager_id IS NULL\nCONNECT BY PRIOR employee_id = manager_id\n ORDER SIBLINGS BY last_name",
+   "text_length": 287
+  },
+  {
+   "owner": "SALES",
+   "name": "TOP_CUSTOMERS",
+   "text": "SELECT customer_id, cust_last_name, NVL(email, 'n/a') AS email, total_spend\n  FROM (SELECT c.customer_id, c.cust_last_name, c.email, SUM(o.order_total) total_spend\n          FROM customers c JOIN orders o ON o.customer_id = c.customer_id\n         WHERE o.order_date >= ADD_MONTHS(TRUNC(SYSDATE), -12)\n         GROUP BY c.customer_id, c.cust_last_name, c.email)\n WHERE ROWNUM <= 100\n ORDER BY total_spend DESC",
+   "text_length": 408
+  },
+  {
+   "owner": "SALES",
+   "name": "OPEN_ORDERS_V",
+   "text": "SELECT o.order_id, o.order_date,\n       DECODE(o.order_status, 0, 'NEW', 1, 'PICKING', 2, 'SHIPPED', 'OTHER') AS status_text\n  FROM orders o\n WHERE o.order_date > SYSDATE - 30\nMINUS\nSELECT o.order_id, o.order_date, 'SHIPPED'\n  FROM orders o\n WHERE o.order_status = 2",
+   "text_length": 266
+  }
+ ],
+ "synonyms": [
+  {
+   "owner": "PUBLIC",
+   "name": "EMPLOYEES",
+   "table_owner": "HR",
+   "table_name": "EMPLOYEES",
+   "db_link": null
+  },
+  {
+   "owner": "PUBLIC",
+   "name": "EMP_DETAILS",
+   "table_owner": "HR",
+   "table_name": "EMP_DETAILS_VIEW",
+   "db_link": null
+  },
+  {
+   "owner": "SALES",
+   "name": "EMP",
+   "table_owner": "HR",
+   "table_name": "EMPLOYEES",
+   "db_link": null
+  },
+  {
+   "owner": "SALES",
+   "name": "LEGACY_INVOICES",
+   "table_owner": "BILLING",
+   "table_name": "INVOICES",
+   "db_link": "LEGACY_BILLING"
+  }
+ ],
+ "triggers": [
+  {
+   "owner": "HR",
+   "name": "EMPLOYEES_BIU",
+   "table_owner": "HR",
+   "table_name": "EMPLOYEES",
+   "trigger_type": "BEFORE EACH ROW",
+   "triggering_event": "INSERT OR UPDATE",
+   "base_object_type": "TABLE",
+   "status": "ENABLED"
+  },
+  {
+   "owner": "HR",
+   "name": "UPDATE_JOB_HISTORY",
+   "table_owner": "HR",
+   "table_name": "EMPLOYEES",
+   "trigger_type": "AFTER EACH ROW",
+   "triggering_event": "UPDATE",
+   "base_object_type": "TABLE",
+   "status": "ENABLED"
+  },
+  {
+   "owner": "HR",
+   "name": "HR_DDL_AUDIT",
+   "table_owner": null,
+   "table_name": null,
+   "trigger_type": "AFTER EVENT",
+   "triggering_event": "CREATE OR ALTER OR DROP",
+   "base_object_type": "SCHEMA",
+   "status": "ENABLED"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_BI",
+   "table_owner": "SALES",
+   "table_name": "ORDERS",
+   "trigger_type": "BEFORE EACH ROW",
+   "triggering_event": "INSERT",
+   "base_object_type": "TABLE",
+   "status": "ENABLED"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_AUDIT_CT",
+   "table_owner": "SALES",
+   "table_name": "ORDERS",
+   "trigger_type": "COMPOUND",
+   "triggering_event": "INSERT OR UPDATE OR DELETE",
+   "base_object_type": "TABLE",
+   "status": "ENABLED"
+  }
+ ],
+ "source": [
+  {
+   "owner": "HR",
+   "name": "EMPLOYEES_BIU",
+   "type": "TRIGGER",
+   "line": 1,
+   "text": "TRIGGER employees_biu\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMPLOYEES_BIU",
+   "type": "TRIGGER",
+   "line": 2,
+   "text": "BEFORE INSERT OR UPDATE ON employees\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMPLOYEES_BIU",
+   "type": "TRIGGER",
+   "line": 3,
+   "text": "FOR EACH ROW\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMPLOYEES_BIU",
+   "type": "TRIGGER",
+   "line": 4,
+   "text": "BEGIN\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMPLOYEES_BIU",
+   "type": "TRIGGER",
+   "line": 5,
+   "text": "  IF INSERTING THEN\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMPLOYEES_BIU",
+   "type": "TRIGGER",
+   "line": 6,
+   "text": "    :NEW.hire_date := NVL(:NEW.hire_date, SYSDATE);\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMPLOYEES_BIU",
+   "type": "TRIGGER",
+   "line": 7,
+   "text": "  END IF;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMPLOYEES_BIU",
+   "type": "TRIGGER",
+   "line": 8,
+   "text": "  -- normalise blanks: Oracle treats '' as NULL, so this also clears empty strings\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMPLOYEES_BIU",
+   "type": "TRIGGER",
+   "line": 9,
+   "text": "  IF :NEW.phone_number = '' THEN\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMPLOYEES_BIU",
+   "type": "TRIGGER",
+   "line": 10,
+   "text": "    :NEW.phone_number := NULL;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMPLOYEES_BIU",
+   "type": "TRIGGER",
+   "line": 11,
+   "text": "  END IF;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMPLOYEES_BIU",
+   "type": "TRIGGER",
+   "line": 12,
+   "text": "  :NEW.email := UPPER(:NEW.email);\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMPLOYEES_BIU",
+   "type": "TRIGGER",
+   "line": 13,
+   "text": "  :NEW.last_updated := SYSTIMESTAMP;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMPLOYEES_BIU",
+   "type": "TRIGGER",
+   "line": 14,
+   "text": "  emp_mgmt.g_last_change := SYSDATE;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMPLOYEES_BIU",
+   "type": "TRIGGER",
+   "line": 15,
+   "text": "END;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "UPDATE_JOB_HISTORY",
+   "type": "TRIGGER",
+   "line": 1,
+   "text": "TRIGGER update_job_history\n"
+  },
+  {
+   "owner": "HR",
+   "name": "UPDATE_JOB_HISTORY",
+   "type": "TRIGGER",
+   "line": 2,
+   "text": "AFTER UPDATE OF job_id, department_id ON employees\n"
+  },
+  {
+   "owner": "HR",
+   "name": "UPDATE_JOB_HISTORY",
+   "type": "TRIGGER",
+   "line": 3,
+   "text": "FOR EACH ROW\n"
+  },
+  {
+   "owner": "HR",
+   "name": "UPDATE_JOB_HISTORY",
+   "type": "TRIGGER",
+   "line": 4,
+   "text": "BEGIN\n"
+  },
+  {
+   "owner": "HR",
+   "name": "UPDATE_JOB_HISTORY",
+   "type": "TRIGGER",
+   "line": 5,
+   "text": "  add_job_history(:OLD.employee_id, :OLD.hire_date, SYSDATE,\n"
+  },
+  {
+   "owner": "HR",
+   "name": "UPDATE_JOB_HISTORY",
+   "type": "TRIGGER",
+   "line": 6,
+   "text": "                  :OLD.job_id, :OLD.department_id);\n"
+  },
+  {
+   "owner": "HR",
+   "name": "UPDATE_JOB_HISTORY",
+   "type": "TRIGGER",
+   "line": 7,
+   "text": "END;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "HR_DDL_AUDIT",
+   "type": "TRIGGER",
+   "line": 1,
+   "text": "TRIGGER hr_ddl_audit\n"
+  },
+  {
+   "owner": "HR",
+   "name": "HR_DDL_AUDIT",
+   "type": "TRIGGER",
+   "line": 2,
+   "text": "AFTER CREATE OR ALTER OR DROP ON SCHEMA\n"
+  },
+  {
+   "owner": "HR",
+   "name": "HR_DDL_AUDIT",
+   "type": "TRIGGER",
+   "line": 3,
+   "text": "BEGIN\n"
+  },
+  {
+   "owner": "HR",
+   "name": "HR_DDL_AUDIT",
+   "type": "TRIGGER",
+   "line": 4,
+   "text": "  INSERT INTO emp_audit_log (audit_ts, action, changed_by, old_values)\n"
+  },
+  {
+   "owner": "HR",
+   "name": "HR_DDL_AUDIT",
+   "type": "TRIGGER",
+   "line": 5,
+   "text": "  VALUES (SYSTIMESTAMP, ora_sysevent, USER, ora_dict_obj_type || ' ' || ora_dict_obj_name);\n"
+  },
+  {
+   "owner": "HR",
+   "name": "HR_DDL_AUDIT",
+   "type": "TRIGGER",
+   "line": 6,
+   "text": "END;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "ADD_JOB_HISTORY",
+   "type": "PROCEDURE",
+   "line": 1,
+   "text": "PROCEDURE add_job_history\n"
+  },
+  {
+   "owner": "HR",
+   "name": "ADD_JOB_HISTORY",
+   "type": "PROCEDURE",
+   "line": 2,
+   "text": "  ( p_emp_id          job_history.employee_id%TYPE\n"
+  },
+  {
+   "owner": "HR",
+   "name": "ADD_JOB_HISTORY",
+   "type": "PROCEDURE",
+   "line": 3,
+   "text": "  , p_start_date      job_history.start_date%TYPE\n"
+  },
+  {
+   "owner": "HR",
+   "name": "ADD_JOB_HISTORY",
+   "type": "PROCEDURE",
+   "line": 4,
+   "text": "  , p_end_date        job_history.end_date%TYPE\n"
+  },
+  {
+   "owner": "HR",
+   "name": "ADD_JOB_HISTORY",
+   "type": "PROCEDURE",
+   "line": 5,
+   "text": "  , p_job_id          job_history.job_id%TYPE\n"
+  },
+  {
+   "owner": "HR",
+   "name": "ADD_JOB_HISTORY",
+   "type": "PROCEDURE",
+   "line": 6,
+   "text": "  , p_department_id   job_history.department_id%TYPE\n"
+  },
+  {
+   "owner": "HR",
+   "name": "ADD_JOB_HISTORY",
+   "type": "PROCEDURE",
+   "line": 7,
+   "text": "  )\n"
+  },
+  {
+   "owner": "HR",
+   "name": "ADD_JOB_HISTORY",
+   "type": "PROCEDURE",
+   "line": 8,
+   "text": "IS\n"
+  },
+  {
+   "owner": "HR",
+   "name": "ADD_JOB_HISTORY",
+   "type": "PROCEDURE",
+   "line": 9,
+   "text": "BEGIN\n"
+  },
+  {
+   "owner": "HR",
+   "name": "ADD_JOB_HISTORY",
+   "type": "PROCEDURE",
+   "line": 10,
+   "text": "  INSERT INTO job_history (employee_id, start_date, end_date, job_id, department_id)\n"
+  },
+  {
+   "owner": "HR",
+   "name": "ADD_JOB_HISTORY",
+   "type": "PROCEDURE",
+   "line": 11,
+   "text": "  VALUES (p_emp_id, p_start_date, p_end_date, p_job_id, p_department_id);\n"
+  },
+  {
+   "owner": "HR",
+   "name": "ADD_JOB_HISTORY",
+   "type": "PROCEDURE",
+   "line": 12,
+   "text": "END add_job_history;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE",
+   "line": 1,
+   "text": "PACKAGE emp_mgmt AS\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE",
+   "line": 2,
+   "text": "  -- session-level state used by triggers and reports\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE",
+   "line": 3,
+   "text": "  g_last_change         DATE;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE",
+   "line": 4,
+   "text": "  g_hires_this_session  PLS_INTEGER := 0;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE",
+   "line": 5,
+   "text": "  c_max_salary          CONSTANT NUMBER := 250000;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE",
+   "line": 6,
+   "text": "  TYPE emp_cur_t IS REF CURSOR RETURN employees%ROWTYPE;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE",
+   "line": 7,
+   "text": "  e_bad_salary          EXCEPTION;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE",
+   "line": 8,
+   "text": "\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE",
+   "line": 9,
+   "text": "  FUNCTION hire (p_last_name VARCHAR2, p_email VARCHAR2, p_job_id VARCHAR2,\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE",
+   "line": 10,
+   "text": "                 p_salary NUMBER, p_department_id NUMBER) RETURN NUMBER;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE",
+   "line": 11,
+   "text": "  PROCEDURE raise_salary (p_department_id NUMBER, p_pct NUMBER);\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE",
+   "line": 12,
+   "text": "  FUNCTION employees_in (p_department_id NUMBER) RETURN emp_cur_t;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE",
+   "line": 13,
+   "text": "  PROCEDURE log_error (p_msg VARCHAR2);\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE",
+   "line": 14,
+   "text": "END emp_mgmt;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 1,
+   "text": "PACKAGE BODY emp_mgmt AS\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 2,
+   "text": "  g_cache_loaded  BOOLEAN := FALSE;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 3,
+   "text": "  TYPE salary_tab_t IS TABLE OF NUMBER INDEX BY PLS_INTEGER;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 4,
+   "text": "\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 5,
+   "text": "  PROCEDURE log_error (p_msg VARCHAR2) IS\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 6,
+   "text": "    PRAGMA AUTONOMOUS_TRANSACTION;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 7,
+   "text": "  BEGIN\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 8,
+   "text": "    INSERT INTO emp_audit_log (audit_ts, action, changed_by, old_values)\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 9,
+   "text": "    VALUES (SYSTIMESTAMP, 'ERROR', USER, SUBSTR(p_msg, 1, 4000));\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 10,
+   "text": "    COMMIT;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 11,
+   "text": "  END log_error;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 12,
+   "text": "\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 13,
+   "text": "  FUNCTION hire (p_last_name VARCHAR2, p_email VARCHAR2, p_job_id VARCHAR2,\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 14,
+   "text": "                 p_salary NUMBER, p_department_id NUMBER) RETURN NUMBER IS\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 15,
+   "text": "    l_id employees.employee_id%TYPE;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 16,
+   "text": "  BEGIN\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 17,
+   "text": "    IF p_salary > c_max_salary THEN\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 18,
+   "text": "      RAISE_APPLICATION_ERROR(-20001, 'Salary above band: ' || p_salary);\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 19,
+   "text": "    END IF;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 20,
+   "text": "    INSERT INTO employees (employee_id, last_name, email, job_id, salary, department_id, hire_date)\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 21,
+   "text": "    VALUES (employees_seq.NEXTVAL, p_last_name, p_email, p_job_id, p_salary,\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 22,
+   "text": "            p_department_id, TRUNC(SYSDATE))\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 23,
+   "text": "    RETURNING employee_id INTO l_id;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 24,
+   "text": "    g_hires_this_session := g_hires_this_session + 1;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 25,
+   "text": "    g_last_change := SYSDATE;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 26,
+   "text": "    DBMS_OUTPUT.PUT_LINE('Hired ' || p_last_name || ' as ' || l_id);\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 27,
+   "text": "    RETURN l_id;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 28,
+   "text": "  EXCEPTION\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 29,
+   "text": "    WHEN DUP_VAL_ON_INDEX THEN\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 30,
+   "text": "      log_error('Duplicate email ' || p_email);\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 31,
+   "text": "      RAISE;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 32,
+   "text": "  END hire;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 33,
+   "text": "\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 34,
+   "text": "  PROCEDURE raise_salary (p_department_id NUMBER, p_pct NUMBER) IS\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 35,
+   "text": "    TYPE id_tab_t IS TABLE OF employees.employee_id%TYPE;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 36,
+   "text": "    l_ids   id_tab_t;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 37,
+   "text": "    l_sals  salary_tab_t;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 38,
+   "text": "  BEGIN\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 39,
+   "text": "    SELECT employee_id, salary BULK COLLECT INTO l_ids, l_sals\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 40,
+   "text": "      FROM employees\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 41,
+   "text": "     WHERE department_id = p_department_id\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 42,
+   "text": "       AND NVL(commission_pct, 0) = 0;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 43,
+   "text": "    FORALL i IN 1 .. l_ids.COUNT\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 44,
+   "text": "      UPDATE employees\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 45,
+   "text": "         SET salary = LEAST(l_sals(i) * (1 + p_pct / 100), c_max_salary)\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 46,
+   "text": "       WHERE employee_id = l_ids(i);\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 47,
+   "text": "    g_last_change := SYSDATE;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 48,
+   "text": "  END raise_salary;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 49,
+   "text": "\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 50,
+   "text": "  FUNCTION employees_in (p_department_id NUMBER) RETURN emp_cur_t IS\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 51,
+   "text": "    l_cur emp_cur_t;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 52,
+   "text": "  BEGIN\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 53,
+   "text": "    OPEN l_cur FOR\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 54,
+   "text": "      SELECT * FROM employees\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 55,
+   "text": "       WHERE department_id = p_department_id\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 56,
+   "text": "         AND hire_date > ADD_MONTHS(SYSDATE, -24);\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 57,
+   "text": "    RETURN l_cur;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 58,
+   "text": "  END employees_in;\n"
+  },
+  {
+   "owner": "HR",
+   "name": "EMP_MGMT",
+   "type": "PACKAGE BODY",
+   "line": 59,
+   "text": "END emp_mgmt;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE",
+   "line": 1,
+   "text": "PACKAGE order_proc AUTHID CURRENT_USER AS\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE",
+   "line": 2,
+   "text": "  TYPE order_line_t IS RECORD (order_id NUMBER, total NUMBER);\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE",
+   "line": 3,
+   "text": "  TYPE order_lines_t IS TABLE OF order_line_t;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE",
+   "line": 4,
+   "text": "\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE",
+   "line": 5,
+   "text": "  PROCEDURE upsert_customer (p_id NUMBER, p_email VARCHAR2, p_name VARCHAR2);\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE",
+   "line": 6,
+   "text": "  PROCEDURE export_daily (p_day DATE);\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE",
+   "line": 7,
+   "text": "  PROCEDURE notify_big_order (p_order_id NUMBER);\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE",
+   "line": 8,
+   "text": "  FUNCTION recent_orders (p_days NUMBER) RETURN order_lines_t PIPELINED;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE",
+   "line": 9,
+   "text": "  PROCEDURE purge_stage;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE",
+   "line": 10,
+   "text": "END order_proc;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 1,
+   "text": "PACKAGE BODY order_proc AS\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 2,
+   "text": "\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 3,
+   "text": "  PROCEDURE upsert_customer (p_id NUMBER, p_email VARCHAR2, p_name VARCHAR2) IS\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 4,
+   "text": "  BEGIN\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 5,
+   "text": "    MERGE INTO customers c\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 6,
+   "text": "    USING (SELECT p_id AS customer_id, p_email AS email, p_name AS last_name FROM dual) s\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 7,
+   "text": "       ON (c.customer_id = s.customer_id)\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 8,
+   "text": "     WHEN MATCHED THEN\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 9,
+   "text": "       UPDATE SET c.email = s.email, c.cust_last_name = s.last_name\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 10,
+   "text": "     WHEN NOT MATCHED THEN\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 11,
+   "text": "       INSERT (customer_id, email, cust_first_name, cust_last_name)\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 12,
+   "text": "       VALUES (s.customer_id, s.email, ' ', s.last_name);\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 13,
+   "text": "  END upsert_customer;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 14,
+   "text": "\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 15,
+   "text": "  PROCEDURE export_daily (p_day DATE) IS\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 16,
+   "text": "    l_file UTL_FILE.FILE_TYPE;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 17,
+   "text": "  BEGIN\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 18,
+   "text": "    l_file := UTL_FILE.FOPEN('EXPORT_DIR', 'orders_' || TO_CHAR(p_day, 'YYYYMMDD') || '.csv', 'w');\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 19,
+   "text": "    FOR r IN (SELECT /*+ INDEX(o ord_customer_ix) */ o.order_id, o.customer_id, o.order_total\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 20,
+   "text": "                FROM orders o\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 21,
+   "text": "               WHERE o.order_date >= TRUNC(p_day) AND o.order_date < TRUNC(p_day) + 1) LOOP\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 22,
+   "text": "      UTL_FILE.PUT_LINE(l_file, r.order_id || ',' || r.customer_id || ',' || r.order_total);\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 23,
+   "text": "    END LOOP;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 24,
+   "text": "    UTL_FILE.FCLOSE(l_file);\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 25,
+   "text": "  END export_daily;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 26,
+   "text": "\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 27,
+   "text": "  PROCEDURE notify_big_order (p_order_id NUMBER) IS\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 28,
+   "text": "    l_total NUMBER;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 29,
+   "text": "  BEGIN\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 30,
+   "text": "    SELECT order_total INTO l_total FROM orders WHERE order_id = p_order_id;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 31,
+   "text": "    IF l_total > 100000 THEN\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 32,
+   "text": "      UTL_MAIL.SEND(sender => 'orders@example.com', recipients => 'sales-leads@example.com',\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 33,
+   "text": "                    subject => 'Big order ' || p_order_id, message => 'Total: ' || l_total);\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 34,
+   "text": "    END IF;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 35,
+   "text": "  END notify_big_order;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 36,
+   "text": "\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 37,
+   "text": "  FUNCTION recent_orders (p_days NUMBER) RETURN order_lines_t PIPELINED IS\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 38,
+   "text": "  BEGIN\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 39,
+   "text": "    FOR r IN (SELECT order_id, order_total FROM orders\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 40,
+   "text": "               WHERE order_date > SYSDATE - p_days AND ROWNUM <= 1000) LOOP\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 41,
+   "text": "      PIPE ROW (order_line_t(r.order_id, r.order_total));\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 42,
+   "text": "    END LOOP;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 43,
+   "text": "    RETURN;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 44,
+   "text": "  END recent_orders;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 45,
+   "text": "\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 46,
+   "text": "  PROCEDURE purge_stage IS\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 47,
+   "text": "  BEGIN\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 48,
+   "text": "    EXECUTE IMMEDIATE 'TRUNCATE TABLE order_stage';\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 49,
+   "text": "  END purge_stage;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_PROC",
+   "type": "PACKAGE BODY",
+   "line": 50,
+   "text": "END order_proc;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PRICING",
+   "type": "PACKAGE",
+   "line": 1,
+   "text": "PACKAGE pricing AS\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PRICING",
+   "type": "PACKAGE",
+   "line": 2,
+   "text": "  FUNCTION list_price (p_product_id NUMBER, p_customer_id NUMBER) RETURN NUMBER;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PRICING",
+   "type": "PACKAGE",
+   "line": 3,
+   "text": "END pricing;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PRICING",
+   "type": "PACKAGE BODY",
+   "line": 1,
+   "text": "PACKAGE BODY pricing wrapped\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PRICING",
+   "type": "PACKAGE BODY",
+   "line": 2,
+   "text": "a000000\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PRICING",
+   "type": "PACKAGE BODY",
+   "line": 3,
+   "text": "1\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PRICING",
+   "type": "PACKAGE BODY",
+   "line": 4,
+   "text": "abcd\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PRICING",
+   "type": "PACKAGE BODY",
+   "line": 5,
+   "text": "abcd\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PRICING",
+   "type": "PACKAGE BODY",
+   "line": 6,
+   "text": "b\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PRICING",
+   "type": "PACKAGE BODY",
+   "line": 7,
+   "text": "2e1 1c4\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PRICING",
+   "type": "PACKAGE BODY",
+   "line": 8,
+   "text": "0Wq7Hk6xkfJ1L3n2aPq8GxQkH6Qwg3n7mL8WeZ2bQ5r9Xc1Vt0Kd4Jf6Hs8Ap3Mz\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_BI",
+   "type": "TRIGGER",
+   "line": 1,
+   "text": "TRIGGER orders_bi\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_BI",
+   "type": "TRIGGER",
+   "line": 2,
+   "text": "BEFORE INSERT ON orders\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_BI",
+   "type": "TRIGGER",
+   "line": 3,
+   "text": "FOR EACH ROW\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_BI",
+   "type": "TRIGGER",
+   "line": 4,
+   "text": "WHEN (NEW.order_id IS NULL)\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_BI",
+   "type": "TRIGGER",
+   "line": 5,
+   "text": "BEGIN\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_BI",
+   "type": "TRIGGER",
+   "line": 6,
+   "text": "  SELECT orders_seq.NEXTVAL INTO :NEW.order_id FROM dual;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_BI",
+   "type": "TRIGGER",
+   "line": 7,
+   "text": "END;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_AUDIT_CT",
+   "type": "TRIGGER",
+   "line": 1,
+   "text": "TRIGGER orders_audit_ct\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_AUDIT_CT",
+   "type": "TRIGGER",
+   "line": 2,
+   "text": "FOR INSERT OR UPDATE OR DELETE ON orders\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_AUDIT_CT",
+   "type": "TRIGGER",
+   "line": 3,
+   "text": "COMPOUND TRIGGER\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_AUDIT_CT",
+   "type": "TRIGGER",
+   "line": 4,
+   "text": "  TYPE id_tab_t IS TABLE OF orders.order_id%TYPE INDEX BY PLS_INTEGER;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_AUDIT_CT",
+   "type": "TRIGGER",
+   "line": 5,
+   "text": "  g_ids id_tab_t;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_AUDIT_CT",
+   "type": "TRIGGER",
+   "line": 6,
+   "text": "\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_AUDIT_CT",
+   "type": "TRIGGER",
+   "line": 7,
+   "text": "  AFTER EACH ROW IS\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_AUDIT_CT",
+   "type": "TRIGGER",
+   "line": 8,
+   "text": "  BEGIN\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_AUDIT_CT",
+   "type": "TRIGGER",
+   "line": 9,
+   "text": "    g_ids(g_ids.COUNT + 1) := NVL(:NEW.order_id, :OLD.order_id);\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_AUDIT_CT",
+   "type": "TRIGGER",
+   "line": 10,
+   "text": "  END AFTER EACH ROW;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_AUDIT_CT",
+   "type": "TRIGGER",
+   "line": 11,
+   "text": "\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_AUDIT_CT",
+   "type": "TRIGGER",
+   "line": 12,
+   "text": "  AFTER STATEMENT IS\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_AUDIT_CT",
+   "type": "TRIGGER",
+   "line": 13,
+   "text": "  BEGIN\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_AUDIT_CT",
+   "type": "TRIGGER",
+   "line": 14,
+   "text": "    FOR i IN 1 .. g_ids.COUNT LOOP\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_AUDIT_CT",
+   "type": "TRIGGER",
+   "line": 15,
+   "text": "      publish_order_event(g_ids(i));\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_AUDIT_CT",
+   "type": "TRIGGER",
+   "line": 16,
+   "text": "    END LOOP;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_AUDIT_CT",
+   "type": "TRIGGER",
+   "line": 17,
+   "text": "  END AFTER STATEMENT;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDERS_AUDIT_CT",
+   "type": "TRIGGER",
+   "line": 18,
+   "text": "END orders_audit_ct;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PUBLISH_ORDER_EVENT",
+   "type": "PROCEDURE",
+   "line": 1,
+   "text": "PROCEDURE publish_order_event (p_order_id NUMBER) IS\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PUBLISH_ORDER_EVENT",
+   "type": "PROCEDURE",
+   "line": 2,
+   "text": "  l_enq_opts   DBMS_AQ.ENQUEUE_OPTIONS_T;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PUBLISH_ORDER_EVENT",
+   "type": "PROCEDURE",
+   "line": 3,
+   "text": "  l_msg_props  DBMS_AQ.MESSAGE_PROPERTIES_T;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PUBLISH_ORDER_EVENT",
+   "type": "PROCEDURE",
+   "line": 4,
+   "text": "  l_msg_id     RAW(16);\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PUBLISH_ORDER_EVENT",
+   "type": "PROCEDURE",
+   "line": 5,
+   "text": "BEGIN\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PUBLISH_ORDER_EVENT",
+   "type": "PROCEDURE",
+   "line": 6,
+   "text": "  DBMS_AQ.ENQUEUE(queue_name         => 'SALES.ORDER_EVENTS_Q',\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PUBLISH_ORDER_EVENT",
+   "type": "PROCEDURE",
+   "line": 7,
+   "text": "                  enqueue_options    => l_enq_opts,\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PUBLISH_ORDER_EVENT",
+   "type": "PROCEDURE",
+   "line": 8,
+   "text": "                  message_properties => l_msg_props,\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PUBLISH_ORDER_EVENT",
+   "type": "PROCEDURE",
+   "line": 9,
+   "text": "                  payload            => order_event_t(p_order_id, SYSTIMESTAMP),\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PUBLISH_ORDER_EVENT",
+   "type": "PROCEDURE",
+   "line": 10,
+   "text": "                  msgid              => l_msg_id);\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PUBLISH_ORDER_EVENT",
+   "type": "PROCEDURE",
+   "line": 11,
+   "text": "END publish_order_event;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "GET_ORDER_TOTAL",
+   "type": "FUNCTION",
+   "line": 1,
+   "text": "FUNCTION get_order_total (p_order_id NUMBER) RETURN NUMBER IS\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "GET_ORDER_TOTAL",
+   "type": "FUNCTION",
+   "line": 2,
+   "text": "  l_total NUMBER;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "GET_ORDER_TOTAL",
+   "type": "FUNCTION",
+   "line": 3,
+   "text": "BEGIN\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "GET_ORDER_TOTAL",
+   "type": "FUNCTION",
+   "line": 4,
+   "text": "  SELECT SUM(unit_price * quantity * (1 - NVL(discount, 0)))\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "GET_ORDER_TOTAL",
+   "type": "FUNCTION",
+   "line": 5,
+   "text": "    INTO l_total\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "GET_ORDER_TOTAL",
+   "type": "FUNCTION",
+   "line": 6,
+   "text": "    FROM order_items\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "GET_ORDER_TOTAL",
+   "type": "FUNCTION",
+   "line": 7,
+   "text": "   WHERE order_id = p_order_id;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "GET_ORDER_TOTAL",
+   "type": "FUNCTION",
+   "line": 8,
+   "text": "  RETURN NVL(l_total, 0);\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "GET_ORDER_TOTAL",
+   "type": "FUNCTION",
+   "line": 9,
+   "text": "EXCEPTION\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "GET_ORDER_TOTAL",
+   "type": "FUNCTION",
+   "line": 10,
+   "text": "  WHEN NO_DATA_FOUND THEN\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "GET_ORDER_TOTAL",
+   "type": "FUNCTION",
+   "line": 11,
+   "text": "    RETURN 0;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "GET_ORDER_TOTAL",
+   "type": "FUNCTION",
+   "line": 12,
+   "text": "END get_order_total;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PRODUCT_SNIPPET",
+   "type": "FUNCTION",
+   "line": 1,
+   "text": "FUNCTION product_snippet (p_product_id NUMBER) RETURN VARCHAR2 IS\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PRODUCT_SNIPPET",
+   "type": "FUNCTION",
+   "line": 2,
+   "text": "  l_desc CLOB;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PRODUCT_SNIPPET",
+   "type": "FUNCTION",
+   "line": 3,
+   "text": "BEGIN\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PRODUCT_SNIPPET",
+   "type": "FUNCTION",
+   "line": 4,
+   "text": "  SELECT description INTO l_desc FROM products WHERE product_id = p_product_id;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PRODUCT_SNIPPET",
+   "type": "FUNCTION",
+   "line": 5,
+   "text": "  IF DBMS_LOB.GETLENGTH(l_desc) > 200 THEN\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PRODUCT_SNIPPET",
+   "type": "FUNCTION",
+   "line": 6,
+   "text": "    RETURN DBMS_LOB.SUBSTR(l_desc, 197, 1) || '...';\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PRODUCT_SNIPPET",
+   "type": "FUNCTION",
+   "line": 7,
+   "text": "  END IF;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PRODUCT_SNIPPET",
+   "type": "FUNCTION",
+   "line": 8,
+   "text": "  RETURN DBMS_LOB.SUBSTR(l_desc, 200, 1);\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "PRODUCT_SNIPPET",
+   "type": "FUNCTION",
+   "line": 9,
+   "text": "END product_snippet;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "REFRESH_ROLLUPS",
+   "type": "PROCEDURE",
+   "line": 1,
+   "text": "PROCEDURE refresh_rollups IS\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "REFRESH_ROLLUPS",
+   "type": "PROCEDURE",
+   "line": 2,
+   "text": "BEGIN\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "REFRESH_ROLLUPS",
+   "type": "PROCEDURE",
+   "line": 3,
+   "text": "  DBMS_MVIEW.REFRESH('SALES.MV_CUSTOMER_SUMMARY', 'C');\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "REFRESH_ROLLUPS",
+   "type": "PROCEDURE",
+   "line": 4,
+   "text": "  DBMS_STATS.GATHER_TABLE_STATS('SALES', 'SALES_HISTORY');\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "REFRESH_ROLLUPS",
+   "type": "PROCEDURE",
+   "line": 5,
+   "text": "  COMMIT;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "REFRESH_ROLLUPS",
+   "type": "PROCEDURE",
+   "line": 6,
+   "text": "END refresh_rollups;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ADDRESS_T",
+   "type": "TYPE",
+   "line": 1,
+   "text": "TYPE address_t AS OBJECT (\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ADDRESS_T",
+   "type": "TYPE",
+   "line": 2,
+   "text": "  street    VARCHAR2(60),\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ADDRESS_T",
+   "type": "TYPE",
+   "line": 3,
+   "text": "  city      VARCHAR2(40),\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ADDRESS_T",
+   "type": "TYPE",
+   "line": 4,
+   "text": "  postcode  VARCHAR2(12),\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ADDRESS_T",
+   "type": "TYPE",
+   "line": 5,
+   "text": "  MEMBER FUNCTION one_line RETURN VARCHAR2\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ADDRESS_T",
+   "type": "TYPE",
+   "line": 6,
+   "text": ");\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ADDRESS_T",
+   "type": "TYPE BODY",
+   "line": 1,
+   "text": "TYPE BODY address_t AS\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ADDRESS_T",
+   "type": "TYPE BODY",
+   "line": 2,
+   "text": "  MEMBER FUNCTION one_line RETURN VARCHAR2 IS\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ADDRESS_T",
+   "type": "TYPE BODY",
+   "line": 3,
+   "text": "  BEGIN\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ADDRESS_T",
+   "type": "TYPE BODY",
+   "line": 4,
+   "text": "    RETURN street || ', ' || city || ' ' || postcode;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ADDRESS_T",
+   "type": "TYPE BODY",
+   "line": 5,
+   "text": "  END;\n"
+  },
+  {
+   "owner": "SALES",
+   "name": "ADDRESS_T",
+   "type": "TYPE BODY",
+   "line": 6,
+   "text": "END;\n"
+  }
+ ],
+ "db_links": [
+  {
+   "owner": "SALES",
+   "name": "LEGACY_BILLING",
+   "username": "BILLING_RO",
+   "host": "billing-db.corp.example.com:1521/BILLPDB"
+  }
+ ],
+ "mviews": [
+  {
+   "owner": "SALES",
+   "name": "MV_DAILY_SALES",
+   "refresh_method": "FAST",
+   "refresh_mode": "COMMIT",
+   "fast_refreshable": "DIRLOAD_DML",
+   "build_mode": "IMMEDIATE"
+  },
+  {
+   "owner": "SALES",
+   "name": "MV_CUSTOMER_SUMMARY",
+   "refresh_method": "COMPLETE",
+   "refresh_mode": "DEMAND",
+   "fast_refreshable": "NO",
+   "build_mode": "IMMEDIATE"
+  }
+ ],
+ "part_tables": [
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partitioning_type": "RANGE",
+   "subpartitioning_type": "NONE",
+   "partition_count": 84,
+   "interval": "NUMTOYMINTERVAL(1,'MONTH')",
+   "ref_constraint_name": null,
+   "partition_keys": "ORDER_DATE"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partitioning_type": "REFERENCE",
+   "subpartitioning_type": "NONE",
+   "partition_count": 84,
+   "interval": null,
+   "ref_constraint_name": "ORDER_ITEMS_ORDER_FK",
+   "partition_keys": null
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partitioning_type": "RANGE",
+   "subpartitioning_type": "LIST",
+   "partition_count": 40,
+   "interval": null,
+   "ref_constraint_name": null,
+   "partition_keys": "SALE_DATE"
+  }
+ ],
+ "lobs": [
+  {
+   "owner": "SALES",
+   "table_name": "PRODUCTS",
+   "column_name": "DESCRIPTION",
+   "securefile": "YES",
+   "compression": "NO",
+   "deduplication": "NO",
+   "in_row": "YES"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "PRODUCTS",
+   "column_name": "IMAGE",
+   "securefile": "YES",
+   "compression": "MEDIUM",
+   "deduplication": "LOB",
+   "in_row": "NO"
+  }
+ ],
+ "types": [
+  {
+   "owner": "SALES",
+   "name": "ADDRESS_T",
+   "typecode": "OBJECT",
+   "coll_type": null,
+   "elem_type": null,
+   "methods": 1
+  },
+  {
+   "owner": "SALES",
+   "name": "PHONE_LIST_T",
+   "typecode": "COLLECTION",
+   "coll_type": "VARYING ARRAY",
+   "elem_type": "VARCHAR2",
+   "methods": 0
+  },
+  {
+   "owner": "SALES",
+   "name": "ORDER_EVENT_T",
+   "typecode": "OBJECT",
+   "coll_type": null,
+   "elem_type": null,
+   "methods": 0
+  }
+ ],
+ "scheduler_jobs": [
+  {
+   "owner": "SALES",
+   "name": "NIGHTLY_ROLLUP",
+   "job_type": "PLSQL_BLOCK",
+   "job_action": "BEGIN sales.refresh_rollups; END;",
+   "program_name": null,
+   "repeat_interval": "FREQ=DAILY;BYHOUR=2;BYMINUTE=0",
+   "enabled": "TRUE"
+  },
+  {
+   "owner": "SALES",
+   "name": "DAILY_EXPORT",
+   "job_type": "STORED_PROCEDURE",
+   "job_action": "SALES.ORDER_PROC.EXPORT_DAILY",
+   "program_name": null,
+   "repeat_interval": "FREQ=DAILY;BYHOUR=4",
+   "enabled": "TRUE"
+  },
+  {
+   "owner": "SALES",
+   "name": "ARCHIVE_EXPORT_FILES",
+   "job_type": "EXECUTABLE",
+   "job_action": "/u01/app/scripts/archive_exports.sh",
+   "program_name": null,
+   "repeat_interval": "FREQ=WEEKLY;BYDAY=SUN",
+   "enabled": "TRUE"
+  }
+ ],
+ "grants": [
+  {
+   "owner": "HR",
+   "grantee": "PUBLIC",
+   "privilege": "SELECT",
+   "object_count": 2
+  },
+  {
+   "owner": "HR",
+   "grantee": "SALES",
+   "privilege": "SELECT",
+   "object_count": 3
+  },
+  {
+   "owner": "HR",
+   "grantee": "SALES",
+   "privilege": "EXECUTE",
+   "object_count": 1
+  },
+  {
+   "owner": "SALES",
+   "grantee": "REPORTING_RO",
+   "privilege": "SELECT",
+   "object_count": 9
+  },
+  {
+   "owner": "SALES",
+   "grantee": "APP_USER",
+   "privilege": "INSERT",
+   "object_count": 6
+  },
+  {
+   "owner": "SALES",
+   "grantee": "APP_USER",
+   "privilege": "UPDATE",
+   "object_count": 5
+  },
+  {
+   "owner": "SALES",
+   "grantee": "APP_USER",
+   "privilege": "EXECUTE",
+   "object_count": 3
+  }
+ ],
+ "policies": [
+  {
+   "object_owner": "SALES",
+   "object_name": "ORDERS",
+   "policy_name": "ORDERS_REGION_POLICY",
+   "function": "SALES.SEC_CTX.ORDERS_PREDICATE",
+   "enabled": "YES"
+  }
+ ],
+ "queues": [
+  {
+   "owner": "SALES",
+   "name": "ORDER_EVENTS_Q",
+   "queue_table": "ORDER_EVENTS_QT",
+   "queue_type": "NORMAL_QUEUE"
+  }
+ ],
+ "encrypted_columns": [
+  {
+   "owner": "SALES",
+   "table_name": "CUSTOMERS",
+   "column_name": "CREDIT_CARD_NO",
+   "encryption_alg": "AES 192 bits key"
+  }
+ ],
+ "invalid_objects": [
+  {
+   "owner": "SALES",
+   "name": "OLD_REPORT_PKG",
+   "type": "PACKAGE BODY"
+  }
+ ]
+}
