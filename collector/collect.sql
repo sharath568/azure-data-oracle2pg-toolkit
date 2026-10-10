@@ -1,5 +1,5 @@
 REM ============================================================================
-REM  o2pg collector 0.1.0
+REM  o2pg collector 0.2.0
 REM
 REM  Read-only inventory of one or more Oracle schemas, written as a single JSON
 REM  file that `o2pg assess` can analyse offline.
@@ -52,7 +52,7 @@ SPOOL o2pg_inventory.json
 PROMPT {
 PROMPT "metadata":
 SELECT JSON_OBJECT(
-         'collector_version'    VALUE '0.1.0',
+         'collector_version'    VALUE '0.2.0',
          'collected_at'         VALUE TO_CHAR(SYS_EXTRACT_UTC(SYSTIMESTAMP), 'YYYY-MM-DD"T"HH24:MI:SS"Z"'),
          'db_name'              VALUE SYS_CONTEXT('USERENV', 'DB_NAME'),
          'db_version'           VALUE v.version,

@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "o2pg"
-version = "0.1.0"
-description = "Offline triage of Oracle schemas before migrating to Azure Database for PostgreSQL Flexible Server"
+version = "0.2.0"
+description = "Offline triage of Oracle schemas, and PL/SQL to PL/pgSQL conversion helpers, for Azure Database for PostgreSQL Flexible Server"
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
@@ -28,6 +28,7 @@ dependencies = ["click>=8.1"]
 
 [project.optional-dependencies]
 dev = ["pytest>=7.4", "ruff>=0.5"]
+pg = ["psycopg[binary]>=3.1"]
 
 [project.scripts]
 o2pg = "o2pg.cli:main"
@@ -42,6 +43,9 @@ packages = ["src/o2pg"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
+markers = [
+    "integration: needs a PostgreSQL server; runs only when O2PG_TEST_DSN is set",
+]
 
 [tool.ruff]
 line-length = 100

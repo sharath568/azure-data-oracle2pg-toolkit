@@ -1,0 +1,24 @@
+-- SALES.ORDERS_AUDIT_CT (TRIGGER) converted to PL/pgSQL by o2pg 0.2.0
+-- Mechanical rewrites only. Read every O2PG-REVIEW marker and test the logic
+-- against real data before relying on it.
+-- Review points: 1 (1 blocking). See conversion-report.md.
+
+/* O2PG-REVIEW O2PG-RV-001: compound trigger: split it into row-level and statement-level triggers, using transition tables (REFERENCING NEW TABLE AS ...) for the statement part */
+-- TRIGGER orders_audit_ct
+-- FOR INSERT OR UPDATE OR DELETE ON orders
+-- COMPOUND TRIGGER
+--   TYPE id_tab_t IS TABLE OF orders.order_id%TYPE INDEX BY PLS_INTEGER;
+--   g_ids id_tab_t;
+--
+--   AFTER EACH ROW IS
+--   BEGIN
+--     g_ids(g_ids.COUNT + 1) := NVL(:NEW.order_id, :OLD.order_id);
+--   END AFTER EACH ROW;
+--
+--   AFTER STATEMENT IS
+--   BEGIN
+--     FOR i IN 1 .. g_ids.COUNT LOOP
+--       publish_order_event(g_ids(i));
+--     END LOOP;
+--   END AFTER STATEMENT;
+-- END orders_audit_ct;

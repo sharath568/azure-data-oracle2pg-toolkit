@@ -11,11 +11,13 @@ from pathlib import Path
 import pytest
 
 from o2pg.catalog import rules_markdown
+from o2pg.convert import conversion_rules, conversion_rules_markdown
 from o2pg.inventory import SECTION_TYPES, Metadata
 from o2pg.rules import Category, all_rules
 
 ROOT = Path(__file__).resolve().parents[1]
 RULES_DOC = ROOT / "docs" / "rules.md"
+CONVERSION_DOC = ROOT / "docs" / "conversion-rules.md"
 COLLECTOR = ROOT / "collector" / "collect.sql"
 
 
@@ -23,6 +25,18 @@ def test_rules_doc_is_up_to_date() -> None:
     assert RULES_DOC.read_text(encoding="utf-8") == rules_markdown(), (
         "docs/rules.md is stale; run: python scripts/gen_rules_doc.py"
     )
+
+
+def test_conversion_rules_doc_is_up_to_date() -> None:
+    assert CONVERSION_DOC.read_text(encoding="utf-8") == conversion_rules_markdown(), (
+        "docs/conversion-rules.md is stale; run: python scripts/gen_rules_doc.py"
+    )
+
+
+def test_conversion_rules_doc_mentions_every_rule() -> None:
+    text = conversion_rules_markdown()
+    for rule in conversion_rules():
+        assert f"### {rule.id}: {rule.title}" in text
 
 
 def test_gen_rules_doc_check_mode() -> None:

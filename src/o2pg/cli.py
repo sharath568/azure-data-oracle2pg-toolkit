@@ -1,4 +1,4 @@
-"""Command line interface: ``o2pg assess | rules | sample | map-types``."""
+"""Command line interface: ``o2pg assess | rules | sample | map-types | convert``."""
 
 from __future__ import annotations
 
@@ -10,6 +10,15 @@ import click
 from o2pg import __version__
 from o2pg.assessment import assess
 from o2pg.catalog import rules_json, rules_markdown, rules_table
+from o2pg.convert import ConversionResult, convert_inventory, convert_sql
+from o2pg.convert.engine import (
+    STATUS_BLOCKED,
+    STATUS_CONVERTED,
+    STATUS_NOT_CONVERTED,
+    STATUS_REVIEW,
+)
+from o2pg.convert.lexer import ConversionError
+from o2pg.convert.report import report_json, report_markdown
 from o2pg.ddl import suggest_ddl
 from o2pg.inventory import Inventory, InventoryError
 from o2pg.render import RENDERERS
@@ -143,3 +152,92 @@ def sample_cmd(output: Path) -> None:
 def map_types_cmd(inventory: Path, output: Path | None) -> None:
     """Suggest PostgreSQL DDL (types, keys, partitioning) for INVENTORY."""
     _write(suggest_ddl(_load(inventory)), output)
+
+
+def _is_inventory(path: Path, text: str) -> bool:
+    return path.suffix.lower() == ".json" or text.lstrip("\ufeff \t\r\n").startswith("{")
+
+
+def _summary(result: ConversionResult) -> str:
+    units = [u for u in result.units if u.kind != "PACKAGE STATE"]
+    counts = {
+        status: sum(1 for u in units if u.status == status)
+        for status in (STATUS_CONVERTED, STATUS_REVIEW, STATUS_BLOCKED, STATUS_NOT_CONVERTED)
+    }
+    reviews = result.reviews
+    return (
+        f"{len(result.objects)} objects, {len(units)} units: "
+        f"{counts[STATUS_CONVERTED]} converted, {counts[STATUS_REVIEW]} need review, "
+        f"{counts[STATUS_BLOCKED]} blocked, {counts[STATUS_NOT_CONVERTED]} not converted; "
+        f"{sum(result.rewrites.values())} rewrites, {len(reviews)} review points "
+        f"({sum(1 for r in reviews if r.blocking)} blocking); "
+        f"mechanical coverage {result.coverage:.1f}%"
+    )
+
+
+@main.command("convert")
+@click.argument("source", type=click.Path(exists=True, dir_okay=False, path_type=Path))
+@click.option(
+    "--output",
+    "-o",
+    type=click.Path(file_okay=False, path_type=Path),
+    help="Directory for one .sql file per object plus the conversion report. "
+    "Default: print the converted SQL to stdout.",
+)
+@click.option("--object", "only", metavar="SCHEMA.NAME", help="Only convert this object.")
+@click.option(
+    "--format",
+    "-f",
+    "fmt",
+    type=click.Choice(["md", "json", "both"]),
+    default="both",
+    show_default=True,
+    help="Report format written next to the .sql files.",
+)
+@click.option(
+    "--schema",
+    default="PUBLIC",
+    show_default=True,
+    help="Owner for unqualified object names in a .sql script.",
+)
+def convert_cmd(source: Path, output: Path | None, only: str | None, fmt: str, schema: str) -> None:
+    """Convert stored PL/SQL in SOURCE to PL/pgSQL.
+
+    SOURCE is an inventory JSON file from collector/collect.sql, or a .sql script
+    of CREATE OR REPLACE PROCEDURE / FUNCTION / PACKAGE / TRIGGER units
+    separated by "/" lines. Only mechanical rewrites are made; everything else
+    is left in place with an O2PG-REVIEW marker.
+    """
+    try:
+        text = source.read_text(encoding="utf-8")
+    except (OSError, UnicodeDecodeError) as exc:
+        raise click.ClickException(f"cannot read {source}: {exc}") from exc
+    try:
+        if _is_inventory(source, text):
+            try:
+                inventory = Inventory.from_json(text)
+            except InventoryError as exc:
+                raise click.ClickException(str(exc)) from exc
+            result = convert_inventory(inventory, only=only)
+        else:
+            result = convert_sql(text, default_schema=schema, only=only)
+    except ConversionError as exc:
+        raise click.ClickException(str(exc)) from exc
+    if only is not None and not result.objects:
+        raise click.ClickException(f"no PL/SQL object named {only} in {source}")
+    if output is None:
+        click.echo("\n".join(obj.sql for obj in result.objects), nl=False)
+        click.echo(_summary(result), err=True)
+        return
+    output.mkdir(parents=True, exist_ok=True)
+    for obj in result.objects:
+        (output / obj.filename).write_text(obj.sql, encoding="utf-8")
+    written = len(result.objects)
+    if fmt in {"md", "both"}:
+        (output / "conversion-report.md").write_text(report_markdown(result), encoding="utf-8")
+        written += 1
+    if fmt in {"json", "both"}:
+        (output / "conversion-report.json").write_text(report_json(result), encoding="utf-8")
+        written += 1
+    click.echo(f"wrote {written} files to {output}", err=True)
+    click.echo(_summary(result), err=True)

@@ -10,12 +10,14 @@ import pytest
 
 from o2pg.assessment import Assessment, assess
 from o2pg.cli import sample_inventory_text
+from o2pg.convert import convert_inventory, report_json, report_markdown
 from o2pg.inventory import Inventory
 from o2pg.render import render_markdown
 
 ROOT = Path(__file__).resolve().parents[1]
 EXAMPLE_INVENTORY = ROOT / "examples" / "sample_inventory.json"
 EXAMPLE_REPORT = ROOT / "examples" / "sample_report.md"
+EXAMPLE_CONVERTED = ROOT / "examples" / "converted"
 
 
 @pytest.fixture(scope="module")
@@ -86,4 +88,16 @@ def test_example_report_is_current(result: Assessment) -> None:
     actual = _strip_timestamp(EXAMPLE_REPORT.read_text(encoding="utf-8"))
     assert actual == expected, (
         "run: o2pg assess examples/sample_inventory.json -o examples/sample_report.md"
+    )
+
+
+def test_example_conversion_is_current(sample: Inventory) -> None:
+    """examples/converted must be regenerated when the converter changes."""
+    result = convert_inventory(sample)
+    expected = {obj.filename: obj.sql for obj in result.objects}
+    expected["conversion-report.md"] = report_markdown(result)
+    expected["conversion-report.json"] = report_json(result)
+    actual = {p.name: p.read_text(encoding="utf-8") for p in EXAMPLE_CONVERTED.iterdir()}
+    assert actual == expected, (
+        "run: o2pg convert examples/sample_inventory.json -o examples/converted"
     )

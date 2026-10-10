@@ -26,3 +26,4 @@ o2pg_inventory.json
 /assessment.*
 /schema.sql
 /sample_inventory.json
+/converted/

@@ -1,0 +1,970 @@
+{
+  "o2pg_version": "0.2.0",
+  "summary": {
+    "objects": 14,
+    "units_converted": 5,
+    "units_review": 3,
+    "units_blocked": 9,
+    "units_not_converted": 4,
+    "rewrites_applied": 156,
+    "review_points": 49,
+    "blocking_review_points": 38,
+    "statements": 102,
+    "clean_statements": 49,
+    "mechanical_coverage_pct": 48.0
+  },
+  "rewrites": {
+    "O2PG-CV-001": 14,
+    "O2PG-CV-002": 5,
+    "O2PG-CV-004": 29,
+    "O2PG-CV-006": 14,
+    "O2PG-CV-007": 15,
+    "O2PG-CV-008": 14,
+    "O2PG-CV-011": 1,
+    "O2PG-CV-012": 2,
+    "O2PG-CV-013": 2,
+    "O2PG-CV-015": 4,
+    "O2PG-CV-018": 8,
+    "O2PG-CV-019": 3,
+    "O2PG-CV-020": 2,
+    "O2PG-CV-021": 2,
+    "O2PG-CV-022": 1,
+    "O2PG-CV-023": 3,
+    "O2PG-CV-024": 1,
+    "O2PG-CV-025": 1,
+    "O2PG-CV-026": 1,
+    "O2PG-CV-028": 1,
+    "O2PG-CV-029": 2,
+    "O2PG-CV-030": 12,
+    "O2PG-CV-031": 1,
+    "O2PG-CV-032": 3,
+    "O2PG-CV-033": 2,
+    "O2PG-CV-036": 2,
+    "O2PG-CV-037": 3,
+    "O2PG-CV-038": 1,
+    "O2PG-CV-039": 2,
+    "O2PG-CV-042": 3,
+    "O2PG-CV-047": 2
+  },
+  "objects": [
+    {
+      "object": "HR.EMPLOYEES_BIU",
+      "source_types": [
+        "TRIGGER"
+      ],
+      "file": "hr.employees_biu.sql",
+      "status": "blocked",
+      "statements": 6,
+      "clean_statements": 4,
+      "rewrites": {
+        "O2PG-CV-007": 1,
+        "O2PG-CV-015": 1,
+        "O2PG-CV-018": 2,
+        "O2PG-CV-019": 1,
+        "O2PG-CV-030": 7,
+        "O2PG-CV-031": 1,
+        "O2PG-CV-032": 1
+      },
+      "units": [
+        {
+          "name": "hr.employees_biu (trigger on hr.employees)",
+          "kind": "TRIGGER",
+          "status": "blocked",
+          "statements": 6,
+          "clean_statements": 4,
+          "rewrites": {
+            "O2PG-CV-007": 1,
+            "O2PG-CV-015": 1,
+            "O2PG-CV-018": 2,
+            "O2PG-CV-019": 1,
+            "O2PG-CV-030": 7,
+            "O2PG-CV-031": 1,
+            "O2PG-CV-032": 1
+          }
+        }
+      ],
+      "review_points": [
+        {
+          "line": 19,
+          "rule": "O2PG-RV-034",
+          "blocking": false,
+          "reason": "'' is NULL in Oracle but an empty string in PostgreSQL; comparisons with '' and assignments of '' behave differently"
+        },
+        {
+          "line": 25,
+          "rule": "O2PG-RV-011",
+          "blocking": true,
+          "reason": "package variable emp_mgmt.g_last_change: PostgreSQL has no package state; keep it in a table or a custom setting via set_config()/current_setting()"
+        }
+      ]
+    },
+    {
+      "object": "HR.UPDATE_JOB_HISTORY",
+      "source_types": [
+        "TRIGGER"
+      ],
+      "file": "hr.update_job_history.sql",
+      "status": "converted",
+      "statements": 2,
+      "clean_statements": 2,
+      "rewrites": {
+        "O2PG-CV-007": 1,
+        "O2PG-CV-018": 1,
+        "O2PG-CV-030": 4,
+        "O2PG-CV-032": 1,
+        "O2PG-CV-036": 1
+      },
+      "units": [
+        {
+          "name": "hr.update_job_history (trigger on hr.employees)",
+          "kind": "TRIGGER",
+          "status": "converted",
+          "statements": 2,
+          "clean_statements": 2,
+          "rewrites": {
+            "O2PG-CV-007": 1,
+            "O2PG-CV-018": 1,
+            "O2PG-CV-030": 4,
+            "O2PG-CV-032": 1,
+            "O2PG-CV-036": 1
+          }
+        }
+      ],
+      "review_points": []
+    },
+    {
+      "object": "HR.HR_DDL_AUDIT",
+      "source_types": [
+        "TRIGGER"
+      ],
+      "file": "hr.hr_ddl_audit.sql",
+      "status": "not converted",
+      "statements": 2,
+      "clean_statements": 0,
+      "rewrites": {},
+      "units": [
+        {
+          "name": "HR.HR_DDL_AUDIT",
+          "kind": "NOT CONVERTED",
+          "status": "not converted",
+          "statements": 2,
+          "clean_statements": 0,
+          "rewrites": {}
+        }
+      ],
+      "review_points": [
+        {
+          "line": 6,
+          "rule": "O2PG-RV-001",
+          "blocking": true,
+          "reason": "schema or database event trigger: use an event trigger (CREATE EVENT TRIGGER), which needs elevated privileges; check what your Azure server allows"
+        }
+      ]
+    },
+    {
+      "object": "HR.ADD_JOB_HISTORY",
+      "source_types": [
+        "PROCEDURE"
+      ],
+      "file": "hr.add_job_history.sql",
+      "status": "converted",
+      "statements": 2,
+      "clean_statements": 2,
+      "rewrites": {
+        "O2PG-CV-001": 1,
+        "O2PG-CV-006": 1,
+        "O2PG-CV-007": 1,
+        "O2PG-CV-008": 1
+      },
+      "units": [
+        {
+          "name": "hr.add_job_history",
+          "kind": "PROCEDURE",
+          "status": "converted",
+          "statements": 2,
+          "clean_statements": 2,
+          "rewrites": {
+            "O2PG-CV-001": 1,
+            "O2PG-CV-006": 1,
+            "O2PG-CV-007": 1,
+            "O2PG-CV-008": 1
+          }
+        }
+      ],
+      "review_points": []
+    },
+    {
+      "object": "HR.EMP_MGMT",
+      "source_types": [
+        "PACKAGE",
+        "PACKAGE BODY"
+      ],
+      "file": "hr.emp_mgmt.sql",
+      "status": "blocked",
+      "statements": 34,
+      "clean_statements": 17,
+      "rewrites": {
+        "O2PG-CV-001": 4,
+        "O2PG-CV-002": 2,
+        "O2PG-CV-004": 14,
+        "O2PG-CV-006": 4,
+        "O2PG-CV-007": 3,
+        "O2PG-CV-008": 4,
+        "O2PG-CV-011": 1,
+        "O2PG-CV-012": 1,
+        "O2PG-CV-013": 2,
+        "O2PG-CV-015": 1,
+        "O2PG-CV-018": 4,
+        "O2PG-CV-019": 1,
+        "O2PG-CV-020": 1,
+        "O2PG-CV-024": 1,
+        "O2PG-CV-025": 1,
+        "O2PG-CV-026": 1,
+        "O2PG-CV-029": 1,
+        "O2PG-CV-036": 1,
+        "O2PG-CV-037": 1,
+        "O2PG-CV-038": 1
+      },
+      "units": [
+        {
+          "name": "emp_mgmt (package declarations)",
+          "kind": "PACKAGE STATE",
+          "status": "blocked",
+          "statements": 7,
+          "clean_statements": 2,
+          "rewrites": {
+            "O2PG-CV-011": 1
+          }
+        },
+        {
+          "name": "emp_mgmt.log_error",
+          "kind": "PROCEDURE",
+          "status": "blocked",
+          "statements": 4,
+          "clean_statements": 3,
+          "rewrites": {
+            "O2PG-CV-001": 1,
+            "O2PG-CV-004": 1,
+            "O2PG-CV-006": 1,
+            "O2PG-CV-008": 1,
+            "O2PG-CV-019": 1,
+            "O2PG-CV-029": 1
+          }
+        },
+        {
+          "name": "emp_mgmt.hire",
+          "kind": "FUNCTION",
+          "status": "blocked",
+          "statements": 11,
+          "clean_statements": 6,
+          "rewrites": {
+            "O2PG-CV-001": 1,
+            "O2PG-CV-002": 1,
+            "O2PG-CV-004": 7,
+            "O2PG-CV-006": 1,
+            "O2PG-CV-007": 1,
+            "O2PG-CV-008": 1,
+            "O2PG-CV-013": 1,
+            "O2PG-CV-018": 2,
+            "O2PG-CV-020": 1,
+            "O2PG-CV-024": 1,
+            "O2PG-CV-025": 1,
+            "O2PG-CV-026": 1,
+            "O2PG-CV-036": 1,
+            "O2PG-CV-037": 1
+          }
+        },
+        {
+          "name": "emp_mgmt.raise_salary",
+          "kind": "PROCEDURE",
+          "status": "blocked",
+          "statements": 8,
+          "clean_statements": 2,
+          "rewrites": {
+            "O2PG-CV-001": 1,
+            "O2PG-CV-004": 3,
+            "O2PG-CV-006": 1,
+            "O2PG-CV-007": 1,
+            "O2PG-CV-008": 1,
+            "O2PG-CV-013": 1,
+            "O2PG-CV-015": 1,
+            "O2PG-CV-018": 1
+          }
+        },
+        {
+          "name": "emp_mgmt.employees_in",
+          "kind": "FUNCTION",
+          "status": "converted",
+          "statements": 4,
+          "clean_statements": 4,
+          "rewrites": {
+            "O2PG-CV-001": 1,
+            "O2PG-CV-002": 1,
+            "O2PG-CV-004": 3,
+            "O2PG-CV-006": 1,
+            "O2PG-CV-007": 1,
+            "O2PG-CV-008": 1,
+            "O2PG-CV-018": 1,
+            "O2PG-CV-038": 1
+          }
+        }
+      ],
+      "review_points": [
+        {
+          "line": 11,
+          "rule": "O2PG-RV-011",
+          "blocking": true,
+          "reason": "package-level variable: PostgreSQL has no package state; keep it in a table or temporary table, or in a custom setting via set_config()/current_setting()"
+        },
+        {
+          "line": 13,
+          "rule": "O2PG-RV-011",
+          "blocking": true,
+          "reason": "package-level variable: PostgreSQL has no package state; keep it in a table or temporary table, or in a custom setting via set_config()/current_setting()"
+        },
+        {
+          "line": 17,
+          "rule": "O2PG-RV-012",
+          "blocking": true,
+          "reason": "user-defined exception: PL/pgSQL cannot declare exceptions; RAISE a custom SQLSTATE (e.g. RAISE EXCEPTION USING ERRCODE = 'U0001') and catch WHEN SQLSTATE 'U0001'"
+        },
+        {
+          "line": 24,
+          "rule": "O2PG-RV-011",
+          "blocking": true,
+          "reason": "package-level variable: PostgreSQL has no package state; keep it in a table or temporary table, or in a custom setting via set_config()/current_setting()"
+        },
+        {
+          "line": 26,
+          "rule": "O2PG-RV-009",
+          "blocking": true,
+          "reason": "PL/SQL collection, record or subtype declaration: use a PostgreSQL array, a composite type (CREATE TYPE) or a temporary table"
+        },
+        {
+          "line": 33,
+          "rule": "O2PG-RV-002",
+          "blocking": true,
+          "reason": "PRAGMA AUTONOMOUS_TRANSACTION has no PostgreSQL equivalent; pg_background is not available on Azure Flexible Server and a postgres_fdw/dblink loopback is a workaround with its own costs. Prefer a redesign (log after the transaction, RAISE LOG, or the application)"
+        },
+        {
+          "line": 53,
+          "rule": "O2PG-RV-035",
+          "blocking": false,
+          "reason": "|| returns NULL in PostgreSQL when any operand is NULL; Oracle treats NULL as ''. Use concat() or COALESCE where an operand can be NULL"
+        },
+        {
+          "line": 60,
+          "rule": "O2PG-RV-011",
+          "blocking": true,
+          "reason": "package variable g_hires_this_session: PostgreSQL has no package state; keep it in a table, a temporary table, or a custom setting via set_config()/current_setting()"
+        },
+        {
+          "line": 62,
+          "rule": "O2PG-RV-011",
+          "blocking": true,
+          "reason": "package variable g_last_change: PostgreSQL has no package state; keep it in a table, a temporary table, or a custom setting via set_config()/current_setting()"
+        },
+        {
+          "line": 64,
+          "rule": "O2PG-RV-035",
+          "blocking": false,
+          "reason": "|| returns NULL in PostgreSQL when any operand is NULL; Oracle treats NULL as ''. Use concat() or COALESCE where an operand can be NULL"
+        },
+        {
+          "line": 69,
+          "rule": "O2PG-RV-035",
+          "blocking": false,
+          "reason": "|| returns NULL in PostgreSQL when any operand is NULL; Oracle treats NULL as ''. Use concat() or COALESCE where an operand can be NULL"
+        },
+        {
+          "line": 81,
+          "rule": "O2PG-RV-009",
+          "blocking": true,
+          "reason": "PL/SQL collection, record or subtype declaration: use a PostgreSQL array, a composite type (CREATE TYPE) or a temporary table"
+        },
+        {
+          "line": 83,
+          "rule": "O2PG-RV-010",
+          "blocking": true,
+          "reason": "no automatic mapping for type id_tab_t"
+        },
+        {
+          "line": 85,
+          "rule": "O2PG-RV-010",
+          "blocking": true,
+          "reason": "no automatic mapping for type salary_tab_t"
+        },
+        {
+          "line": 88,
+          "rule": "O2PG-RV-003",
+          "blocking": true,
+          "reason": "BULK COLLECT has no PL/pgSQL equivalent; use SELECT array_agg(col) INTO arr, a cursor loop, or better a single set-based statement"
+        },
+        {
+          "line": 93,
+          "rule": "O2PG-RV-004",
+          "blocking": true,
+          "reason": "FORALL has no PL/pgSQL equivalent; replace the loop with one set-based statement, e.g. UPDATE ... FROM unnest(arr) or INSERT ... SELECT"
+        },
+        {
+          "line": 96,
+          "rule": "O2PG-RV-041",
+          "blocking": false,
+          "reason": "LEAST/GREATEST ignore NULL arguments in PostgreSQL; Oracle returns NULL if any argument is NULL"
+        },
+        {
+          "line": 99,
+          "rule": "O2PG-RV-011",
+          "blocking": true,
+          "reason": "package variable g_last_change: PostgreSQL has no package state; keep it in a table, a temporary table, or a custom setting via set_config()/current_setting()"
+        }
+      ]
+    },
+    {
+      "object": "SALES.ORDER_PROC",
+      "source_types": [
+        "PACKAGE",
+        "PACKAGE BODY"
+      ],
+      "file": "sales.order_proc.sql",
+      "status": "blocked",
+      "statements": 20,
+      "clean_statements": 9,
+      "rewrites": {
+        "O2PG-CV-001": 5,
+        "O2PG-CV-002": 1,
+        "O2PG-CV-004": 7,
+        "O2PG-CV-006": 5,
+        "O2PG-CV-007": 5,
+        "O2PG-CV-008": 5,
+        "O2PG-CV-012": 1,
+        "O2PG-CV-018": 1,
+        "O2PG-CV-021": 1,
+        "O2PG-CV-023": 1,
+        "O2PG-CV-028": 1,
+        "O2PG-CV-033": 2,
+        "O2PG-CV-037": 2,
+        "O2PG-CV-039": 2,
+        "O2PG-CV-047": 2
+      },
+      "units": [
+        {
+          "name": "order_proc (package declarations)",
+          "kind": "PACKAGE STATE",
+          "status": "blocked",
+          "statements": 2,
+          "clean_statements": 0,
+          "rewrites": {}
+        },
+        {
+          "name": "order_proc.upsert_customer",
+          "kind": "PROCEDURE",
+          "status": "review",
+          "statements": 2,
+          "clean_statements": 1,
+          "rewrites": {
+            "O2PG-CV-001": 1,
+            "O2PG-CV-004": 3,
+            "O2PG-CV-006": 1,
+            "O2PG-CV-007": 1,
+            "O2PG-CV-008": 1,
+            "O2PG-CV-021": 1,
+            "O2PG-CV-047": 2
+          }
+        },
+        {
+          "name": "order_proc.export_daily",
+          "kind": "PROCEDURE",
+          "status": "blocked",
+          "statements": 6,
+          "clean_statements": 2,
+          "rewrites": {
+            "O2PG-CV-001": 1,
+            "O2PG-CV-004": 1,
+            "O2PG-CV-006": 1,
+            "O2PG-CV-007": 1,
+            "O2PG-CV-008": 1,
+            "O2PG-CV-033": 1,
+            "O2PG-CV-037": 2,
+            "O2PG-CV-039": 1
+          }
+        },
+        {
+          "name": "order_proc.notify_big_order",
+          "kind": "PROCEDURE",
+          "status": "blocked",
+          "statements": 4,
+          "clean_statements": 3,
+          "rewrites": {
+            "O2PG-CV-001": 1,
+            "O2PG-CV-004": 2,
+            "O2PG-CV-006": 1,
+            "O2PG-CV-007": 1,
+            "O2PG-CV-008": 1,
+            "O2PG-CV-023": 1
+          }
+        },
+        {
+          "name": "order_proc.recent_orders",
+          "kind": "FUNCTION",
+          "status": "blocked",
+          "statements": 4,
+          "clean_statements": 2,
+          "rewrites": {
+            "O2PG-CV-001": 1,
+            "O2PG-CV-002": 1,
+            "O2PG-CV-004": 1,
+            "O2PG-CV-006": 1,
+            "O2PG-CV-007": 1,
+            "O2PG-CV-008": 1,
+            "O2PG-CV-018": 1,
+            "O2PG-CV-033": 1,
+            "O2PG-CV-039": 1
+          }
+        },
+        {
+          "name": "order_proc.purge_stage",
+          "kind": "PROCEDURE",
+          "status": "review",
+          "statements": 2,
+          "clean_statements": 1,
+          "rewrites": {
+            "O2PG-CV-001": 1,
+            "O2PG-CV-006": 1,
+            "O2PG-CV-007": 1,
+            "O2PG-CV-008": 1,
+            "O2PG-CV-028": 1
+          }
+        }
+      ],
+      "review_points": [
+        {
+          "line": 10,
+          "rule": "O2PG-RV-009",
+          "blocking": true,
+          "reason": "PL/SQL collection, record or subtype declaration: use a PostgreSQL array, a composite type (CREATE TYPE) or a temporary table"
+        },
+        {
+          "line": 12,
+          "rule": "O2PG-RV-009",
+          "blocking": true,
+          "reason": "PL/SQL collection, record or subtype declaration: use a PostgreSQL array, a composite type (CREATE TYPE) or a temporary table"
+        },
+        {
+          "line": 26,
+          "rule": "O2PG-RV-031",
+          "blocking": false,
+          "reason": "MERGE runs on PostgreSQL 15+ (Azure Flexible Server offers 15, 16 and 17); check the ON condition, and that concurrent inserts are handled (INSERT ... ON CONFLICT may fit better)"
+        },
+        {
+          "line": 45,
+          "rule": "O2PG-RV-010",
+          "blocking": true,
+          "reason": "no automatic mapping for type UTL_FILE.FILE_TYPE"
+        },
+        {
+          "line": 46,
+          "rule": "O2PG-RV-014",
+          "blocking": true,
+          "reason": "UTL_FILE: there is no server file system on Azure Flexible Server; write files from the application or Azure Storage instead"
+        },
+        {
+          "line": 49,
+          "rule": "O2PG-RV-014",
+          "blocking": true,
+          "reason": "UTL_FILE: there is no server file system on Azure Flexible Server; write files from the application or Azure Storage instead"
+        },
+        {
+          "line": 50,
+          "rule": "O2PG-RV-035",
+          "blocking": false,
+          "reason": "|| returns NULL in PostgreSQL when any operand is NULL; Oracle treats NULL as ''. Use concat() or COALESCE where an operand can be NULL"
+        },
+        {
+          "line": 55,
+          "rule": "O2PG-RV-014",
+          "blocking": true,
+          "reason": "UTL_FILE: there is no server file system on Azure Flexible Server; write files from the application or Azure Storage instead"
+        },
+        {
+          "line": 56,
+          "rule": "O2PG-RV-035",
+          "blocking": false,
+          "reason": "|| returns NULL in PostgreSQL when any operand is NULL; Oracle treats NULL as ''. Use concat() or COALESCE where an operand can be NULL"
+        },
+        {
+          "line": 59,
+          "rule": "O2PG-RV-014",
+          "blocking": true,
+          "reason": "UTL_FILE: there is no server file system on Azure Flexible Server; write files from the application or Azure Storage instead"
+        },
+        {
+          "line": 74,
+          "rule": "O2PG-RV-014",
+          "blocking": true,
+          "reason": "sending mail from the database: move it to the application or a queue consumer"
+        },
+        {
+          "line": 76,
+          "rule": "O2PG-RV-035",
+          "blocking": false,
+          "reason": "|| returns NULL in PostgreSQL when any operand is NULL; Oracle treats NULL as ''. Use concat() or COALESCE where an operand can be NULL"
+        },
+        {
+          "line": 82,
+          "rule": "O2PG-RV-010",
+          "blocking": true,
+          "reason": "no automatic mapping for return type order_lines_t"
+        },
+        {
+          "line": 83,
+          "rule": "O2PG-RV-008",
+          "blocking": true,
+          "reason": "PIPELINED / PIPE ROW: rewrite as RETURNS SETOF (or RETURNS TABLE) with RETURN NEXT"
+        },
+        {
+          "line": 94,
+          "rule": "O2PG-RV-005",
+          "blocking": true,
+          "reason": "ROWNUM has no PostgreSQL equivalent; use LIMIT (or FETCH FIRST n ROWS ONLY) for top-n and row_number() OVER (...) for numbering"
+        },
+        {
+          "line": 96,
+          "rule": "O2PG-RV-008",
+          "blocking": true,
+          "reason": "PIPELINED / PIPE ROW: rewrite as RETURNS SETOF (or RETURNS TABLE) with RETURN NEXT"
+        },
+        {
+          "line": 109,
+          "rule": "O2PG-RV-033",
+          "blocking": false,
+          "reason": "dynamic SQL: the SQL text is not converted; check it is valid PostgreSQL and change :name binds to $1, $2 with USING"
+        }
+      ]
+    },
+    {
+      "object": "SALES.PRICING",
+      "source_types": [
+        "PACKAGE",
+        "PACKAGE BODY"
+      ],
+      "file": "sales.pricing.sql",
+      "status": "not converted",
+      "statements": 3,
+      "clean_statements": 0,
+      "rewrites": {},
+      "units": [
+        {
+          "name": "SALES.PRICING",
+          "kind": "NOT CONVERTED",
+          "status": "not converted",
+          "statements": 3,
+          "clean_statements": 0,
+          "rewrites": {}
+        }
+      ],
+      "review_points": [
+        {
+          "line": 6,
+          "rule": "O2PG-RV-001",
+          "blocking": true,
+          "reason": "wrapped (obfuscated) PL/SQL cannot be converted; convert the original source instead"
+        }
+      ]
+    },
+    {
+      "object": "SALES.ORDERS_BI",
+      "source_types": [
+        "TRIGGER"
+      ],
+      "file": "sales.orders_bi.sql",
+      "status": "converted",
+      "statements": 2,
+      "clean_statements": 2,
+      "rewrites": {
+        "O2PG-CV-007": 1,
+        "O2PG-CV-020": 1,
+        "O2PG-CV-021": 1,
+        "O2PG-CV-022": 1,
+        "O2PG-CV-030": 1,
+        "O2PG-CV-032": 1
+      },
+      "units": [
+        {
+          "name": "sales.orders_bi (trigger on sales.orders)",
+          "kind": "TRIGGER",
+          "status": "converted",
+          "statements": 2,
+          "clean_statements": 2,
+          "rewrites": {
+            "O2PG-CV-007": 1,
+            "O2PG-CV-020": 1,
+            "O2PG-CV-021": 1,
+            "O2PG-CV-022": 1,
+            "O2PG-CV-030": 1,
+            "O2PG-CV-032": 1
+          }
+        }
+      ],
+      "review_points": []
+    },
+    {
+      "object": "SALES.ORDERS_AUDIT_CT",
+      "source_types": [
+        "TRIGGER"
+      ],
+      "file": "sales.orders_audit_ct.sql",
+      "status": "not converted",
+      "statements": 8,
+      "clean_statements": 0,
+      "rewrites": {},
+      "units": [
+        {
+          "name": "SALES.ORDERS_AUDIT_CT",
+          "kind": "NOT CONVERTED",
+          "status": "not converted",
+          "statements": 8,
+          "clean_statements": 0,
+          "rewrites": {}
+        }
+      ],
+      "review_points": [
+        {
+          "line": 6,
+          "rule": "O2PG-RV-001",
+          "blocking": true,
+          "reason": "compound trigger: split it into row-level and statement-level triggers, using transition tables (REFERENCING NEW TABLE AS ...) for the statement part"
+        }
+      ]
+    },
+    {
+      "object": "SALES.PUBLISH_ORDER_EVENT",
+      "source_types": [
+        "PROCEDURE"
+      ],
+      "file": "sales.publish_order_event.sql",
+      "status": "blocked",
+      "statements": 5,
+      "clean_statements": 2,
+      "rewrites": {
+        "O2PG-CV-001": 1,
+        "O2PG-CV-004": 2,
+        "O2PG-CV-006": 1,
+        "O2PG-CV-007": 1,
+        "O2PG-CV-008": 1,
+        "O2PG-CV-019": 1
+      },
+      "units": [
+        {
+          "name": "sales.publish_order_event",
+          "kind": "PROCEDURE",
+          "status": "blocked",
+          "statements": 5,
+          "clean_statements": 2,
+          "rewrites": {
+            "O2PG-CV-001": 1,
+            "O2PG-CV-004": 2,
+            "O2PG-CV-006": 1,
+            "O2PG-CV-007": 1,
+            "O2PG-CV-008": 1,
+            "O2PG-CV-019": 1
+          }
+        }
+      ],
+      "review_points": [
+        {
+          "line": 13,
+          "rule": "O2PG-RV-010",
+          "blocking": true,
+          "reason": "no automatic mapping for type DBMS_AQ.ENQUEUE_OPTIONS_T"
+        },
+        {
+          "line": 14,
+          "rule": "O2PG-RV-014",
+          "blocking": true,
+          "reason": "Advanced Queuing: use a queue table (SELECT ... FOR UPDATE SKIP LOCKED) or an Azure messaging service"
+        },
+        {
+          "line": 16,
+          "rule": "O2PG-RV-010",
+          "blocking": true,
+          "reason": "no automatic mapping for type DBMS_AQ.MESSAGE_PROPERTIES_T"
+        },
+        {
+          "line": 17,
+          "rule": "O2PG-RV-014",
+          "blocking": true,
+          "reason": "Advanced Queuing: use a queue table (SELECT ... FOR UPDATE SKIP LOCKED) or an Azure messaging service"
+        },
+        {
+          "line": 21,
+          "rule": "O2PG-RV-014",
+          "blocking": true,
+          "reason": "Advanced Queuing: use a queue table (SELECT ... FOR UPDATE SKIP LOCKED) or an Azure messaging service"
+        }
+      ]
+    },
+    {
+      "object": "SALES.GET_ORDER_TOTAL",
+      "source_types": [
+        "FUNCTION"
+      ],
+      "file": "sales.get_order_total.sql",
+      "status": "converted",
+      "statements": 5,
+      "clean_statements": 5,
+      "rewrites": {
+        "O2PG-CV-001": 1,
+        "O2PG-CV-002": 1,
+        "O2PG-CV-004": 3,
+        "O2PG-CV-006": 1,
+        "O2PG-CV-007": 1,
+        "O2PG-CV-008": 1,
+        "O2PG-CV-015": 2,
+        "O2PG-CV-023": 1
+      },
+      "units": [
+        {
+          "name": "sales.get_order_total",
+          "kind": "FUNCTION",
+          "status": "converted",
+          "statements": 5,
+          "clean_statements": 5,
+          "rewrites": {
+            "O2PG-CV-001": 1,
+            "O2PG-CV-002": 1,
+            "O2PG-CV-004": 3,
+            "O2PG-CV-006": 1,
+            "O2PG-CV-007": 1,
+            "O2PG-CV-008": 1,
+            "O2PG-CV-015": 2,
+            "O2PG-CV-023": 1
+          }
+        }
+      ],
+      "review_points": []
+    },
+    {
+      "object": "SALES.PRODUCT_SNIPPET",
+      "source_types": [
+        "FUNCTION"
+      ],
+      "file": "sales.product_snippet.sql",
+      "status": "review",
+      "statements": 5,
+      "clean_statements": 4,
+      "rewrites": {
+        "O2PG-CV-001": 1,
+        "O2PG-CV-002": 1,
+        "O2PG-CV-004": 3,
+        "O2PG-CV-006": 1,
+        "O2PG-CV-007": 1,
+        "O2PG-CV-008": 1,
+        "O2PG-CV-023": 1,
+        "O2PG-CV-042": 3
+      },
+      "units": [
+        {
+          "name": "sales.product_snippet",
+          "kind": "FUNCTION",
+          "status": "review",
+          "statements": 5,
+          "clean_statements": 4,
+          "rewrites": {
+            "O2PG-CV-001": 1,
+            "O2PG-CV-002": 1,
+            "O2PG-CV-004": 3,
+            "O2PG-CV-006": 1,
+            "O2PG-CV-007": 1,
+            "O2PG-CV-008": 1,
+            "O2PG-CV-023": 1,
+            "O2PG-CV-042": 3
+          }
+        }
+      ],
+      "review_points": [
+        {
+          "line": 18,
+          "rule": "O2PG-RV-035",
+          "blocking": false,
+          "reason": "|| returns NULL in PostgreSQL when any operand is NULL; Oracle treats NULL as ''. Use concat() or COALESCE where an operand can be NULL"
+        }
+      ]
+    },
+    {
+      "object": "SALES.REFRESH_ROLLUPS",
+      "source_types": [
+        "PROCEDURE"
+      ],
+      "file": "sales.refresh_rollups.sql",
+      "status": "blocked",
+      "statements": 4,
+      "clean_statements": 2,
+      "rewrites": {
+        "O2PG-CV-001": 1,
+        "O2PG-CV-006": 1,
+        "O2PG-CV-008": 1,
+        "O2PG-CV-029": 1
+      },
+      "units": [
+        {
+          "name": "sales.refresh_rollups",
+          "kind": "PROCEDURE",
+          "status": "blocked",
+          "statements": 4,
+          "clean_statements": 2,
+          "rewrites": {
+            "O2PG-CV-001": 1,
+            "O2PG-CV-006": 1,
+            "O2PG-CV-008": 1,
+            "O2PG-CV-029": 1
+          }
+        }
+      ],
+      "review_points": [
+        {
+          "line": 12,
+          "rule": "O2PG-RV-014",
+          "blocking": true,
+          "reason": "use REFRESH MATERIALIZED VIEW [CONCURRENTLY] (EXECUTE format(...) if the name is a parameter)"
+        },
+        {
+          "line": 14,
+          "rule": "O2PG-RV-014",
+          "blocking": true,
+          "reason": "use ANALYZE; autovacuum usually keeps statistics current"
+        }
+      ]
+    },
+    {
+      "object": "SALES.ADDRESS_T",
+      "source_types": [
+        "TYPE",
+        "TYPE BODY"
+      ],
+      "file": "sales.address_t.sql",
+      "status": "not converted",
+      "statements": 4,
+      "clean_statements": 0,
+      "rewrites": {},
+      "units": [
+        {
+          "name": "SALES.ADDRESS_T",
+          "kind": "NOT CONVERTED",
+          "status": "not converted",
+          "statements": 4,
+          "clean_statements": 0,
+          "rewrites": {}
+        }
+      ],
+      "review_points": [
+        {
+          "line": 6,
+          "rule": "O2PG-RV-001",
+          "blocking": true,
+          "reason": "object type: create a composite type (CREATE TYPE ... AS (...)) and turn member methods into functions that take the type as a parameter"
+        }
+      ]
+    }
+  ]
+}

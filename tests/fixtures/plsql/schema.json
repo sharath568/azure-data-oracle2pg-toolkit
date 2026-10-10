@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "collector_version": "fixture",
+    "db_name": "FIXTURES",
+    "db_version": "19.0.0.0.0",
+    "character_set": "AL32UTF8",
+    "schemas": "APP"
+  },
+  "tables": [
+    {"owner": "APP", "name": "CUSTOMERS"},
+    {"owner": "APP", "name": "ORDERS"},
+    {"owner": "APP", "name": "AUDIT_LOG"}
+  ],
+  "columns": [
+    {"owner": "APP", "table_name": "CUSTOMERS", "name": "CUSTOMER_ID", "data_type": "NUMBER", "data_precision": 10, "data_scale": 0, "nullable": "N"},
+    {"owner": "APP", "table_name": "CUSTOMERS", "name": "NAME", "data_type": "VARCHAR2", "data_length": 100, "char_length": 100, "char_used": "C", "nullable": "N"},
+    {"owner": "APP", "table_name": "CUSTOMERS", "name": "EMAIL", "data_type": "VARCHAR2", "data_length": 200, "char_length": 200, "char_used": "C", "nullable": "Y"},
+    {"owner": "APP", "table_name": "CUSTOMERS", "name": "GRADE", "data_type": "VARCHAR2", "data_length": 1, "char_length": 1, "char_used": "C", "nullable": "Y"},
+    {"owner": "APP", "table_name": "CUSTOMERS", "name": "CODE", "data_type": "VARCHAR2", "data_length": 20, "char_length": 20, "char_used": "C", "nullable": "Y"},
+    {"owner": "APP", "table_name": "CUSTOMERS", "name": "CREATED_AT", "data_type": "DATE", "nullable": "Y"},
+    {"owner": "APP", "table_name": "CUSTOMERS", "name": "UPDATED_AT", "data_type": "DATE", "nullable": "Y"},
+    {"owner": "APP", "table_name": "ORDERS", "name": "ORDER_ID", "data_type": "NUMBER", "data_precision": 10, "data_scale": 0, "nullable": "N"},
+    {"owner": "APP", "table_name": "ORDERS", "name": "CUSTOMER_ID", "data_type": "NUMBER", "data_precision": 10, "data_scale": 0, "nullable": "Y"},
+    {"owner": "APP", "table_name": "ORDERS", "name": "AMOUNT", "data_type": "NUMBER", "data_precision": 12, "data_scale": 2, "nullable": "Y"},
+    {"owner": "APP", "table_name": "ORDERS", "name": "STATUS", "data_type": "VARCHAR2", "data_length": 10, "char_length": 10, "char_used": "C", "nullable": "Y"},
+    {"owner": "APP", "table_name": "ORDERS", "name": "CREATED_AT", "data_type": "DATE", "nullable": "Y"},
+    {"owner": "APP", "table_name": "AUDIT_LOG", "name": "ID", "data_type": "NUMBER", "nullable": "N"},
+    {"owner": "APP", "table_name": "AUDIT_LOG", "name": "ORDER_ID", "data_type": "NUMBER", "nullable": "Y"},
+    {"owner": "APP", "table_name": "AUDIT_LOG", "name": "MSG", "data_type": "VARCHAR2", "data_length": 4000, "char_length": 4000, "char_used": "C", "nullable": "Y"},
+    {"owner": "APP", "table_name": "AUDIT_LOG", "name": "LOGGED_AT", "data_type": "TIMESTAMP(6)", "data_scale": 6, "nullable": "Y"}
+  ],
+  "constraints": [
+    {"owner": "APP", "table_name": "CUSTOMERS", "name": "CUSTOMERS_PK", "type": "P", "columns": "CUSTOMER_ID"},
+    {"owner": "APP", "table_name": "ORDERS", "name": "ORDERS_PK", "type": "P", "columns": "ORDER_ID"},
+    {"owner": "APP", "table_name": "AUDIT_LOG", "name": "AUDIT_LOG_PK", "type": "P", "columns": "ID"}
+  ],
+  "sequences": [
+    {"owner": "APP", "name": "CUSTOMER_SEQ", "min_value": 1, "max_value": 999999999, "increment_by": 1, "cycle": "N", "last_number": 1000},
+    {"owner": "APP", "name": "ORDER_SEQ", "min_value": 1, "max_value": 999999999, "increment_by": 1, "cycle": "N", "last_number": 5000}
+  ]
+}

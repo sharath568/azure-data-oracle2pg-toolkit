@@ -22,6 +22,12 @@ _TOKEN = re.compile(
     re.DOTALL | re.VERBOSE,
 )
 
+LEXICAL_TOKEN = _TOKEN
+"""Regex matching one comment, string literal or quoted identifier.
+
+Shared with :mod:`o2pg.convert`, which hides these tokens before rewriting code.
+"""
+
 HINT_MARKER = "/*+*/"
 """Placeholder left behind for an optimizer hint comment (``/*+ ... */``)."""
 

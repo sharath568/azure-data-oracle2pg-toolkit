@@ -34,7 +34,7 @@ def test_version(runner: CliRunner) -> None:
 def test_help_lists_commands(runner: CliRunner) -> None:
     result = runner.invoke(main, ["--help"])
     assert result.exit_code == 0
-    for command in ("assess", "rules", "sample", "map-types"):
+    for command in ("assess", "rules", "sample", "map-types", "convert"):
         assert command in result.output
 
 
@@ -165,3 +165,77 @@ def test_python_dash_m(sample_file: Path) -> None:
         check=True,
     )
     assert "O2PG-DT-010" in result.stdout
+
+
+FIXTURE_SQL = Path(__file__).parent / "fixtures" / "plsql" / "functions.sql"
+
+
+def test_convert_inventory_to_directory(
+    runner: CliRunner, sample_file: Path, tmp_path: Path
+) -> None:
+    out = tmp_path / "converted"
+    result = runner.invoke(main, ["convert", str(sample_file), "-o", str(out)])
+    assert result.exit_code == 0, result.output
+    assert "mechanical coverage" in result.output
+    names = {p.name for p in out.iterdir()}
+    assert {"hr.emp_mgmt.sql", "sales.get_order_total.sql", "conversion-report.md"} <= names
+    assert "conversion-report.json" in names
+    report = json.loads((out / "conversion-report.json").read_text(encoding="utf-8"))
+    assert report["summary"]["objects"] == len([n for n in names if n.endswith(".sql")])
+    assert (
+        (out / "conversion-report.md")
+        .read_text(encoding="utf-8")
+        .startswith("# o2pg conversion report")
+    )
+
+
+@pytest.mark.parametrize(("fmt", "present", "absent"), [
+    ("md", "conversion-report.md", "conversion-report.json"),
+    ("json", "conversion-report.json", "conversion-report.md"),
+])  # fmt: skip
+def test_convert_report_format(
+    runner: CliRunner, sample_file: Path, tmp_path: Path, fmt: str, present: str, absent: str
+) -> None:
+    out = tmp_path / fmt
+    result = runner.invoke(main, ["convert", str(sample_file), "-o", str(out), "--format", fmt])
+    assert result.exit_code == 0
+    assert (out / present).exists()
+    assert not (out / absent).exists()
+
+
+def test_convert_single_object(runner: CliRunner, sample_file: Path, tmp_path: Path) -> None:
+    out = tmp_path / "one"
+    result = runner.invoke(
+        main, ["convert", str(sample_file), "-o", str(out), "--object", "sales.get_order_total"]
+    )
+    assert result.exit_code == 0
+    assert sorted(p.name for p in out.glob("*.sql")) == ["sales.get_order_total.sql"]
+
+
+def test_convert_unknown_object(runner: CliRunner, sample_file: Path) -> None:
+    result = runner.invoke(main, ["convert", str(sample_file), "--object", "HR.NOPE"])
+    assert result.exit_code != 0
+    assert "no PL/SQL object named HR.NOPE" in result.output
+
+
+def test_convert_sql_file_to_stdout(runner: CliRunner) -> None:
+    result = runner.invoke(main, ["convert", str(FIXTURE_SQL)])
+    assert result.exit_code == 0
+    assert "CREATE OR REPLACE FUNCTION app.display_name (p_name varchar)" in result.output
+    assert "RETURN COALESCE(p_name, 'anonymous');" in result.output
+
+
+def test_convert_sql_file_default_schema(runner: CliRunner, tmp_path: Path) -> None:
+    script = tmp_path / "proc.sql"
+    script.write_text("CREATE OR REPLACE PROCEDURE p IS BEGIN NULL; END;\n/\n", encoding="utf-8")
+    result = runner.invoke(main, ["convert", str(script), "--schema", "billing"])
+    assert result.exit_code == 0
+    assert "CREATE OR REPLACE PROCEDURE billing.p ()" in result.output
+
+
+def test_convert_rejects_bad_inventory(runner: CliRunner, tmp_path: Path) -> None:
+    bad = tmp_path / "bad.json"
+    bad.write_text("[1, 2]", encoding="utf-8")
+    result = runner.invoke(main, ["convert", str(bad)])
+    assert result.exit_code != 0
+    assert "inventory must be a JSON object" in result.output
