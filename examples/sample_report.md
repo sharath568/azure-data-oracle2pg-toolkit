@@ -1,6 +1,6 @@
 # o2pg assessment: ORCLPDB1
 
-Generated 2026-10-10T23:37:46Z by o2pg 0.2.0. Source: Oracle 19.0.0.0.0; schemas HR, SALES; character set WE8MSWIN1252; collected 2026-10-01T14:05:11Z.
+Generated 2026-11-16T17:48:56Z by o2pg 0.3.0. Source: Oracle 19.0.0.0.0; schemas HR, SALES; character set WE8MSWIN1252; collected 2026-10-01T14:05:11Z.
 
 ## Summary
 

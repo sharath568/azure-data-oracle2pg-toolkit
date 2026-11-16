@@ -1,0 +1,20 @@
+{
+  "unit": "lab.days_between",
+  "model": "reference",
+  "note": "Hand-written reference answer, not model output.",
+  "attempts": [
+    {
+      "sql": "CREATE OR REPLACE FUNCTION lab.days_between (p_from timestamp(0), p_to timestamp(0))\nRETURNS numeric\nLANGUAGE plpgsql\nSET search_path = lab, public\nAS $$\nBEGIN\n  RETURN EXTRACT(EPOCH FROM (p_to - p_from)) / 86400;\nEND;\n$$;",
+      "changes": [
+        {
+          "rule": "O2PG-RV-039",
+          "change": "timestamp - timestamp is an interval; converted to a number of days with EXTRACT(EPOCH ...) / 86400"
+        }
+      ],
+      "signature_changed": false,
+      "signature_reason": "",
+      "unresolved": [],
+      "assumptions": []
+    }
+  ]
+}

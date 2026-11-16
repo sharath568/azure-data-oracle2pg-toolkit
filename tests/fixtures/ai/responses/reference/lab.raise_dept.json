@@ -1,0 +1,34 @@
+{
+  "unit": "lab.raise_dept",
+  "model": "reference",
+  "note": "Hand-written reference answer, not model output.",
+  "attempts": [
+    {
+      "sql": "CREATE OR REPLACE PROCEDURE lab.raise_dept (p_dept numeric, p_pct numeric, OUT p_updated numeric)\nLANGUAGE plpgsql\nSET search_path = lab, public\nAS $$\nBEGIN\n  UPDATE emp SET salary = round(salary * (1 + p_pct / 100), 2) WHERE dept_id = p_dept;\n  GET DIAGNOSTICS p_updated = ROW_COUNT;\nEND;\n$$;",
+      "changes": [
+        {
+          "rule": "O2PG-RV-003",
+          "change": "BULK COLLECT of the department's ids removed: the update is now one set-based statement"
+        },
+        {
+          "rule": "O2PG-RV-004",
+          "change": "FORALL became a single UPDATE ... WHERE dept_id = p_dept"
+        },
+        {
+          "rule": "O2PG-RV-009",
+          "change": "id_tab_t collection type no longer needed"
+        },
+        {
+          "rule": "O2PG-RV-010",
+          "change": "l_ids variable removed"
+        }
+      ],
+      "signature_changed": false,
+      "signature_reason": "",
+      "unresolved": [],
+      "assumptions": [
+        "No concurrent session changes dept_id for these rows between Oracle's SELECT and FORALL; the single UPDATE closes that window"
+      ]
+    }
+  ]
+}

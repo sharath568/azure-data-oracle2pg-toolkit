@@ -1,0 +1,20 @@
+{
+  "unit": "lab.last_chars",
+  "model": "reference",
+  "note": "Hand-written reference answer, not model output.",
+  "attempts": [
+    {
+      "sql": "CREATE OR REPLACE FUNCTION lab.last_chars (p_text varchar, p_n numeric)\nRETURNS varchar\nLANGUAGE plpgsql\nSET search_path = lab, public\nAS $$\nDECLARE\n  v_n integer := trunc(p_n);\nBEGIN\n  IF v_n > 0 THEN\n    IF v_n > length(p_text) THEN\n      RETURN NULL;\n    END IF;\n    RETURN NULLIF(right(p_text, v_n), '');\n  ELSIF v_n = 0 THEN\n    RETURN NULLIF(p_text, '');\n  END IF;\n  RETURN NULLIF(substr(p_text, -v_n), '');\nEND;\n$$;",
+      "changes": [
+        {
+          "rule": "O2PG-RV-030",
+          "change": "SUBSTR(p_text, -p_n) became right(); NULL when p_n is longer than the string, as Oracle does"
+        }
+      ],
+      "signature_changed": false,
+      "signature_reason": "",
+      "unresolved": [],
+      "assumptions": []
+    }
+  ]
+}

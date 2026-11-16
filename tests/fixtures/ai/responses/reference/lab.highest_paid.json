@@ -1,0 +1,20 @@
+{
+  "unit": "lab.highest_paid",
+  "model": "reference",
+  "note": "Hand-written reference answer, not model output.",
+  "attempts": [
+    {
+      "sql": "CREATE OR REPLACE FUNCTION lab.highest_paid (p_dept numeric)\nRETURNS numeric\nLANGUAGE plpgsql\nSET search_path = lab, public\nAS $$\nDECLARE\n  l_emp numeric;\nBEGIN\n  SELECT emp_id INTO STRICT l_emp\n    FROM emp\n   WHERE dept_id = p_dept\n   ORDER BY salary DESC, emp_id\n   LIMIT 1;\n  RETURN l_emp;\nEND;\n$$;",
+      "changes": [
+        {
+          "rule": "O2PG-RV-005",
+          "change": "ROWNUM = 1 over an ordered inline view became ORDER BY ... LIMIT 1; INTO STRICT keeps NO_DATA_FOUND for an empty department"
+        }
+      ],
+      "signature_changed": false,
+      "signature_reason": "",
+      "unresolved": [],
+      "assumptions": []
+    }
+  ]
+}

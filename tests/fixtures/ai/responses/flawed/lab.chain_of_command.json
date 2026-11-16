@@ -1,0 +1,41 @@
+{
+  "unit": "lab.chain_of_command",
+  "model": "flawed",
+  "note": "Hand-written test fixture, not model output.",
+  "attempts": [
+    {
+      "sql": "CREATE OR REPLACE FUNCTION lab.chain_of_command (p_emp numeric)\nRETURNS varchar\nLANGUAGE plpgsql\nSET search_path = lab, public\nAS $$\nDECLARE\n  l_chain varchar(4000);\nBEGIN\n  WITH RECURSIVE chain AS (\n    SELECT emp_id, mgr_id, name, 1 AS lvl FROM emp WHERE emp_id = p_emp\n    UNION ALL\n    SELECT e.emp_id, e.mgr_id, e.name, c.lvl + 1\n      FROM emp e JOIN chain c ON e.emp_id = c.mgr_id\n  )\n  SELECT string_agg(name, ' > ' ORDER BY lvl DESC INTO STRICT l_chain FROM chain;\n  RETURN l_chain;\nEND;\n$$;",
+      "changes": [
+        {
+          "rule": "O2PG-RV-006",
+          "change": "CONNECT BY PRIOR mgr_id = emp_id became WITH RECURSIVE walking up from p_emp, with lvl as LEVEL"
+        },
+        {
+          "rule": "O2PG-RV-015",
+          "change": "LISTAGG ... WITHIN GROUP (ORDER BY LEVEL DESC) became string_agg(... ORDER BY lvl DESC)"
+        }
+      ],
+      "signature_changed": false,
+      "signature_reason": "",
+      "unresolved": [],
+      "assumptions": []
+    },
+    {
+      "sql": "CREATE OR REPLACE FUNCTION lab.chain_of_command (p_emp numeric)\nRETURNS varchar\nLANGUAGE plpgsql\nSET search_path = lab, public\nAS $$\nDECLARE\n  l_chain varchar(4000);\nBEGIN\n  WITH RECURSIVE chain AS (\n    SELECT emp_id, mgr_id, name, 1 AS lvl FROM emp WHERE emp_id = p_emp\n    UNION ALL\n    SELECT e.emp_id, e.mgr_id, e.name, c.lvl + 1\n      FROM emp e JOIN chain c ON e.emp_id = c.mgr_id\n  )\n  SELECT string_agg(name, ' > ' ORDER BY lvl DESC) INTO STRICT l_chain FROM chain;\n  RETURN l_chain;\nEND;\n$$;",
+      "changes": [
+        {
+          "rule": "O2PG-RV-006",
+          "change": "CONNECT BY PRIOR mgr_id = emp_id became WITH RECURSIVE walking up from p_emp, with lvl as LEVEL"
+        },
+        {
+          "rule": "O2PG-RV-015",
+          "change": "LISTAGG ... WITHIN GROUP (ORDER BY LEVEL DESC) became string_agg(... ORDER BY lvl DESC)"
+        }
+      ],
+      "signature_changed": false,
+      "signature_reason": "",
+      "unresolved": [],
+      "assumptions": []
+    }
+  ]
+}

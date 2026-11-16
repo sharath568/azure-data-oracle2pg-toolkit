@@ -1,0 +1,20 @@
+{
+  "unit": "lab.days_between",
+  "model": "flawed",
+  "note": "Hand-written test fixture, not model output.",
+  "attempts": [
+    {
+      "sql": "CREATE OR REPLACE FUNCTION lab.days_between (p_from timestamp(0), p_to timestamp(0))\nRETURNS numeric\nLANGUAGE plpgsql\nSET search_path = lab, public\nAS $$\nBEGIN\n  RETURN date_part('day', p_to - p_from);\nEND;\n$$;",
+      "changes": [
+        {
+          "rule": "O2PG-RV-039",
+          "change": "the interval's day part is the number of days"
+        }
+      ],
+      "signature_changed": false,
+      "signature_reason": "",
+      "unresolved": [],
+      "assumptions": []
+    }
+  ]
+}

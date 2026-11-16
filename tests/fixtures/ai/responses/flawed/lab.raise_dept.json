@@ -1,0 +1,28 @@
+{
+  "unit": "lab.raise_dept",
+  "model": "flawed",
+  "note": "Hand-written test fixture, not model output.",
+  "attempts": [
+    {
+      "sql": "CREATE OR REPLACE PROCEDURE lab.raise_dept (p_dept numeric, p_pct numeric, OUT p_updated numeric)\nLANGUAGE plpgsql\nSET search_path = lab, public\nAS $$\nDECLARE\n  l_ids numeric[];\n  l_id  numeric;\nBEGIN\n  SELECT array_agg(emp_id) INTO l_ids FROM emp WHERE dept_id = p_dept;\n  FOREACH l_id IN ARRAY coalesce(l_ids, '{}') LOOP\n    UPDATE emp SET salary = round(salary * (1 + p_pct / 100), 2) WHERE emp_id = l_id;\n  END LOOP;\n  GET DIAGNOSTICS p_updated = ROW_COUNT;\nEND;\n$$;",
+      "changes": [
+        {
+          "rule": "O2PG-RV-003",
+          "change": "BULK COLLECT became array_agg into a numeric[]"
+        },
+        {
+          "rule": "O2PG-RV-004",
+          "change": "FORALL became FOREACH over the array"
+        },
+        {
+          "rule": "O2PG-RV-009",
+          "change": "collection type became numeric[]"
+        }
+      ],
+      "signature_changed": false,
+      "signature_reason": "",
+      "unresolved": [],
+      "assumptions": []
+    }
+  ]
+}

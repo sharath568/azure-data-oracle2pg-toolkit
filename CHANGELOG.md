@@ -4,6 +4,40 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [0.3.0] - 2026-11-16
+
+### Added
+
+- `o2pg ai-convert`: sends the units `o2pg convert` left with review points to
+  Azure OpenAI (REST, structured JSON output, no SDK) and gates every answer:
+  a static gate (only the routine, same name, same signature unless a review
+  point requires a change, no Oracle syntax or functions left, no undeclared
+  review markers), a compile gate in a throwaway PostgreSQL database
+  (`--dsn`), and a behaviour gate against equivalence cases (`--cases`).
+  Static and compile failures go back to the model (`--attempts`, default 2);
+  behaviour failures only with `--behaviour-feedback`.
+- Units that need a design decision (autonomous transactions, package state,
+  Oracle-supplied packages, transaction control in functions, flashback,
+  unconverted objects) are not sent and are listed under "Needs a person".
+- Candidate files with a header stating status, changes per review rule,
+  assumptions and signature changes; `verified.sql`; `ai-report.md` and
+  `ai-report.json` with token counts and a cost estimate.
+- `--provider replay` and `--record DIR`: save answers and replay a run exactly
+  without a model.
+- `o2pg equiv record` (python-oracledb, `pip install 'o2pg[oracle]'`) and
+  `o2pg equiv check`: record results on Oracle and compare converted code on
+  PostgreSQL. Functions are called from a PL/SQL block so NO_DATA_FOUND is not
+  swallowed; numbers are compared exactly; `''` never equals NULL.
+- `tests/fixtures/ai/`: a 14-routine hard corpus with 34 Oracle cases, plus
+  hand-written reference and flawed answers that test each gate.
+- CI job `oracle` that replays every case on Oracle Database Free
+  (`gvenzl/oracle-free`), and an ai-convert smoke test.
+- `scripts/ai_eval.sh` and `docs/ai-convert.md`.
+
+### Changed
+
+- Collector version string is now 0.3.0 (no functional change).
+
 ## [0.2.0] - 2026-10-10
 
 ### Added

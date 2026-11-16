@@ -1,0 +1,20 @@
+{
+  "unit": "lab.headcount_under",
+  "model": "flawed",
+  "note": "Hand-written test fixture, not model output.",
+  "attempts": [
+    {
+      "sql": "CREATE OR REPLACE FUNCTION lab.headcount_under (p_mgr numeric)\nRETURNS numeric\nLANGUAGE plpgsql\nSET search_path = lab, public\nAS $$\nDECLARE\n  l_n numeric;\nBEGIN\n  WITH RECURSIVE tree AS (\n    SELECT emp_id FROM emp WHERE emp_id = p_mgr\n    UNION ALL\n    SELECT e.emp_id FROM emp e JOIN tree t ON e.mgr_id = t.emp_id\n  )\n  SELECT count(*) INTO STRICT l_n FROM tree;\n  RETURN l_n;\nEND;\n$$;",
+      "changes": [
+        {
+          "rule": "O2PG-RV-006",
+          "change": "CONNECT BY became WITH RECURSIVE"
+        }
+      ],
+      "signature_changed": false,
+      "signature_reason": "",
+      "unresolved": [],
+      "assumptions": []
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "unit": "lab.highest_paid",
+  "model": "flawed",
+  "note": "Hand-written test fixture, not model output.",
+  "attempts": [
+    {
+      "sql": "CREATE OR REPLACE FUNCTION lab.highest_paid (p_dept integer)\nRETURNS integer\nLANGUAGE plpgsql\nSET search_path = lab, public\nAS $$\nDECLARE\n  l_emp integer;\nBEGIN\n  SELECT emp_id INTO STRICT l_emp FROM emp WHERE dept_id = p_dept ORDER BY salary DESC, emp_id LIMIT 1;\n  RETURN l_emp;\nEND;\n$$;",
+      "changes": [
+        {
+          "rule": "O2PG-RV-005",
+          "change": "ROWNUM became LIMIT 1; ids are integers so the types were tightened"
+        }
+      ],
+      "signature_changed": false,
+      "signature_reason": "",
+      "unresolved": [],
+      "assumptions": []
+    },
+    {
+      "sql": "CREATE OR REPLACE FUNCTION lab.highest_paid (p_dept integer)\nRETURNS integer\nLANGUAGE plpgsql\nSET search_path = lab, public\nAS $$\nDECLARE\n  l_emp integer;\nBEGIN\n  SELECT emp_id INTO STRICT l_emp FROM emp WHERE dept_id = p_dept ORDER BY salary DESC, emp_id LIMIT 1;\n  RETURN l_emp;\nEND;\n$$;",
+      "changes": [
+        {
+          "rule": "O2PG-RV-005",
+          "change": "ROWNUM became LIMIT 1; ids are integers so the types were tightened"
+        }
+      ],
+      "signature_changed": false,
+      "signature_reason": "",
+      "unresolved": [],
+      "assumptions": []
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "unit": "lab.code_kind",
+  "model": "reference",
+  "note": "Hand-written reference answer, not model output.",
+  "attempts": [
+    {
+      "sql": "CREATE OR REPLACE FUNCTION lab.code_kind (p_code varchar)\nRETURNS varchar\nLANGUAGE plpgsql\nSET search_path = lab, public\nAS $$\nBEGIN\n  IF NULLIF(p_code, '') IS NULL THEN\n    RETURN 'missing';\n  ELSE\n    RETURN 'value';\n  END IF;\nEND;\n$$;",
+      "changes": [
+        {
+          "rule": "O2PG-RV-034",
+          "change": "p_code = '' is never true in Oracle; the branch is removed and '' is treated as NULL with NULLIF"
+        }
+      ],
+      "signature_changed": false,
+      "signature_reason": "",
+      "unresolved": [],
+      "assumptions": []
+    }
+  ]
+}

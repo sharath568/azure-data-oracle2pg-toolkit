@@ -1,0 +1,20 @@
+{
+  "unit": "lab.last_chars",
+  "model": "flawed",
+  "note": "Hand-written test fixture, not model output.",
+  "attempts": [
+    {
+      "sql": "CREATE OR REPLACE FUNCTION lab.last_chars (p_text varchar, p_n numeric)\nRETURNS varchar\nLANGUAGE plpgsql\nSET search_path = lab, public\nAS $$\nBEGIN\n  RETURN right(p_text, p_n::integer);\nEND;\n$$;",
+      "changes": [
+        {
+          "rule": "O2PG-RV-030",
+          "change": "negative SUBSTR position became right()"
+        }
+      ],
+      "signature_changed": false,
+      "signature_reason": "",
+      "unresolved": [],
+      "assumptions": []
+    }
+  ]
+}

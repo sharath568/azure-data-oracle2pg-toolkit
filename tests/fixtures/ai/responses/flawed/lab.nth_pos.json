@@ -1,0 +1,33 @@
+{
+  "unit": "lab.nth_pos",
+  "model": "flawed",
+  "note": "Hand-written test fixture, not model output.",
+  "attempts": [
+    {
+      "sql": "CREATE OR REPLACE FUNCTION lab.nth_pos (p_text varchar, p_find varchar, p_nth numeric)\nRETURNS numeric\nLANGUAGE plpgsql\nSET search_path = lab, public\nAS $$\nBEGIN\n  RETURN instr(p_text, p_find, 1, p_nth::integer);\nEND;\n$$;",
+      "changes": [
+        {
+          "rule": "O2PG-RV-044",
+          "change": "use orafce's instr(), which has the Oracle signature"
+        }
+      ],
+      "signature_changed": false,
+      "signature_reason": "",
+      "unresolved": [],
+      "assumptions": []
+    },
+    {
+      "sql": "CREATE OR REPLACE FUNCTION lab.nth_pos (p_text varchar, p_find varchar, p_nth numeric)\nRETURNS numeric\nLANGUAGE plpgsql\nSET search_path = lab, public\nAS $$\nBEGIN\n  RETURN instr(p_text, p_find, 1, p_nth::integer);\nEND;\n$$;",
+      "changes": [
+        {
+          "rule": "O2PG-RV-044",
+          "change": "use orafce's instr(), which has the Oracle signature"
+        }
+      ],
+      "signature_changed": false,
+      "signature_reason": "",
+      "unresolved": [],
+      "assumptions": []
+    }
+  ]
+}

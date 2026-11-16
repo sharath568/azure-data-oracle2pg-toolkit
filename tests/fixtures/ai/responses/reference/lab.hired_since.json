@@ -1,0 +1,24 @@
+{
+  "unit": "lab.hired_since",
+  "model": "reference",
+  "note": "Hand-written reference answer, not model output.",
+  "attempts": [
+    {
+      "sql": "CREATE OR REPLACE FUNCTION lab.hired_since (p_day timestamp(0))\nRETURNS TABLE (emp_id numeric, name varchar)\nLANGUAGE plpgsql\nSET search_path = lab, public\nAS $$\nBEGIN\n  RETURN QUERY\n    SELECT e.emp_id, e.name FROM emp e WHERE e.hired >= p_day ORDER BY e.emp_id;\nEND;\n$$;",
+      "changes": [
+        {
+          "rule": "O2PG-RV-008",
+          "change": "PIPELINED with PIPE ROW became RETURNS TABLE with RETURN QUERY"
+        },
+        {
+          "rule": "O2PG-RV-010",
+          "change": "the lab_emp_tab collection of lab_emp_row objects became the TABLE (emp_id, name) result"
+        }
+      ],
+      "signature_changed": true,
+      "signature_reason": "PostgreSQL has no pipelined functions or SQL collection types: callers change SELECT * FROM TABLE(lab.hired_since(d)) to SELECT * FROM lab.hired_since(d)",
+      "unresolved": [],
+      "assumptions": []
+    }
+  ]
+}

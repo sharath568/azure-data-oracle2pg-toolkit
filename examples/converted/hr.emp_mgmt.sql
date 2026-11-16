@@ -1,4 +1,4 @@
--- HR.EMP_MGMT (PACKAGE + PACKAGE BODY) converted to PL/pgSQL by o2pg 0.2.0
+-- HR.EMP_MGMT (PACKAGE + PACKAGE BODY) converted to PL/pgSQL by o2pg 0.3.0
 -- Mechanical rewrites only. Read every O2PG-REVIEW marker and test the logic
 -- against real data before relying on it.
 -- Review points: 18 (14 blocking). See conversion-report.md.

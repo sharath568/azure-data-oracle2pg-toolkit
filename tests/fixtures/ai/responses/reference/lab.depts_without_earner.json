@@ -1,0 +1,20 @@
+{
+  "unit": "lab.depts_without_earner",
+  "model": "reference",
+  "note": "Hand-written reference answer, not model output.",
+  "attempts": [
+    {
+      "sql": "CREATE OR REPLACE FUNCTION lab.depts_without_earner (p_min numeric)\nRETURNS numeric\nLANGUAGE plpgsql\nSET search_path = lab, public\nAS $$\nDECLARE\n  l_n numeric;\nBEGIN\n  SELECT count(*) INTO STRICT l_n\n    FROM dept d\n    LEFT JOIN emp e ON e.dept_id = d.dept_id AND e.salary > p_min\n   WHERE e.emp_id IS NULL;\n  RETURN l_n;\nEND;\n$$;",
+      "changes": [
+        {
+          "rule": "O2PG-RV-007",
+          "change": "both (+) conditions moved into the LEFT JOIN ... ON clause; e.emp_id IS NULL stays in WHERE"
+        }
+      ],
+      "signature_changed": false,
+      "signature_reason": "",
+      "unresolved": [],
+      "assumptions": []
+    }
+  ]
+}

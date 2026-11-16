@@ -1,4 +1,4 @@
--- SALES.ORDERS_BI (TRIGGER) converted to PL/pgSQL by o2pg 0.2.0
+-- SALES.ORDERS_BI (TRIGGER) converted to PL/pgSQL by o2pg 0.3.0
 -- Mechanical rewrites only. Read every O2PG-REVIEW marker and test the logic
 -- against real data before relying on it.
 -- Review points: 0 (0 blocking). See conversion-report.md.

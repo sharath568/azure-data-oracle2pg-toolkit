@@ -1,0 +1,24 @@
+{
+  "unit": "lab.digits_only",
+  "model": "reference",
+  "note": "Hand-written reference answer, not model output.",
+  "attempts": [
+    {
+      "sql": "CREATE OR REPLACE FUNCTION lab.digits_only (p_text varchar)\nRETURNS varchar\nLANGUAGE plpgsql\nSET search_path = lab, public\nAS $$\nBEGIN\n  RETURN NULLIF(regexp_replace(p_text, '[^0-9]', '', 'g'), '');\nEND;\n$$;",
+      "changes": [
+        {
+          "rule": "O2PG-RV-042",
+          "change": "added the 'g' flag so every non-digit is removed"
+        },
+        {
+          "rule": "O2PG-RV-034",
+          "change": "NULLIF(..., '') turns an empty result into NULL as Oracle does"
+        }
+      ],
+      "signature_changed": false,
+      "signature_reason": "",
+      "unresolved": [],
+      "assumptions": []
+    }
+  ]
+}

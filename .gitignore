@@ -27,3 +27,5 @@ o2pg_inventory.json
 /schema.sql
 /sample_inventory.json
 /converted/
+/ai/
+/eval/

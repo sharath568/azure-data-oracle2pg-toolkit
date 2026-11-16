@@ -33,6 +33,10 @@ This repo goes with the article
   mechanical rewrites (headers, types, `NVL`, `DECODE`, `SYSDATE`, sequences,
   `:NEW`, `SELECT INTO STRICT`, ...) and leaves everything else in place behind
   an inline `O2PG-REVIEW` marker. See [Converting PL/SQL](#converting-plsql-v02).
+- **AI-assisted conversion with gates (v0.3):** `o2pg ai-convert` sends only the
+  units with review points to Azure OpenAI and accepts nothing that fails a
+  static check, a compile in PostgreSQL, or a comparison with results recorded
+  on Oracle (`o2pg equiv`). See [AI-assisted conversion](#ai-assisted-conversion-v03).
 
 ## Five-minute quickstart
 
@@ -258,6 +262,48 @@ and the sample's MERGE. CI runs them against a `postgres:16` service container.
 - Coverage is a count of statements without a marker. It is a way to rank work,
   not a measure of correctness.
 
+## AI-assisted conversion (v0.3)
+
+Some review points are mechanical in spirit but not in practice: `ROWNUM` over
+an ordered view, `CONNECT BY`, `(+)` joins with filters, `BULK COLLECT` and
+`FORALL`, and the Oracle NULL rules for `''` and `||`. `o2pg ai-convert` asks a
+model to finish those units, and then checks the answer three ways before
+calling it done.
+
+```bash
+pip install 'o2pg[pg]'
+export AZURE_OPENAI_ENDPOINT=https://<name>.openai.azure.com AZURE_OPENAI_API_KEY=...
+docker run -d -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:16
+
+o2pg ai-convert o2pg_inventory.json -o ai \
+  --dsn postgresql://postgres:postgres@localhost:5432/postgres --cases my_cases.json
+```
+
+1. **Static gate:** the answer holds only the routine, keeps its name and
+   signature (a change is allowed only when a review point needs one, such as a
+   pipelined function, and is always reported), and has no Oracle syntax or
+   functions left.
+2. **Compile gate:** the routine is created in a throwaway database and rolled
+   back. A failure goes back to the model once.
+3. **Behaviour gate:** equivalence cases (`o2pg equiv`) run against the
+   candidate and must return what Oracle returned.
+
+Units that need a design decision (autonomous transactions, package state,
+`UTL_FILE`, queues, mail) are never sent. The mechanical output is never
+edited: candidates are separate files with a header that says what changed and
+how they were checked.
+
+Why the behaviour gate matters: on the corpus in `tests/fixtures/ai/`, the
+mechanical output matches Oracle on 6 of 34 cases, and four routines that
+compile cleanly still answer differently (`'Bob <>'` becomes NULL, `7 / 2`
+becomes 3, `''` stops being NULL). In the test suite, hand-written flawed
+answers show each gate catching the mistakes it is meant to catch, such as a
+`(+)` filter moved into `WHERE`, `date_part('day', ...)` used as a day count,
+and a row count read after a loop instead of after one statement.
+
+Full details, the case file format and how the expectations are recorded on
+Oracle Database Free in CI: [docs/ai-convert.md](docs/ai-convert.md).
+
 ## Rule categories
 
 | Category | Prefix | Rules | Examples |
@@ -321,12 +367,17 @@ Please read these before you trust a number in the report.
   indexes other than primary and unique keys, and anything it marks `TODO`.
 - **`convert` output needs review and testing.** See the limits under
   [Converting PL/SQL](#converting-plsql-v02).
+- **`ai-convert` "verified" means the equivalence cases pass,** not that the
+  routine is proven equivalent. The cases cover what someone thought to test.
+  The compile gate checks syntax only: PL/pgSQL resolves names when the code runs.
 - It does not look at data. Data profiling (real precision of `NUMBER` columns,
   whether `DATE` columns ever have a time) is on the roadmap.
 
 ## Roadmap
 
 - ~~PL/SQL to PL/pgSQL conversion helpers~~: shipped in v0.2.0 (`o2pg convert`).
+- ~~AI-assisted conversion with equivalence checks~~: shipped in v0.3.0
+  (`o2pg ai-convert`, `o2pg equiv`).
 - **View conversion** with the same rewrite engine, and type-aware date
   arithmetic using column types from the inventory.
 - **Data validation:** row counts, checksums and sampled column comparisons

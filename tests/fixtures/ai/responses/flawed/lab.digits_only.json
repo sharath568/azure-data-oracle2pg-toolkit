@@ -1,0 +1,20 @@
+{
+  "unit": "lab.digits_only",
+  "model": "flawed",
+  "note": "Hand-written test fixture, not model output.",
+  "attempts": [
+    {
+      "sql": "CREATE OR REPLACE FUNCTION lab.digits_only (p_text varchar)\nRETURNS varchar\nLANGUAGE plpgsql\nSET search_path = lab, public\nAS $$\nBEGIN\n  RETURN regexp_replace(p_text, '[^0-9]', '', 'g');\nEND;\n$$;",
+      "changes": [
+        {
+          "rule": "O2PG-RV-042",
+          "change": "added the 'g' flag so every match is replaced"
+        }
+      ],
+      "signature_changed": false,
+      "signature_reason": "",
+      "unresolved": [],
+      "assumptions": []
+    }
+  ]
+}

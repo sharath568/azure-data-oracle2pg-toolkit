@@ -1,0 +1,20 @@
+{
+  "unit": "lab.nth_pos",
+  "model": "reference",
+  "note": "Hand-written reference answer, not model output.",
+  "attempts": [
+    {
+      "sql": "CREATE OR REPLACE FUNCTION lab.nth_pos (p_text varchar, p_find varchar, p_nth numeric)\nRETURNS numeric\nLANGUAGE plpgsql\nSET search_path = lab, public\nAS $$\nDECLARE\n  v_pos  integer := 0;\n  v_from integer := 1;\n  v_hit  integer;\nBEGIN\n  IF p_text IS NULL OR p_find IS NULL OR p_nth IS NULL THEN\n    RETURN NULL;\n  END IF;\n  FOR i IN 1 .. trunc(p_nth)::integer LOOP\n    v_hit := strpos(substr(p_text, v_from), p_find);\n    IF v_hit = 0 THEN\n      RETURN 0;\n    END IF;\n    v_pos := v_from + v_hit - 1;\n    v_from := v_pos + 1;\n  END LOOP;\n  RETURN v_pos;\nEND;\n$$;",
+      "changes": [
+        {
+          "rule": "O2PG-RV-044",
+          "change": "four-argument INSTR became a strpos loop that finds the n-th occurrence (overlapping, like Oracle) and returns 0 when there is none"
+        }
+      ],
+      "signature_changed": false,
+      "signature_reason": "",
+      "unresolved": [],
+      "assumptions": []
+    }
+  ]
+}

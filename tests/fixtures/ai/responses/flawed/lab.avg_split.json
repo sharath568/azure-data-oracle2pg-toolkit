@@ -1,0 +1,20 @@
+{
+  "unit": "lab.avg_split",
+  "model": "flawed",
+  "note": "Hand-written test fixture, not model output.",
+  "attempts": [
+    {
+      "sql": "CREATE OR REPLACE FUNCTION lab.avg_split (p_total integer, p_parts integer)\nRETURNS numeric\nLANGUAGE plpgsql\nSET search_path = lab, public\nAS $$\nDECLARE\n  l_share numeric;\nBEGIN\n  l_share := p_total / p_parts;\n  RETURN l_share;\nEND;\n$$;",
+      "changes": [
+        {
+          "rule": "O2PG-RV-040",
+          "change": "l_share is numeric, so the result keeps its fraction"
+        }
+      ],
+      "signature_changed": false,
+      "signature_reason": "",
+      "unresolved": [],
+      "assumptions": []
+    }
+  ]
+}

@@ -37,6 +37,11 @@ jobs:
           o2pg assess /tmp/inv.json -f html -o /tmp/report.html
           o2pg map-types /tmp/inv.json -o /tmp/schema.sql
           o2pg convert /tmp/inv.json -o /tmp/converted
+      - name: Smoke test ai-convert (replay, static gate only)
+        run: |
+          o2pg ai-convert tests/fixtures/ai/lab.sql -o /tmp/ai --provider replay \
+            --replay tests/fixtures/ai/responses/reference || test $? -eq 1
+          grep -q "Sent to the model | 13" /tmp/ai/ai-report.md
 
   postgres:
     name: PostgreSQL 16 integration
@@ -65,3 +70,33 @@ jobs:
         run: python -m pip install -e '.[dev,pg]'
       - name: Integration tests
         run: pytest -m integration -v
+
+  oracle:
+    name: Oracle Database Free (equivalence expectations)
+    runs-on: ubuntu-latest
+    services:
+      oracle:
+        image: gvenzl/oracle-free:23-slim-faststart
+        env:
+          ORACLE_RANDOM_PASSWORD: "true"
+          APP_USER: lab
+          APP_USER_PASSWORD: lab_password
+        ports:
+          - 1521:1521
+        options: >-
+          --health-cmd healthcheck.sh
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install
+        run: python -m pip install -e '.[oracle]'
+      - name: Replay every equivalence case on Oracle and compare with cases.json
+        run: >-
+          o2pg equiv record tests/fixtures/ai/cases.json
+          --oracle-dsn lab/lab_password@localhost:1521/FREEPDB1

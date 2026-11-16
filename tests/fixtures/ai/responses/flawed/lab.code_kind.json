@@ -1,0 +1,17 @@
+{
+  "unit": "lab.code_kind",
+  "model": "flawed",
+  "note": "Hand-written test fixture, not model output.",
+  "attempts": [
+    {
+      "sql": "CREATE OR REPLACE FUNCTION lab.code_kind (p_code varchar)\nRETURNS varchar\nLANGUAGE plpgsql\nSET search_path = lab, public\nAS $$\nBEGIN\n  /* O2PG-REVIEW O2PG-RV-034: '' is NULL in Oracle but an empty string in PostgreSQL; comparisons with '' and assignments of '' behave differently */\n  IF p_code = '' THEN\n    RETURN 'empty';\n  ELSIF p_code IS NULL THEN\n    RETURN 'missing';\n  ELSE\n    RETURN 'value';\n  END IF;\nEND;\n$$;",
+      "changes": [],
+      "signature_changed": false,
+      "signature_reason": "",
+      "unresolved": [
+        "O2PG-RV-034: whether callers send '' for 'no code' is an application question; left as is"
+      ],
+      "assumptions": []
+    }
+  ]
+}

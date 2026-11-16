@@ -1,0 +1,20 @@
+{
+  "unit": "lab.contact_line",
+  "model": "reference",
+  "note": "Hand-written reference answer, not model output.",
+  "attempts": [
+    {
+      "sql": "CREATE OR REPLACE FUNCTION lab.contact_line (p_emp numeric)\nRETURNS varchar\nLANGUAGE plpgsql\nSET search_path = lab, public\nAS $$\nDECLARE\n  l_line varchar(200);\nBEGIN\n  SELECT concat(name, ' <', email, '>') INTO STRICT l_line FROM emp WHERE emp_id = p_emp;\n  RETURN l_line;\nEND;\n$$;",
+      "changes": [
+        {
+          "rule": "O2PG-RV-035",
+          "change": "|| replaced by concat(), which treats a NULL email as '' like Oracle"
+        }
+      ],
+      "signature_changed": false,
+      "signature_reason": "",
+      "unresolved": [],
+      "assumptions": []
+    }
+  ]
+}

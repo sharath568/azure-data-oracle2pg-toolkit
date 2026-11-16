@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "description": "Oracle results the hard corpus (lab.sql) must reproduce in PostgreSQL. The oracle-golden CI job replays every case on Oracle Database Free and fails if any expectation here differs from what Oracle returns.",
+  "search_path": "lab, public",
+  "oracle": {"setup": ["oracle_schema.sql", "lab.sql"]},
+  "postgres": {"setup": ["pg_schema.sql"]},
+  "data": "data.sql",
+  "cases": [
+    {"id": "highest_paid.engineering", "call": "lab.highest_paid", "kind": "function", "returns": "number", "args": [20], "expect": {"value": 2}},
+    {"id": "highest_paid.sales", "call": "lab.highest_paid", "kind": "function", "returns": "number", "args": [30], "expect": {"value": 5}},
+    {"id": "highest_paid.empty_dept_raises", "call": "lab.highest_paid", "kind": "function", "returns": "number", "args": [40], "expect": {"error": "NO_DATA_FOUND"}},
+
+    {"id": "chain_of_command.deep", "call": "lab.chain_of_command", "kind": "function", "returns": "text", "args": [3], "expect": {"value": "Ana > Raj > Li"}},
+    {"id": "chain_of_command.top", "call": "lab.chain_of_command", "kind": "function", "returns": "text", "args": [1], "expect": {"value": "Ana"}},
+    {"id": "chain_of_command.unknown_is_null", "call": "lab.chain_of_command", "kind": "function", "returns": "text", "args": [99], "expect": {"value": null}},
+
+    {"id": "headcount_under.root", "call": "lab.headcount_under", "kind": "function", "returns": "number", "args": [1], "expect": {"value": 5}},
+    {"id": "headcount_under.middle", "call": "lab.headcount_under", "kind": "function", "returns": "number", "args": [2], "expect": {"value": 2}},
+    {"id": "headcount_under.leaf", "call": "lab.headcount_under", "kind": "function", "returns": "number", "args": [6], "expect": {"value": 0}},
+
+    {"id": "depts_without_earner.5000", "call": "lab.depts_without_earner", "kind": "function", "returns": "number", "args": [5000], "expect": {"value": 1}},
+    {"id": "depts_without_earner.8000", "call": "lab.depts_without_earner", "kind": "function", "returns": "number", "args": [8000], "expect": {"value": 2}},
+    {"id": "depts_without_earner.50000", "call": "lab.depts_without_earner", "kind": "function", "returns": "number", "args": [50000], "expect": {"value": 4}},
+
+    {"id": "raise_dept.engineering", "call": "lab.raise_dept", "kind": "procedure", "args": [20, 10, {"out": "number"}],
+     "then": "SELECT emp_id, salary FROM emp ORDER BY emp_id",
+     "expect": {"out": [3], "rows": [[1, 20000], [2, 9900], [3, 7700], [4, 5280.55], [5, 5200], [6, 3900]]}},
+    {"id": "raise_dept.sales", "call": "lab.raise_dept", "kind": "procedure", "args": [30, 5, {"out": "number"}],
+     "then": "SELECT emp_id, salary FROM emp ORDER BY emp_id",
+     "expect": {"out": [2], "rows": [[1, 20000], [2, 9000], [3, 7000], [4, 4800.5], [5, 5460], [6, 4095]]}},
+
+    {"id": "contact_line.null_email", "call": "lab.contact_line", "kind": "function", "returns": "text", "args": [4], "expect": {"value": "Bob <>"}},
+    {"id": "contact_line.with_email", "call": "lab.contact_line", "kind": "function", "returns": "text", "args": [1], "expect": {"value": "Ana <ana@example.com>"}},
+    {"id": "contact_line.unknown_raises", "call": "lab.contact_line", "kind": "function", "returns": "text", "args": [99], "expect": {"error": "NO_DATA_FOUND"}},
+
+    {"id": "code_kind.empty_string_is_null", "call": "lab.code_kind", "kind": "function", "returns": "text", "args": [""], "expect": {"value": "missing"}},
+    {"id": "code_kind.null", "call": "lab.code_kind", "kind": "function", "returns": "text", "args": [null], "expect": {"value": "missing"}},
+    {"id": "code_kind.space", "call": "lab.code_kind", "kind": "function", "returns": "text", "args": [" "], "expect": {"value": "value"}},
+    {"id": "code_kind.value", "call": "lab.code_kind", "kind": "function", "returns": "text", "args": ["X"], "expect": {"value": "value"}},
+
+    {"id": "days_between.day_and_a_half", "call": "lab.days_between", "kind": "function", "returns": "number",
+     "args": [{"timestamp": "2026-01-01T00:00:00"}, {"timestamp": "2026-01-02T12:00:00"}], "expect": {"value": 1.5}},
+    {"id": "days_between.negative", "call": "lab.days_between", "kind": "function", "returns": "number",
+     "args": [{"timestamp": "2026-01-02T12:00:00"}, {"timestamp": "2026-01-01T00:00:00"}], "expect": {"value": -1.5}},
+
+    {"id": "avg_split.fraction_kept", "call": "lab.avg_split", "kind": "function", "returns": "number", "args": [7, 2], "expect": {"value": 3.5}},
+    {"id": "avg_split.exact", "call": "lab.avg_split", "kind": "function", "returns": "number", "args": [6, 3], "expect": {"value": 2}},
+
+    {"id": "last_chars.two", "call": "lab.last_chars", "kind": "function", "returns": "text", "args": ["abcdef", 2], "expect": {"value": "ef"}},
+    {"id": "last_chars.whole", "call": "lab.last_chars", "kind": "function", "returns": "text", "args": ["abc", 3], "expect": {"value": "abc"}},
+    {"id": "last_chars.past_start_is_null", "call": "lab.last_chars", "kind": "function", "returns": "text", "args": ["abc", 5], "expect": {"value": null}},
+
+    {"id": "nth_pos.second", "call": "lab.nth_pos", "kind": "function", "returns": "number", "args": ["a,b,c,d", ",", 2], "expect": {"value": 4}},
+    {"id": "nth_pos.missing_is_zero", "call": "lab.nth_pos", "kind": "function", "returns": "number", "args": ["a,b,c,d", ",", 5], "expect": {"value": 0}},
+
+    {"id": "digits_only.phone", "call": "lab.digits_only", "kind": "function", "returns": "text", "args": ["(555) 123-4567"], "expect": {"value": "5551234567"}},
+    {"id": "digits_only.no_digits_is_null", "call": "lab.digits_only", "kind": "function", "returns": "text", "args": ["n/a"], "expect": {"value": null}},
+
+    {"id": "hired_since.recent", "call": "lab.hired_since", "kind": "rows", "args": [{"timestamp": "2023-01-01T00:00:00"}], "order_by": "1",
+     "expect": {"rows": [[4, "Bob"], [5, "Eva"], [6, "Tom"]]}},
+    {"id": "hired_since.none", "call": "lab.hired_since", "kind": "rows", "args": [{"timestamp": "2030-01-01T00:00:00"}], "order_by": "1",
+     "expect": {"rows": []}}
+  ]
+}
