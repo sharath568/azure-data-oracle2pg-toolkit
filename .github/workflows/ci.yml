@@ -100,3 +100,63 @@ jobs:
         run: >-
           o2pg equiv record tests/fixtures/ai/cases.json
           --oracle-dsn lab/lab_password@localhost:1521/FREEPDB1
+
+  partitions:
+    name: Partitioning round trip (Oracle Free -> collector -> PostgreSQL 16)
+    runs-on: ubuntu-latest
+    services:
+      oracle:
+        image: gvenzl/oracle-free:23-slim-faststart
+        env:
+          ORACLE_RANDOM_PASSWORD: "true"
+          APP_USER: part
+          APP_USER_PASSWORD: part_password
+        ports:
+          - 1521:1521
+        options: >-
+          --health-cmd healthcheck.sh
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 30
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      ORACLE_DSN: part/part_password@localhost:1521/FREEPDB1
+      PG_DSN: postgresql://postgres:postgres@localhost:5432/postgres
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install
+        run: python -m pip install -e '.[pg,oracle]'
+      - name: Create the partitioned fixture tables in Oracle and load rows
+        run: python scripts/partition_roundtrip.py setup --oracle-dsn "$ORACLE_DSN"
+      - name: Run the real collector with SQL*Plus inside the Oracle container
+        run: |
+          docker cp collector/collect.sql ${{ job.services.oracle.id }}:/tmp/collect.sql
+          docker exec -w /tmp ${{ job.services.oracle.id }} \
+            sqlplus -s part/part_password@//localhost:1521/FREEPDB1 @collect.sql PART
+          docker cp ${{ job.services.oracle.id }}:/tmp/o2pg_inventory.json collected.json
+          python -c "from o2pg.inventory import Inventory; i = Inventory.from_path('collected.json'); print(len(i.tables), 'tables,', len(i.partitions), 'partitions,', len(i.subpartitions), 'subpartitions')"
+      - name: Compare structure, load DDL, copy rows, compare rows per partition
+        run: >-
+          python scripts/partition_roundtrip.py check collected.json
+          --oracle-dsn "$ORACLE_DSN" --pg-dsn "$PG_DSN"
+      - name: Keep the collected inventory
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: collected-inventory
+          path: collected.json
+          if-no-files-found: ignore

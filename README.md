@@ -33,6 +33,10 @@ This repo goes with the article
   mechanical rewrites (headers, types, `NVL`, `DECODE`, `SYSDATE`, sequences,
   `:NEW`, `SELECT INTO STRICT`, ...) and leaves everything else in place behind
   an inline `O2PG-REVIEW` marker. See [Converting PL/SQL](#converting-plsql-v02).
+- **Partitions (v0.4):** `o2pg map-types` creates every partition and
+  subpartition from the collected `HIGH_VALUE`s, and `o2pg partitions` explains
+  each decision (NULL keys, interval tables, global unique indexes, reference
+  partitioning). See [Partitioning](#partitioning-v04).
 - **AI-assisted conversion with gates (v0.3):** `o2pg ai-convert` sends only the
   units with review points to Azure OpenAI and accepts nothing that fails a
   static check, a compile in PostgreSQL, or a comparison with results recorded
@@ -262,6 +266,42 @@ and the sample's MERGE. CI runs them against a `postgres:16` service container.
 - Coverage is a count of statements without a marker. It is a way to rank work,
   not a measure of correctness.
 
+## Partitioning (v0.4)
+
+The collector records every partition and subpartition with its `HIGH_VALUE`,
+and `o2pg map-types` turns them into `CREATE TABLE ... PARTITION OF`:
+
+```sql
+CREATE TABLE sales.orders_p20250101 PARTITION OF sales.orders
+  FOR VALUES FROM ('2025-01-01 00:00:00') TO ('2025-02-01 00:00:00');  -- Oracle SYS_P4172
+CREATE TABLE part.readings_p_max PARTITION OF part.readings DEFAULT;      -- Oracle P_MAX
+```
+
+`o2pg partitions o2pg_inventory.json` writes a report of every decision
+([example](examples/partitions-report.md)):
+
+- A `MAXVALUE` partition becomes the DEFAULT partition when a key column is
+  nullable, because Oracle stores NULL keys there and PostgreSQL only accepts
+  them in a DEFAULT partition.
+- Interval tables get a procedure, `<table>_add_partitions`, that creates
+  partitions ahead of time (schedule it with pg_cron). Oracle creates them on
+  insert; PostgreSQL never does.
+- A primary or unique key that leaves out a partitioning column (subpartition
+  keys included) is left out of the DDL with a TODO, along with the foreign keys
+  that point at it, so the rest loads. The report lays out the options.
+- Reference, system and multi-column list partitioning are reported, and the
+  table is created unpartitioned.
+
+Range, list (with NULL and DEFAULT), hash, multi-column range and range-list
+composite tables are covered by a fixture whose rows all land in the partition
+Oracle puts them in. The CI job `partitions` does the same against Oracle
+Database Free: it runs the real collector, loads the generated DDL into
+PostgreSQL 16, copies every row, and compares row counts partition by partition.
+
+[labs/partitioning](labs/partitioning/) measures the traps on PostgreSQL:
+NULL keys, global uniqueness, pruning, DEFAULT partitions, archiving and row
+movement.
+
 ## AI-assisted conversion (v0.3)
 
 Some review points are mechanical in spirit but not in practice: `ROWNUM` over
@@ -349,11 +389,9 @@ These are heuristics for ranking work and comparing schemas. They are not a quot
 
 Please read these before you trust a number in the report.
 
-- **The collector hasn't been run against a live Oracle database in CI yet.** It
-  was written against the 19c data dictionary documentation and the test suite
-  checks that it emits every field the analyser reads, but that is not the same
-  as running it. If it fails on your database, please open an issue with the
-  error.
+- **The collector is run against Oracle Database Free (23ai) in CI** (the
+  `partitions` job), but it was written for 19c and has not been run on 19c in
+  CI. If it fails on your database, please open an issue with the error.
 - **No parser.** PL/SQL and view text are scanned with regular expressions after
   stripping comments and masking string literals. That removes most false
   positives, but it can't see types, resolve names, or look inside dynamic SQL.
@@ -378,6 +416,7 @@ Please read these before you trust a number in the report.
 - ~~PL/SQL to PL/pgSQL conversion helpers~~: shipped in v0.2.0 (`o2pg convert`).
 - ~~AI-assisted conversion with equivalence checks~~: shipped in v0.3.0
   (`o2pg ai-convert`, `o2pg equiv`).
+- ~~Partition conversion~~: shipped in v0.4.0 (`map-types` partitions, `o2pg partitions`).
 - **View conversion** with the same rewrite engine, and type-aware date
   arithmetic using column types from the inventory.
 - **Data validation:** row counts, checksums and sampled column comparisons

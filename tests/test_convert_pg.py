@@ -9,10 +9,9 @@ psycopg 3. They create a throwaway database, load the tables and sequences that
   with ``check_function_bodies = on``, and require each one to succeed;
 * call a set of converted routines and check what they return.
 
-Two relaxations are applied to the sample DDL, both for reasons outside the
-converter: ``geometry`` columns become ``text`` (PostGIS is not assumed), and
-``PARTITION BY`` clauses are dropped (``map-types`` marks the sample's
-partitioned primary keys as TODOs because they lack the partition key).
+One relaxation is applied to the sample DDL, for a reason outside the
+converter: ``geometry`` columns become ``text`` (PostGIS is not assumed). The
+sample is loaded partitioned, exactly as ``map-types`` writes it.
 """
 
 from __future__ import annotations
@@ -76,8 +75,7 @@ EXPECTED_SAMPLE_UNITS = {
 
 
 def _relax(ddl: str) -> str:
-    ddl = re.sub(r"\bgeometry\b", "text", ddl)
-    return re.sub(r"\)\s*PARTITION BY [A-Z]+ \([^)]*\);", ");", ddl)
+    return re.sub(r"\bgeometry\b", "text", ddl)
 
 
 @pytest.fixture(scope="module")
@@ -320,6 +318,9 @@ def test_sample_get_order_total_and_orders_trigger(conn: Any) -> None:
         "VALUES (1, 'Ada', 'Lovelace')"
     )
     conn.execute("INSERT INTO sales.products (product_id, product_name) VALUES (1, 'Widget')")
+    # The sample's interval partitions stop at 2026-01-01; Oracle would create the
+    # current month on insert, PostgreSQL needs the generated procedure to do it.
+    conn.execute("CALL sales.orders_add_partitions()")
     order_id = _one(
         conn,
         "INSERT INTO sales.orders (order_date, customer_id) VALUES (LOCALTIMESTAMP, 1) "

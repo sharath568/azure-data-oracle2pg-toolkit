@@ -1,0 +1,43 @@
+{
+ "description": "Rows per Oracle partition (leaf level) after data.sql, by Oracle's rules. Hash and reference tables only have a total.",
+ "tables": {
+  "events": {
+   "P_BEFORE_2026": 1,
+   "SYS_P1001": 1,
+   "SYS_P1002": 1
+  },
+  "event_details": {
+   "_total": 2
+  },
+  "readings": {
+   "P_2025": 1,
+   "P_2026": 1,
+   "P_MAX": 2
+  },
+  "customers_by_region": {
+   "P_AMER": 1,
+   "P_EMEA": 1,
+   "P_NONE": 1,
+   "P_OTHER": 1
+  },
+  "sessions": {
+   "_total": 6
+  },
+  "sales": {
+   "P_2025Q1_WEB": 1,
+   "P_2025Q1_STORE": 0,
+   "P_2025Q1_OTHER": 1,
+   "P_2025Q2_WEB": 0,
+   "P_2025Q2_STORE": 1,
+   "P_2025Q2_OTHER": 0,
+   "P_MAX_WEB": 1,
+   "P_MAX_STORE": 0,
+   "P_MAX_OTHER": 0
+  },
+  "ledger": {
+   "P_FY25_H1": 1,
+   "P_FY25_H2": 2,
+   "P_MAX": 1
+  }
+ }
+}

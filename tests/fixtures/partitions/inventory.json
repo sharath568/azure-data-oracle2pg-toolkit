@@ -1,0 +1,754 @@
+{
+ "metadata": {
+  "collector_version": "0.4.0",
+  "db_version": "19.0.0.0.0",
+  "schemas": "PART",
+  "note": "Hand-written to match collector output for oracle_schema.sql + data.sql"
+ },
+ "tables": [
+  {
+   "owner": "PART",
+   "name": "EVENTS",
+   "temporary": "N",
+   "partitioned": "YES"
+  },
+  {
+   "owner": "PART",
+   "name": "EVENT_DETAILS",
+   "temporary": "N",
+   "partitioned": "YES"
+  },
+  {
+   "owner": "PART",
+   "name": "READINGS",
+   "temporary": "N",
+   "partitioned": "YES"
+  },
+  {
+   "owner": "PART",
+   "name": "CUSTOMERS_BY_REGION",
+   "temporary": "N",
+   "partitioned": "YES"
+  },
+  {
+   "owner": "PART",
+   "name": "SESSIONS",
+   "temporary": "N",
+   "partitioned": "YES"
+  },
+  {
+   "owner": "PART",
+   "name": "SALES",
+   "temporary": "N",
+   "partitioned": "YES"
+  },
+  {
+   "owner": "PART",
+   "name": "LEDGER",
+   "temporary": "N",
+   "partitioned": "YES"
+  }
+ ],
+ "columns": [
+  {
+   "owner": "PART",
+   "table_name": "EVENTS",
+   "name": "EVENT_ID",
+   "data_type": "NUMBER",
+   "data_precision": 10,
+   "data_scale": 0,
+   "data_length": 22,
+   "char_length": null,
+   "char_used": null,
+   "nullable": "N"
+  },
+  {
+   "owner": "PART",
+   "table_name": "EVENTS",
+   "name": "EVENT_TS",
+   "data_type": "DATE",
+   "data_precision": null,
+   "data_scale": null,
+   "data_length": 7,
+   "char_length": null,
+   "char_used": null,
+   "nullable": "N"
+  },
+  {
+   "owner": "PART",
+   "table_name": "EVENTS",
+   "name": "KIND",
+   "data_type": "VARCHAR2",
+   "data_precision": null,
+   "data_scale": null,
+   "data_length": 20,
+   "char_length": 20,
+   "char_used": "B",
+   "nullable": "Y"
+  },
+  {
+   "owner": "PART",
+   "table_name": "EVENT_DETAILS",
+   "name": "DETAIL_ID",
+   "data_type": "NUMBER",
+   "data_precision": 10,
+   "data_scale": 0,
+   "data_length": 22,
+   "char_length": null,
+   "char_used": null,
+   "nullable": "N"
+  },
+  {
+   "owner": "PART",
+   "table_name": "EVENT_DETAILS",
+   "name": "EVENT_ID",
+   "data_type": "NUMBER",
+   "data_precision": 10,
+   "data_scale": 0,
+   "data_length": 22,
+   "char_length": null,
+   "char_used": null,
+   "nullable": "N"
+  },
+  {
+   "owner": "PART",
+   "table_name": "EVENT_DETAILS",
+   "name": "NOTE",
+   "data_type": "VARCHAR2",
+   "data_precision": null,
+   "data_scale": null,
+   "data_length": 100,
+   "char_length": 100,
+   "char_used": "B",
+   "nullable": "Y"
+  },
+  {
+   "owner": "PART",
+   "table_name": "READINGS",
+   "name": "READING_ID",
+   "data_type": "NUMBER",
+   "data_precision": 10,
+   "data_scale": 0,
+   "data_length": 22,
+   "char_length": null,
+   "char_used": null,
+   "nullable": "N"
+  },
+  {
+   "owner": "PART",
+   "table_name": "READINGS",
+   "name": "READING_DATE",
+   "data_type": "DATE",
+   "data_precision": null,
+   "data_scale": null,
+   "data_length": 7,
+   "char_length": null,
+   "char_used": null,
+   "nullable": "Y"
+  },
+  {
+   "owner": "PART",
+   "table_name": "READINGS",
+   "name": "READING",
+   "data_type": "NUMBER",
+   "data_precision": 10,
+   "data_scale": 2,
+   "data_length": 22,
+   "char_length": null,
+   "char_used": null,
+   "nullable": "Y"
+  },
+  {
+   "owner": "PART",
+   "table_name": "CUSTOMERS_BY_REGION",
+   "name": "CUSTOMER_ID",
+   "data_type": "NUMBER",
+   "data_precision": 10,
+   "data_scale": 0,
+   "data_length": 22,
+   "char_length": null,
+   "char_used": null,
+   "nullable": "N"
+  },
+  {
+   "owner": "PART",
+   "table_name": "CUSTOMERS_BY_REGION",
+   "name": "REGION",
+   "data_type": "VARCHAR2",
+   "data_precision": null,
+   "data_scale": null,
+   "data_length": 2,
+   "char_length": 2,
+   "char_used": "B",
+   "nullable": "Y"
+  },
+  {
+   "owner": "PART",
+   "table_name": "CUSTOMERS_BY_REGION",
+   "name": "NAME",
+   "data_type": "VARCHAR2",
+   "data_precision": null,
+   "data_scale": null,
+   "data_length": 50,
+   "char_length": 50,
+   "char_used": "B",
+   "nullable": "Y"
+  },
+  {
+   "owner": "PART",
+   "table_name": "SESSIONS",
+   "name": "SESSION_ID",
+   "data_type": "NUMBER",
+   "data_precision": 10,
+   "data_scale": 0,
+   "data_length": 22,
+   "char_length": null,
+   "char_used": null,
+   "nullable": "N"
+  },
+  {
+   "owner": "PART",
+   "table_name": "SESSIONS",
+   "name": "USER_ID",
+   "data_type": "NUMBER",
+   "data_precision": 10,
+   "data_scale": 0,
+   "data_length": 22,
+   "char_length": null,
+   "char_used": null,
+   "nullable": "N"
+  },
+  {
+   "owner": "PART",
+   "table_name": "SALES",
+   "name": "SALE_ID",
+   "data_type": "NUMBER",
+   "data_precision": 10,
+   "data_scale": 0,
+   "data_length": 22,
+   "char_length": null,
+   "char_used": null,
+   "nullable": "N"
+  },
+  {
+   "owner": "PART",
+   "table_name": "SALES",
+   "name": "SALE_DATE",
+   "data_type": "DATE",
+   "data_precision": null,
+   "data_scale": null,
+   "data_length": 7,
+   "char_length": null,
+   "char_used": null,
+   "nullable": "N"
+  },
+  {
+   "owner": "PART",
+   "table_name": "SALES",
+   "name": "CHANNEL",
+   "data_type": "VARCHAR2",
+   "data_precision": null,
+   "data_scale": null,
+   "data_length": 10,
+   "char_length": 10,
+   "char_used": "B",
+   "nullable": "N"
+  },
+  {
+   "owner": "PART",
+   "table_name": "SALES",
+   "name": "AMOUNT",
+   "data_type": "NUMBER",
+   "data_precision": 10,
+   "data_scale": 2,
+   "data_length": 22,
+   "char_length": null,
+   "char_used": null,
+   "nullable": "Y"
+  },
+  {
+   "owner": "PART",
+   "table_name": "LEDGER",
+   "name": "ENTRY_ID",
+   "data_type": "NUMBER",
+   "data_precision": 10,
+   "data_scale": 0,
+   "data_length": 22,
+   "char_length": null,
+   "char_used": null,
+   "nullable": "N"
+  },
+  {
+   "owner": "PART",
+   "table_name": "LEDGER",
+   "name": "FISCAL_YEAR",
+   "data_type": "NUMBER",
+   "data_precision": 4,
+   "data_scale": 0,
+   "data_length": 22,
+   "char_length": null,
+   "char_used": null,
+   "nullable": "N"
+  },
+  {
+   "owner": "PART",
+   "table_name": "LEDGER",
+   "name": "FISCAL_MONTH",
+   "data_type": "NUMBER",
+   "data_precision": 2,
+   "data_scale": 0,
+   "data_length": 22,
+   "char_length": null,
+   "char_used": null,
+   "nullable": "N"
+  },
+  {
+   "owner": "PART",
+   "table_name": "LEDGER",
+   "name": "AMOUNT",
+   "data_type": "NUMBER",
+   "data_precision": 12,
+   "data_scale": 2,
+   "data_length": 22,
+   "char_length": null,
+   "char_used": null,
+   "nullable": "Y"
+  }
+ ],
+ "constraints": [
+  {
+   "owner": "PART",
+   "name": "EVENTS_PK",
+   "table_name": "EVENTS",
+   "type": "P",
+   "columns": "EVENT_ID",
+   "r_owner": null,
+   "r_constraint_name": null,
+   "delete_rule": null,
+   "status": "ENABLED"
+  },
+  {
+   "owner": "PART",
+   "name": "EVENT_DETAILS_PK",
+   "table_name": "EVENT_DETAILS",
+   "type": "P",
+   "columns": "DETAIL_ID",
+   "r_owner": null,
+   "r_constraint_name": null,
+   "delete_rule": null,
+   "status": "ENABLED"
+  },
+  {
+   "owner": "PART",
+   "name": "EVENT_DETAILS_FK",
+   "table_name": "EVENT_DETAILS",
+   "type": "R",
+   "columns": "EVENT_ID",
+   "r_owner": "PART",
+   "r_constraint_name": "EVENTS_PK",
+   "delete_rule": "NO ACTION",
+   "status": "ENABLED"
+  },
+  {
+   "owner": "PART",
+   "name": "SALES_PK",
+   "table_name": "SALES",
+   "type": "P",
+   "columns": "SALE_ID,SALE_DATE",
+   "r_owner": null,
+   "r_constraint_name": null,
+   "delete_rule": null,
+   "status": "ENABLED"
+  }
+ ],
+ "indexes": [
+  {
+   "owner": "PART",
+   "name": "EVENTS_PK",
+   "table_owner": "PART",
+   "table_name": "EVENTS",
+   "index_type": "NORMAL",
+   "uniqueness": "UNIQUE",
+   "columns": "EVENT_ID",
+   "partitioned": "NO"
+  },
+  {
+   "owner": "PART",
+   "name": "EVENTS_KIND_IX",
+   "table_owner": "PART",
+   "table_name": "EVENTS",
+   "index_type": "NORMAL",
+   "uniqueness": "NONUNIQUE",
+   "columns": "KIND",
+   "partitioned": "YES"
+  },
+  {
+   "owner": "PART",
+   "name": "EVENT_DETAILS_PK",
+   "table_owner": "PART",
+   "table_name": "EVENT_DETAILS",
+   "index_type": "NORMAL",
+   "uniqueness": "UNIQUE",
+   "columns": "DETAIL_ID",
+   "partitioned": "NO"
+  },
+  {
+   "owner": "PART",
+   "name": "SALES_PK",
+   "table_owner": "PART",
+   "table_name": "SALES",
+   "index_type": "NORMAL",
+   "uniqueness": "UNIQUE",
+   "columns": "SALE_ID,SALE_DATE",
+   "partitioned": "NO"
+  }
+ ],
+ "part_tables": [
+  {
+   "owner": "PART",
+   "table_name": "EVENTS",
+   "partitioning_type": "RANGE",
+   "subpartitioning_type": "NONE",
+   "partition_count": 1048575,
+   "interval": "NUMTOYMINTERVAL(1, 'MONTH')",
+   "ref_constraint_name": null,
+   "partition_keys": "EVENT_TS",
+   "subpartition_keys": null
+  },
+  {
+   "owner": "PART",
+   "table_name": "EVENT_DETAILS",
+   "partitioning_type": "REFERENCE",
+   "subpartitioning_type": "NONE",
+   "partition_count": 3,
+   "interval": null,
+   "ref_constraint_name": "EVENT_DETAILS_FK",
+   "partition_keys": null,
+   "subpartition_keys": null
+  },
+  {
+   "owner": "PART",
+   "table_name": "READINGS",
+   "partitioning_type": "RANGE",
+   "subpartitioning_type": "NONE",
+   "partition_count": 3,
+   "interval": null,
+   "ref_constraint_name": null,
+   "partition_keys": "READING_DATE",
+   "subpartition_keys": null
+  },
+  {
+   "owner": "PART",
+   "table_name": "CUSTOMERS_BY_REGION",
+   "partitioning_type": "LIST",
+   "subpartitioning_type": "NONE",
+   "partition_count": 4,
+   "interval": null,
+   "ref_constraint_name": null,
+   "partition_keys": "REGION",
+   "subpartition_keys": null
+  },
+  {
+   "owner": "PART",
+   "table_name": "SESSIONS",
+   "partitioning_type": "HASH",
+   "subpartitioning_type": "NONE",
+   "partition_count": 4,
+   "interval": null,
+   "ref_constraint_name": null,
+   "partition_keys": "USER_ID",
+   "subpartition_keys": null
+  },
+  {
+   "owner": "PART",
+   "table_name": "SALES",
+   "partitioning_type": "RANGE",
+   "subpartitioning_type": "LIST",
+   "partition_count": 3,
+   "interval": null,
+   "ref_constraint_name": null,
+   "partition_keys": "SALE_DATE",
+   "subpartition_keys": "CHANNEL"
+  },
+  {
+   "owner": "PART",
+   "table_name": "LEDGER",
+   "partitioning_type": "RANGE",
+   "subpartitioning_type": "NONE",
+   "partition_count": 3,
+   "interval": null,
+   "ref_constraint_name": null,
+   "partition_keys": "FISCAL_YEAR,FISCAL_MONTH",
+   "subpartition_keys": null
+  }
+ ],
+ "partitions": [
+  {
+   "owner": "PART",
+   "table_name": "EVENTS",
+   "partition_name": "P_BEFORE_2026",
+   "partition_position": 1,
+   "high_value": "TO_DATE(' 2026-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "PART",
+   "table_name": "EVENTS",
+   "partition_name": "SYS_P1001",
+   "partition_position": 2,
+   "high_value": "TO_DATE(' 2026-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "PART",
+   "table_name": "EVENTS",
+   "partition_name": "SYS_P1002",
+   "partition_position": 3,
+   "high_value": "TO_DATE(' 2026-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "PART",
+   "table_name": "EVENT_DETAILS",
+   "partition_name": "P_BEFORE_2026",
+   "partition_position": 1,
+   "high_value": "",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "PART",
+   "table_name": "EVENT_DETAILS",
+   "partition_name": "SYS_P1001",
+   "partition_position": 2,
+   "high_value": "",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "PART",
+   "table_name": "EVENT_DETAILS",
+   "partition_name": "SYS_P1002",
+   "partition_position": 3,
+   "high_value": "",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "PART",
+   "table_name": "READINGS",
+   "partition_name": "P_2025",
+   "partition_position": 1,
+   "high_value": "TO_DATE(' 2026-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "PART",
+   "table_name": "READINGS",
+   "partition_name": "P_2026",
+   "partition_position": 2,
+   "high_value": "TO_DATE(' 2027-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "PART",
+   "table_name": "READINGS",
+   "partition_name": "P_MAX",
+   "partition_position": 3,
+   "high_value": "MAXVALUE",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "PART",
+   "table_name": "CUSTOMERS_BY_REGION",
+   "partition_name": "P_AMER",
+   "partition_position": 1,
+   "high_value": "'US', 'CA'",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "PART",
+   "table_name": "CUSTOMERS_BY_REGION",
+   "partition_name": "P_EMEA",
+   "partition_position": 2,
+   "high_value": "'UK', 'DE'",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "PART",
+   "table_name": "CUSTOMERS_BY_REGION",
+   "partition_name": "P_NONE",
+   "partition_position": 3,
+   "high_value": "NULL",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "PART",
+   "table_name": "CUSTOMERS_BY_REGION",
+   "partition_name": "P_OTHER",
+   "partition_position": 4,
+   "high_value": "DEFAULT",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "PART",
+   "table_name": "SESSIONS",
+   "partition_name": "P_H1",
+   "partition_position": 1,
+   "high_value": "",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "PART",
+   "table_name": "SESSIONS",
+   "partition_name": "P_H2",
+   "partition_position": 2,
+   "high_value": "",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "PART",
+   "table_name": "SESSIONS",
+   "partition_name": "P_H3",
+   "partition_position": 3,
+   "high_value": "",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "PART",
+   "table_name": "SESSIONS",
+   "partition_name": "P_H4",
+   "partition_position": 4,
+   "high_value": "",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "PART",
+   "table_name": "SALES",
+   "partition_name": "P_2025Q1",
+   "partition_position": 1,
+   "high_value": "TO_DATE(' 2025-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 3
+  },
+  {
+   "owner": "PART",
+   "table_name": "SALES",
+   "partition_name": "P_2025Q2",
+   "partition_position": 2,
+   "high_value": "TO_DATE(' 2025-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 3
+  },
+  {
+   "owner": "PART",
+   "table_name": "SALES",
+   "partition_name": "P_MAX",
+   "partition_position": 3,
+   "high_value": "MAXVALUE",
+   "subpartition_count": 3
+  },
+  {
+   "owner": "PART",
+   "table_name": "LEDGER",
+   "partition_name": "P_FY25_H1",
+   "partition_position": 1,
+   "high_value": "2025, 7",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "PART",
+   "table_name": "LEDGER",
+   "partition_name": "P_FY25_H2",
+   "partition_position": 2,
+   "high_value": "2026, 1",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "PART",
+   "table_name": "LEDGER",
+   "partition_name": "P_MAX",
+   "partition_position": 3,
+   "high_value": "MAXVALUE, MAXVALUE",
+   "subpartition_count": 0
+  }
+ ],
+ "subpartitions": [
+  {
+   "owner": "PART",
+   "table_name": "SALES",
+   "partition_name": "P_2025Q1",
+   "subpartition_name": "P_2025Q1_WEB",
+   "subpartition_position": 1,
+   "high_value": "'WEB'"
+  },
+  {
+   "owner": "PART",
+   "table_name": "SALES",
+   "partition_name": "P_2025Q1",
+   "subpartition_name": "P_2025Q1_STORE",
+   "subpartition_position": 2,
+   "high_value": "'STORE'"
+  },
+  {
+   "owner": "PART",
+   "table_name": "SALES",
+   "partition_name": "P_2025Q1",
+   "subpartition_name": "P_2025Q1_OTHER",
+   "subpartition_position": 3,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "PART",
+   "table_name": "SALES",
+   "partition_name": "P_2025Q2",
+   "subpartition_name": "P_2025Q2_WEB",
+   "subpartition_position": 1,
+   "high_value": "'WEB'"
+  },
+  {
+   "owner": "PART",
+   "table_name": "SALES",
+   "partition_name": "P_2025Q2",
+   "subpartition_name": "P_2025Q2_STORE",
+   "subpartition_position": 2,
+   "high_value": "'STORE'"
+  },
+  {
+   "owner": "PART",
+   "table_name": "SALES",
+   "partition_name": "P_2025Q2",
+   "subpartition_name": "P_2025Q2_OTHER",
+   "subpartition_position": 3,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "PART",
+   "table_name": "SALES",
+   "partition_name": "P_MAX",
+   "subpartition_name": "P_MAX_WEB",
+   "subpartition_position": 1,
+   "high_value": "'WEB'"
+  },
+  {
+   "owner": "PART",
+   "table_name": "SALES",
+   "partition_name": "P_MAX",
+   "subpartition_name": "P_MAX_STORE",
+   "subpartition_position": 2,
+   "high_value": "'STORE'"
+  },
+  {
+   "owner": "PART",
+   "table_name": "SALES",
+   "partition_name": "P_MAX",
+   "subpartition_name": "P_MAX_OTHER",
+   "subpartition_position": 3,
+   "high_value": "DEFAULT"
+  }
+ ],
+ "part_indexes": [
+  {
+   "owner": "PART",
+   "index_name": "EVENTS_KIND_IX",
+   "table_name": "EVENTS",
+   "locality": "LOCAL",
+   "partitioning_type": "RANGE"
+  }
+ ]
+}

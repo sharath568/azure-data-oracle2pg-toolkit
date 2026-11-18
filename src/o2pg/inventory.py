@@ -258,6 +258,46 @@ class PartitionedTable:
     interval: str = ""
     ref_constraint_name: str = ""
     partition_keys: tuple[str, ...] = ()
+    subpartition_keys: tuple[str, ...] = ()
+
+
+@dataclass(frozen=True)
+class TablePartition:
+    """One partition from ALL_TAB_PARTITIONS. ``high_value`` is the Oracle text, e.g.
+
+    ``TO_DATE(' 2024-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')``,
+    ``MAXVALUE``, ``'EU', 'UK'`` or ``DEFAULT``. Empty for hash partitions.
+    """
+
+    owner: str = ""
+    table_name: str = ""
+    partition_name: str = ""
+    partition_position: int | None = None
+    high_value: str = ""
+    subpartition_count: int | None = None
+
+
+@dataclass(frozen=True)
+class TableSubpartition:
+    """One subpartition from ALL_TAB_SUBPARTITIONS."""
+
+    owner: str = ""
+    table_name: str = ""
+    partition_name: str = ""
+    subpartition_name: str = ""
+    subpartition_position: int | None = None
+    high_value: str = ""
+
+
+@dataclass(frozen=True)
+class PartitionedIndex:
+    """A partitioned index from ALL_PART_INDEXES (LOCAL or GLOBAL)."""
+
+    owner: str = ""
+    index_name: str = ""
+    table_name: str = ""
+    locality: str = ""
+    partitioning_type: str = ""
 
 
 @dataclass(frozen=True)
@@ -385,6 +425,9 @@ SECTION_TYPES: dict[str, type] = {
     "db_links": DbLink,
     "mviews": MaterializedView,
     "part_tables": PartitionedTable,
+    "partitions": TablePartition,
+    "subpartitions": TableSubpartition,
+    "part_indexes": PartitionedIndex,
     "lobs": Lob,
     "types": ObjectType,
     "scheduler_jobs": SchedulerJob,
@@ -438,6 +481,9 @@ class Inventory:
     db_links: list[DbLink] = field(default_factory=list)
     mviews: list[MaterializedView] = field(default_factory=list)
     part_tables: list[PartitionedTable] = field(default_factory=list)
+    partitions: list[TablePartition] = field(default_factory=list)
+    subpartitions: list[TableSubpartition] = field(default_factory=list)
+    part_indexes: list[PartitionedIndex] = field(default_factory=list)
     lobs: list[Lob] = field(default_factory=list)
     types: list[ObjectType] = field(default_factory=list)
     scheduler_jobs: list[SchedulerJob] = field(default_factory=list)

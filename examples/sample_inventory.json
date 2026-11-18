@@ -1,6 +1,6 @@
 {
  "metadata": {
-  "collector_version": "0.1.0",
+  "collector_version": "0.4.0",
   "collected_at": "2026-10-01T14:05:11Z",
   "db_name": "ORCLPDB1",
   "db_version": "19.0.0.0.0",
@@ -4177,7 +4177,8 @@
    "partition_count": 84,
    "interval": "NUMTOYMINTERVAL(1,'MONTH')",
    "ref_constraint_name": null,
-   "partition_keys": "ORDER_DATE"
+   "partition_keys": "ORDER_DATE",
+   "subpartition_keys": null
   },
   {
    "owner": "SALES",
@@ -4187,7 +4188,8 @@
    "partition_count": 84,
    "interval": null,
    "ref_constraint_name": "ORDER_ITEMS_ORDER_FK",
-   "partition_keys": null
+   "partition_keys": null,
+   "subpartition_keys": null
   },
   {
    "owner": "SALES",
@@ -4197,7 +4199,8 @@
    "partition_count": 40,
    "interval": null,
    "ref_constraint_name": null,
-   "partition_keys": "SALE_DATE"
+   "partition_keys": "SALE_DATE",
+   "subpartition_keys": "REGION_CODE"
   }
  ],
  "lobs": [
@@ -4349,6 +4352,2984 @@
    "owner": "SALES",
    "name": "OLD_REPORT_PKG",
    "type": "PACKAGE BODY"
+  }
+ ],
+ "partitions": [
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "P_BEFORE_2019_02",
+   "partition_position": 1,
+   "high_value": "TO_DATE(' 2019-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "P_BEFORE_2019_02",
+   "partition_position": 1,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4101",
+   "partition_position": 2,
+   "high_value": "TO_DATE(' 2019-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4101",
+   "partition_position": 2,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4102",
+   "partition_position": 3,
+   "high_value": "TO_DATE(' 2019-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4102",
+   "partition_position": 3,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4103",
+   "partition_position": 4,
+   "high_value": "TO_DATE(' 2019-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4103",
+   "partition_position": 4,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4104",
+   "partition_position": 5,
+   "high_value": "TO_DATE(' 2019-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4104",
+   "partition_position": 5,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4105",
+   "partition_position": 6,
+   "high_value": "TO_DATE(' 2019-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4105",
+   "partition_position": 6,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4106",
+   "partition_position": 7,
+   "high_value": "TO_DATE(' 2019-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4106",
+   "partition_position": 7,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4107",
+   "partition_position": 8,
+   "high_value": "TO_DATE(' 2019-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4107",
+   "partition_position": 8,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4108",
+   "partition_position": 9,
+   "high_value": "TO_DATE(' 2019-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4108",
+   "partition_position": 9,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4109",
+   "partition_position": 10,
+   "high_value": "TO_DATE(' 2019-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4109",
+   "partition_position": 10,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4110",
+   "partition_position": 11,
+   "high_value": "TO_DATE(' 2019-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4110",
+   "partition_position": 11,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4111",
+   "partition_position": 12,
+   "high_value": "TO_DATE(' 2020-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4111",
+   "partition_position": 12,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4112",
+   "partition_position": 13,
+   "high_value": "TO_DATE(' 2020-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4112",
+   "partition_position": 13,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4113",
+   "partition_position": 14,
+   "high_value": "TO_DATE(' 2020-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4113",
+   "partition_position": 14,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4114",
+   "partition_position": 15,
+   "high_value": "TO_DATE(' 2020-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4114",
+   "partition_position": 15,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4115",
+   "partition_position": 16,
+   "high_value": "TO_DATE(' 2020-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4115",
+   "partition_position": 16,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4116",
+   "partition_position": 17,
+   "high_value": "TO_DATE(' 2020-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4116",
+   "partition_position": 17,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4117",
+   "partition_position": 18,
+   "high_value": "TO_DATE(' 2020-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4117",
+   "partition_position": 18,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4118",
+   "partition_position": 19,
+   "high_value": "TO_DATE(' 2020-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4118",
+   "partition_position": 19,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4119",
+   "partition_position": 20,
+   "high_value": "TO_DATE(' 2020-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4119",
+   "partition_position": 20,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4120",
+   "partition_position": 21,
+   "high_value": "TO_DATE(' 2020-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4120",
+   "partition_position": 21,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4121",
+   "partition_position": 22,
+   "high_value": "TO_DATE(' 2020-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4121",
+   "partition_position": 22,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4122",
+   "partition_position": 23,
+   "high_value": "TO_DATE(' 2020-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4122",
+   "partition_position": 23,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4123",
+   "partition_position": 24,
+   "high_value": "TO_DATE(' 2021-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4123",
+   "partition_position": 24,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4124",
+   "partition_position": 25,
+   "high_value": "TO_DATE(' 2021-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4124",
+   "partition_position": 25,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4125",
+   "partition_position": 26,
+   "high_value": "TO_DATE(' 2021-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4125",
+   "partition_position": 26,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4126",
+   "partition_position": 27,
+   "high_value": "TO_DATE(' 2021-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4126",
+   "partition_position": 27,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4127",
+   "partition_position": 28,
+   "high_value": "TO_DATE(' 2021-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4127",
+   "partition_position": 28,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4128",
+   "partition_position": 29,
+   "high_value": "TO_DATE(' 2021-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4128",
+   "partition_position": 29,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4129",
+   "partition_position": 30,
+   "high_value": "TO_DATE(' 2021-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4129",
+   "partition_position": 30,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4130",
+   "partition_position": 31,
+   "high_value": "TO_DATE(' 2021-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4130",
+   "partition_position": 31,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4131",
+   "partition_position": 32,
+   "high_value": "TO_DATE(' 2021-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4131",
+   "partition_position": 32,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4132",
+   "partition_position": 33,
+   "high_value": "TO_DATE(' 2021-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4132",
+   "partition_position": 33,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4133",
+   "partition_position": 34,
+   "high_value": "TO_DATE(' 2021-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4133",
+   "partition_position": 34,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4134",
+   "partition_position": 35,
+   "high_value": "TO_DATE(' 2021-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4134",
+   "partition_position": 35,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4135",
+   "partition_position": 36,
+   "high_value": "TO_DATE(' 2022-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4135",
+   "partition_position": 36,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4136",
+   "partition_position": 37,
+   "high_value": "TO_DATE(' 2022-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4136",
+   "partition_position": 37,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4137",
+   "partition_position": 38,
+   "high_value": "TO_DATE(' 2022-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4137",
+   "partition_position": 38,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4138",
+   "partition_position": 39,
+   "high_value": "TO_DATE(' 2022-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4138",
+   "partition_position": 39,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4139",
+   "partition_position": 40,
+   "high_value": "TO_DATE(' 2022-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4139",
+   "partition_position": 40,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4140",
+   "partition_position": 41,
+   "high_value": "TO_DATE(' 2022-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4140",
+   "partition_position": 41,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4141",
+   "partition_position": 42,
+   "high_value": "TO_DATE(' 2022-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4141",
+   "partition_position": 42,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4142",
+   "partition_position": 43,
+   "high_value": "TO_DATE(' 2022-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4142",
+   "partition_position": 43,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4143",
+   "partition_position": 44,
+   "high_value": "TO_DATE(' 2022-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4143",
+   "partition_position": 44,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4144",
+   "partition_position": 45,
+   "high_value": "TO_DATE(' 2022-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4144",
+   "partition_position": 45,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4145",
+   "partition_position": 46,
+   "high_value": "TO_DATE(' 2022-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4145",
+   "partition_position": 46,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4146",
+   "partition_position": 47,
+   "high_value": "TO_DATE(' 2022-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4146",
+   "partition_position": 47,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4147",
+   "partition_position": 48,
+   "high_value": "TO_DATE(' 2023-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4147",
+   "partition_position": 48,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4148",
+   "partition_position": 49,
+   "high_value": "TO_DATE(' 2023-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4148",
+   "partition_position": 49,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4149",
+   "partition_position": 50,
+   "high_value": "TO_DATE(' 2023-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4149",
+   "partition_position": 50,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4150",
+   "partition_position": 51,
+   "high_value": "TO_DATE(' 2023-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4150",
+   "partition_position": 51,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4151",
+   "partition_position": 52,
+   "high_value": "TO_DATE(' 2023-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4151",
+   "partition_position": 52,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4152",
+   "partition_position": 53,
+   "high_value": "TO_DATE(' 2023-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4152",
+   "partition_position": 53,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4153",
+   "partition_position": 54,
+   "high_value": "TO_DATE(' 2023-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4153",
+   "partition_position": 54,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4154",
+   "partition_position": 55,
+   "high_value": "TO_DATE(' 2023-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4154",
+   "partition_position": 55,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4155",
+   "partition_position": 56,
+   "high_value": "TO_DATE(' 2023-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4155",
+   "partition_position": 56,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4156",
+   "partition_position": 57,
+   "high_value": "TO_DATE(' 2023-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4156",
+   "partition_position": 57,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4157",
+   "partition_position": 58,
+   "high_value": "TO_DATE(' 2023-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4157",
+   "partition_position": 58,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4158",
+   "partition_position": 59,
+   "high_value": "TO_DATE(' 2023-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4158",
+   "partition_position": 59,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4159",
+   "partition_position": 60,
+   "high_value": "TO_DATE(' 2024-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4159",
+   "partition_position": 60,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4160",
+   "partition_position": 61,
+   "high_value": "TO_DATE(' 2024-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4160",
+   "partition_position": 61,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4161",
+   "partition_position": 62,
+   "high_value": "TO_DATE(' 2024-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4161",
+   "partition_position": 62,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4162",
+   "partition_position": 63,
+   "high_value": "TO_DATE(' 2024-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4162",
+   "partition_position": 63,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4163",
+   "partition_position": 64,
+   "high_value": "TO_DATE(' 2024-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4163",
+   "partition_position": 64,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4164",
+   "partition_position": 65,
+   "high_value": "TO_DATE(' 2024-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4164",
+   "partition_position": 65,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4165",
+   "partition_position": 66,
+   "high_value": "TO_DATE(' 2024-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4165",
+   "partition_position": 66,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4166",
+   "partition_position": 67,
+   "high_value": "TO_DATE(' 2024-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4166",
+   "partition_position": 67,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4167",
+   "partition_position": 68,
+   "high_value": "TO_DATE(' 2024-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4167",
+   "partition_position": 68,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4168",
+   "partition_position": 69,
+   "high_value": "TO_DATE(' 2024-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4168",
+   "partition_position": 69,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4169",
+   "partition_position": 70,
+   "high_value": "TO_DATE(' 2024-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4169",
+   "partition_position": 70,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4170",
+   "partition_position": 71,
+   "high_value": "TO_DATE(' 2024-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4170",
+   "partition_position": 71,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4171",
+   "partition_position": 72,
+   "high_value": "TO_DATE(' 2025-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4171",
+   "partition_position": 72,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4172",
+   "partition_position": 73,
+   "high_value": "TO_DATE(' 2025-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4172",
+   "partition_position": 73,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4173",
+   "partition_position": 74,
+   "high_value": "TO_DATE(' 2025-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4173",
+   "partition_position": 74,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4174",
+   "partition_position": 75,
+   "high_value": "TO_DATE(' 2025-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4174",
+   "partition_position": 75,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4175",
+   "partition_position": 76,
+   "high_value": "TO_DATE(' 2025-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4175",
+   "partition_position": 76,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4176",
+   "partition_position": 77,
+   "high_value": "TO_DATE(' 2025-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4176",
+   "partition_position": 77,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4177",
+   "partition_position": 78,
+   "high_value": "TO_DATE(' 2025-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4177",
+   "partition_position": 78,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4178",
+   "partition_position": 79,
+   "high_value": "TO_DATE(' 2025-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4178",
+   "partition_position": 79,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4179",
+   "partition_position": 80,
+   "high_value": "TO_DATE(' 2025-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4179",
+   "partition_position": 80,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4180",
+   "partition_position": 81,
+   "high_value": "TO_DATE(' 2025-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4180",
+   "partition_position": 81,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4181",
+   "partition_position": 82,
+   "high_value": "TO_DATE(' 2025-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4181",
+   "partition_position": 82,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4182",
+   "partition_position": 83,
+   "high_value": "TO_DATE(' 2025-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4182",
+   "partition_position": 83,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDERS",
+   "partition_name": "SYS_P4183",
+   "partition_position": 84,
+   "high_value": "TO_DATE(' 2026-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "ORDER_ITEMS",
+   "partition_name": "SYS_P4183",
+   "partition_position": 84,
+   "high_value": null,
+   "subpartition_count": 0
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2016Q1",
+   "partition_position": 1,
+   "high_value": "TO_DATE(' 2016-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2016Q2",
+   "partition_position": 2,
+   "high_value": "TO_DATE(' 2016-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2016Q3",
+   "partition_position": 3,
+   "high_value": "TO_DATE(' 2016-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2016Q4",
+   "partition_position": 4,
+   "high_value": "TO_DATE(' 2017-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2017Q1",
+   "partition_position": 5,
+   "high_value": "TO_DATE(' 2017-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2017Q2",
+   "partition_position": 6,
+   "high_value": "TO_DATE(' 2017-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2017Q3",
+   "partition_position": 7,
+   "high_value": "TO_DATE(' 2017-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2017Q4",
+   "partition_position": 8,
+   "high_value": "TO_DATE(' 2018-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2018Q1",
+   "partition_position": 9,
+   "high_value": "TO_DATE(' 2018-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2018Q2",
+   "partition_position": 10,
+   "high_value": "TO_DATE(' 2018-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2018Q3",
+   "partition_position": 11,
+   "high_value": "TO_DATE(' 2018-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2018Q4",
+   "partition_position": 12,
+   "high_value": "TO_DATE(' 2019-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2019Q1",
+   "partition_position": 13,
+   "high_value": "TO_DATE(' 2019-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2019Q2",
+   "partition_position": 14,
+   "high_value": "TO_DATE(' 2019-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2019Q3",
+   "partition_position": 15,
+   "high_value": "TO_DATE(' 2019-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2019Q4",
+   "partition_position": 16,
+   "high_value": "TO_DATE(' 2020-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2020Q1",
+   "partition_position": 17,
+   "high_value": "TO_DATE(' 2020-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2020Q2",
+   "partition_position": 18,
+   "high_value": "TO_DATE(' 2020-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2020Q3",
+   "partition_position": 19,
+   "high_value": "TO_DATE(' 2020-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2020Q4",
+   "partition_position": 20,
+   "high_value": "TO_DATE(' 2021-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2021Q1",
+   "partition_position": 21,
+   "high_value": "TO_DATE(' 2021-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2021Q2",
+   "partition_position": 22,
+   "high_value": "TO_DATE(' 2021-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2021Q3",
+   "partition_position": 23,
+   "high_value": "TO_DATE(' 2021-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2021Q4",
+   "partition_position": 24,
+   "high_value": "TO_DATE(' 2022-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2022Q1",
+   "partition_position": 25,
+   "high_value": "TO_DATE(' 2022-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2022Q2",
+   "partition_position": 26,
+   "high_value": "TO_DATE(' 2022-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2022Q3",
+   "partition_position": 27,
+   "high_value": "TO_DATE(' 2022-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2022Q4",
+   "partition_position": 28,
+   "high_value": "TO_DATE(' 2023-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2023Q1",
+   "partition_position": 29,
+   "high_value": "TO_DATE(' 2023-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2023Q2",
+   "partition_position": 30,
+   "high_value": "TO_DATE(' 2023-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2023Q3",
+   "partition_position": 31,
+   "high_value": "TO_DATE(' 2023-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2023Q4",
+   "partition_position": 32,
+   "high_value": "TO_DATE(' 2024-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2024Q1",
+   "partition_position": 33,
+   "high_value": "TO_DATE(' 2024-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2024Q2",
+   "partition_position": 34,
+   "high_value": "TO_DATE(' 2024-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2024Q3",
+   "partition_position": 35,
+   "high_value": "TO_DATE(' 2024-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2024Q4",
+   "partition_position": 36,
+   "high_value": "TO_DATE(' 2025-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2025Q1",
+   "partition_position": 37,
+   "high_value": "TO_DATE(' 2025-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2025Q2",
+   "partition_position": 38,
+   "high_value": "TO_DATE(' 2025-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2025Q3",
+   "partition_position": 39,
+   "high_value": "TO_DATE(' 2025-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2025Q4",
+   "partition_position": 40,
+   "high_value": "TO_DATE(' 2026-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN')",
+   "subpartition_count": 4
+  }
+ ],
+ "subpartitions": [
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2016Q1",
+   "subpartition_name": "P_2016Q1_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2016Q1",
+   "subpartition_name": "P_2016Q1_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2016Q1",
+   "subpartition_name": "P_2016Q1_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2016Q1",
+   "subpartition_name": "P_2016Q1_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2016Q2",
+   "subpartition_name": "P_2016Q2_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2016Q2",
+   "subpartition_name": "P_2016Q2_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2016Q2",
+   "subpartition_name": "P_2016Q2_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2016Q2",
+   "subpartition_name": "P_2016Q2_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2016Q3",
+   "subpartition_name": "P_2016Q3_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2016Q3",
+   "subpartition_name": "P_2016Q3_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2016Q3",
+   "subpartition_name": "P_2016Q3_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2016Q3",
+   "subpartition_name": "P_2016Q3_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2016Q4",
+   "subpartition_name": "P_2016Q4_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2016Q4",
+   "subpartition_name": "P_2016Q4_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2016Q4",
+   "subpartition_name": "P_2016Q4_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2016Q4",
+   "subpartition_name": "P_2016Q4_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2017Q1",
+   "subpartition_name": "P_2017Q1_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2017Q1",
+   "subpartition_name": "P_2017Q1_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2017Q1",
+   "subpartition_name": "P_2017Q1_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2017Q1",
+   "subpartition_name": "P_2017Q1_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2017Q2",
+   "subpartition_name": "P_2017Q2_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2017Q2",
+   "subpartition_name": "P_2017Q2_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2017Q2",
+   "subpartition_name": "P_2017Q2_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2017Q2",
+   "subpartition_name": "P_2017Q2_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2017Q3",
+   "subpartition_name": "P_2017Q3_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2017Q3",
+   "subpartition_name": "P_2017Q3_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2017Q3",
+   "subpartition_name": "P_2017Q3_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2017Q3",
+   "subpartition_name": "P_2017Q3_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2017Q4",
+   "subpartition_name": "P_2017Q4_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2017Q4",
+   "subpartition_name": "P_2017Q4_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2017Q4",
+   "subpartition_name": "P_2017Q4_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2017Q4",
+   "subpartition_name": "P_2017Q4_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2018Q1",
+   "subpartition_name": "P_2018Q1_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2018Q1",
+   "subpartition_name": "P_2018Q1_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2018Q1",
+   "subpartition_name": "P_2018Q1_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2018Q1",
+   "subpartition_name": "P_2018Q1_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2018Q2",
+   "subpartition_name": "P_2018Q2_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2018Q2",
+   "subpartition_name": "P_2018Q2_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2018Q2",
+   "subpartition_name": "P_2018Q2_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2018Q2",
+   "subpartition_name": "P_2018Q2_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2018Q3",
+   "subpartition_name": "P_2018Q3_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2018Q3",
+   "subpartition_name": "P_2018Q3_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2018Q3",
+   "subpartition_name": "P_2018Q3_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2018Q3",
+   "subpartition_name": "P_2018Q3_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2018Q4",
+   "subpartition_name": "P_2018Q4_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2018Q4",
+   "subpartition_name": "P_2018Q4_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2018Q4",
+   "subpartition_name": "P_2018Q4_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2018Q4",
+   "subpartition_name": "P_2018Q4_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2019Q1",
+   "subpartition_name": "P_2019Q1_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2019Q1",
+   "subpartition_name": "P_2019Q1_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2019Q1",
+   "subpartition_name": "P_2019Q1_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2019Q1",
+   "subpartition_name": "P_2019Q1_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2019Q2",
+   "subpartition_name": "P_2019Q2_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2019Q2",
+   "subpartition_name": "P_2019Q2_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2019Q2",
+   "subpartition_name": "P_2019Q2_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2019Q2",
+   "subpartition_name": "P_2019Q2_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2019Q3",
+   "subpartition_name": "P_2019Q3_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2019Q3",
+   "subpartition_name": "P_2019Q3_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2019Q3",
+   "subpartition_name": "P_2019Q3_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2019Q3",
+   "subpartition_name": "P_2019Q3_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2019Q4",
+   "subpartition_name": "P_2019Q4_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2019Q4",
+   "subpartition_name": "P_2019Q4_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2019Q4",
+   "subpartition_name": "P_2019Q4_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2019Q4",
+   "subpartition_name": "P_2019Q4_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2020Q1",
+   "subpartition_name": "P_2020Q1_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2020Q1",
+   "subpartition_name": "P_2020Q1_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2020Q1",
+   "subpartition_name": "P_2020Q1_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2020Q1",
+   "subpartition_name": "P_2020Q1_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2020Q2",
+   "subpartition_name": "P_2020Q2_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2020Q2",
+   "subpartition_name": "P_2020Q2_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2020Q2",
+   "subpartition_name": "P_2020Q2_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2020Q2",
+   "subpartition_name": "P_2020Q2_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2020Q3",
+   "subpartition_name": "P_2020Q3_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2020Q3",
+   "subpartition_name": "P_2020Q3_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2020Q3",
+   "subpartition_name": "P_2020Q3_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2020Q3",
+   "subpartition_name": "P_2020Q3_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2020Q4",
+   "subpartition_name": "P_2020Q4_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2020Q4",
+   "subpartition_name": "P_2020Q4_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2020Q4",
+   "subpartition_name": "P_2020Q4_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2020Q4",
+   "subpartition_name": "P_2020Q4_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2021Q1",
+   "subpartition_name": "P_2021Q1_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2021Q1",
+   "subpartition_name": "P_2021Q1_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2021Q1",
+   "subpartition_name": "P_2021Q1_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2021Q1",
+   "subpartition_name": "P_2021Q1_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2021Q2",
+   "subpartition_name": "P_2021Q2_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2021Q2",
+   "subpartition_name": "P_2021Q2_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2021Q2",
+   "subpartition_name": "P_2021Q2_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2021Q2",
+   "subpartition_name": "P_2021Q2_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2021Q3",
+   "subpartition_name": "P_2021Q3_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2021Q3",
+   "subpartition_name": "P_2021Q3_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2021Q3",
+   "subpartition_name": "P_2021Q3_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2021Q3",
+   "subpartition_name": "P_2021Q3_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2021Q4",
+   "subpartition_name": "P_2021Q4_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2021Q4",
+   "subpartition_name": "P_2021Q4_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2021Q4",
+   "subpartition_name": "P_2021Q4_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2021Q4",
+   "subpartition_name": "P_2021Q4_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2022Q1",
+   "subpartition_name": "P_2022Q1_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2022Q1",
+   "subpartition_name": "P_2022Q1_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2022Q1",
+   "subpartition_name": "P_2022Q1_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2022Q1",
+   "subpartition_name": "P_2022Q1_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2022Q2",
+   "subpartition_name": "P_2022Q2_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2022Q2",
+   "subpartition_name": "P_2022Q2_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2022Q2",
+   "subpartition_name": "P_2022Q2_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2022Q2",
+   "subpartition_name": "P_2022Q2_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2022Q3",
+   "subpartition_name": "P_2022Q3_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2022Q3",
+   "subpartition_name": "P_2022Q3_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2022Q3",
+   "subpartition_name": "P_2022Q3_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2022Q3",
+   "subpartition_name": "P_2022Q3_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2022Q4",
+   "subpartition_name": "P_2022Q4_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2022Q4",
+   "subpartition_name": "P_2022Q4_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2022Q4",
+   "subpartition_name": "P_2022Q4_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2022Q4",
+   "subpartition_name": "P_2022Q4_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2023Q1",
+   "subpartition_name": "P_2023Q1_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2023Q1",
+   "subpartition_name": "P_2023Q1_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2023Q1",
+   "subpartition_name": "P_2023Q1_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2023Q1",
+   "subpartition_name": "P_2023Q1_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2023Q2",
+   "subpartition_name": "P_2023Q2_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2023Q2",
+   "subpartition_name": "P_2023Q2_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2023Q2",
+   "subpartition_name": "P_2023Q2_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2023Q2",
+   "subpartition_name": "P_2023Q2_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2023Q3",
+   "subpartition_name": "P_2023Q3_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2023Q3",
+   "subpartition_name": "P_2023Q3_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2023Q3",
+   "subpartition_name": "P_2023Q3_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2023Q3",
+   "subpartition_name": "P_2023Q3_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2023Q4",
+   "subpartition_name": "P_2023Q4_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2023Q4",
+   "subpartition_name": "P_2023Q4_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2023Q4",
+   "subpartition_name": "P_2023Q4_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2023Q4",
+   "subpartition_name": "P_2023Q4_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2024Q1",
+   "subpartition_name": "P_2024Q1_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2024Q1",
+   "subpartition_name": "P_2024Q1_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2024Q1",
+   "subpartition_name": "P_2024Q1_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2024Q1",
+   "subpartition_name": "P_2024Q1_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2024Q2",
+   "subpartition_name": "P_2024Q2_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2024Q2",
+   "subpartition_name": "P_2024Q2_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2024Q2",
+   "subpartition_name": "P_2024Q2_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2024Q2",
+   "subpartition_name": "P_2024Q2_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2024Q3",
+   "subpartition_name": "P_2024Q3_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2024Q3",
+   "subpartition_name": "P_2024Q3_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2024Q3",
+   "subpartition_name": "P_2024Q3_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2024Q3",
+   "subpartition_name": "P_2024Q3_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2024Q4",
+   "subpartition_name": "P_2024Q4_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2024Q4",
+   "subpartition_name": "P_2024Q4_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2024Q4",
+   "subpartition_name": "P_2024Q4_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2024Q4",
+   "subpartition_name": "P_2024Q4_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2025Q1",
+   "subpartition_name": "P_2025Q1_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2025Q1",
+   "subpartition_name": "P_2025Q1_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2025Q1",
+   "subpartition_name": "P_2025Q1_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2025Q1",
+   "subpartition_name": "P_2025Q1_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2025Q2",
+   "subpartition_name": "P_2025Q2_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2025Q2",
+   "subpartition_name": "P_2025Q2_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2025Q2",
+   "subpartition_name": "P_2025Q2_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2025Q2",
+   "subpartition_name": "P_2025Q2_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2025Q3",
+   "subpartition_name": "P_2025Q3_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2025Q3",
+   "subpartition_name": "P_2025Q3_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2025Q3",
+   "subpartition_name": "P_2025Q3_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2025Q3",
+   "subpartition_name": "P_2025Q3_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2025Q4",
+   "subpartition_name": "P_2025Q4_NA",
+   "subpartition_position": 1,
+   "high_value": "'US', 'CA', 'MX'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2025Q4",
+   "subpartition_name": "P_2025Q4_EMEA",
+   "subpartition_position": 2,
+   "high_value": "'UK', 'DE', 'FR'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2025Q4",
+   "subpartition_name": "P_2025Q4_APAC",
+   "subpartition_position": 3,
+   "high_value": "'IN', 'JP', 'AU'"
+  },
+  {
+   "owner": "SALES",
+   "table_name": "SALES_HISTORY",
+   "partition_name": "P_2025Q4",
+   "subpartition_name": "P_2025Q4_OTHER",
+   "subpartition_position": 4,
+   "high_value": "DEFAULT"
+  }
+ ],
+ "part_indexes": [
+  {
+   "owner": "SALES",
+   "index_name": "ORD_CUSTOMER_IX",
+   "table_name": "ORDERS",
+   "locality": "LOCAL",
+   "partitioning_type": "RANGE"
+  },
+  {
+   "owner": "SALES",
+   "index_name": "ORD_STATUS_BIX",
+   "table_name": "ORDERS",
+   "locality": "LOCAL",
+   "partitioning_type": "RANGE"
+  },
+  {
+   "owner": "SALES",
+   "index_name": "ORDER_ITEMS_PK",
+   "table_name": "ORDER_ITEMS",
+   "locality": "LOCAL",
+   "partitioning_type": "REFERENCE"
+  },
+  {
+   "owner": "SALES",
+   "index_name": "SALES_HISTORY_PK",
+   "table_name": "SALES_HISTORY",
+   "locality": "LOCAL",
+   "partitioning_type": "RANGE"
   }
  ]
 }

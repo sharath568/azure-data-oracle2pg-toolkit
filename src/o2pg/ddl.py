@@ -11,7 +11,7 @@ import re
 from collections import defaultdict
 
 from o2pg import __version__
-from o2pg.inventory import Column, Constraint, Inventory, Sequence, Table
+from o2pg.inventory import Column, Constraint, Inventory, PartitionedTable, Sequence, Table
 from o2pg.rules.objects import BIGINT_MAX, POSTGRES_RESERVED_WORDS
 from o2pg.typemap import is_user_defined, map_column
 
@@ -105,14 +105,48 @@ def _key_line(constraint: Constraint) -> str:
     return f"CONSTRAINT {ident(constraint.name)} {kind} ({cols})"
 
 
-def _table_ddl(table: Table, inventory: Inventory) -> list[str]:
+def partition_columns(part: PartitionedTable) -> tuple[str, ...]:
+    """Columns a PostgreSQL unique key must include: partition plus subpartition keys."""
+    sub = (part.subpartitioning_type or "").upper()
+    extra = tuple(part.subpartition_keys) if sub in {"RANGE", "LIST", "HASH"} else ()
+    return tuple(part.partition_keys) + extra
+
+
+def stays_partitioned(part: PartitionedTable) -> bool:
+    """RANGE, LIST (one column) and HASH tables are partitioned in PostgreSQL too."""
+    kind = part.partitioning_type.upper()
+    if kind not in {"RANGE", "LIST", "HASH"} or not part.partition_keys:
+        return False
+    return not (kind == "LIST" and len(part.partition_keys) > 1)
+
+
+def unenforceable_keys(inventory: Inventory) -> set[tuple[str, str]]:
+    """Primary and unique keys PostgreSQL rejects: on a partitioned table, without the key.
+
+    Only RANGE, LIST and HASH tables count, because only those stay partitioned.
+    """
+    out = set()
+    for part in inventory.part_tables:
+        if not stays_partitioned(part):
+            continue
+        keys = {k.upper() for k in partition_columns(part)}
+        for con in inventory.constraints_by_table.get((part.owner, part.table_name), []):
+            if con.type.upper() in {"P", "U"} and not keys <= {c.upper() for c in con.columns}:
+                out.add((con.owner, con.name))
+    return out
+
+
+def _table_ddl(table: Table, inventory: Inventory, children: list[str] | None = None) -> list[str]:
     key = (table.owner, table.name)
     entries: list[tuple[str, str]] = [
         _column_line(c, inventory) for c in inventory.columns_by_table.get(key, [])
     ]
     checks: list[str] = []
+    dropped = unenforceable_keys(inventory)
     for con in inventory.constraints_by_table.get(key, []):
         kind = con.type.upper()
+        if kind in {"P", "U"} and con.columns and (con.owner, con.name) in dropped:
+            continue
         if kind in {"P", "U"} and con.columns:
             entries.append((_key_line(con), ""))
         elif (
@@ -137,18 +171,26 @@ def _table_ddl(table: Table, inventory: Inventory) -> list[str]:
     if part:
         kind = part.partitioning_type.upper()
         keys = ", ".join(ident(k) for k in part.partition_keys)
-        if kind in {"RANGE", "LIST", "HASH"}:
+        if stays_partitioned(part):
             tail = f") PARTITION BY {kind} ({keys})"
+        elif kind == "LIST":
+            checks.append("-- TODO multi-column LIST partitioning is not supported in PostgreSQL")
         else:
             checks.append(f"-- TODO {kind} partitioning has no PostgreSQL equivalent")
     lines.append(tail + ";")
-    if part and part.partition_keys:
-        keys_upper = {k.upper() for k in part.partition_keys}
-        key_list = ", ".join(part.partition_keys)
+    if children:
+        lines += children
+    if part and stays_partitioned(part):
+        keys_upper = {k.upper() for k in partition_columns(part)}
+        key_list = ", ".join(partition_columns(part))
         for con in inventory.constraints_by_table.get(key, []):
             columns = {c.upper() for c in con.columns}
             if con.type.upper() in {"P", "U"} and not keys_upper <= columns:
-                checks.append(f"-- TODO {con.name} must include the partition key ({key_list})")
+                checks.append(
+                    f"-- TODO {con.name} must include the partition key ({key_list}); left out "
+                    f"so the table can be created. See o2pg partitions."
+                )
+                checks.append(f"-- {_key_line(con)}")
     if table.temporary:
         lines = [lines[0]] + [f"-- {line}" for line in lines[1:]]
     return lines + checks
@@ -182,17 +224,30 @@ def suggest_ddl(inventory: Inventory) -> str:
             "-- Sequences (START WITH uses LAST_NUMBER at collection time; re-sync at cutover)",
         ]
         out += [_sequence_ddl(s) for s in inventory.sequences]
+    from o2pg.partitions import child_ddl, maintenance_sql, plan_partitions
+
+    plans = {(p.owner, p.table): p for p in plan_partitions(inventory)}
     for table in inventory.tables:
-        out += ["", *_table_ddl(table, inventory)]
+        plan = plans.get((table.owner, table.name))
+        children = child_ddl(plan) if plan is not None and not table.temporary else None
+        out += ["", *_table_ddl(table, inventory, children)]
     by_name: dict[tuple[str, str], Constraint] = {
         (c.owner, c.name): c for c in inventory.constraints
     }
+    dropped = unenforceable_keys(inventory)
     foreign = [c for c in inventory.constraints if c.type.upper() == "R" and c.columns]
     if foreign:
         out += ["", "-- Foreign keys"]
     by_table: dict[tuple[str, str], list[str]] = defaultdict(list)
     for con in foreign:
         parent = by_name.get((con.r_owner or con.owner, con.r_constraint_name))
+        if parent is not None and (parent.owner, parent.name) in dropped:
+            by_table[(con.owner, con.table_name)].append(
+                f"-- TODO {con.name}: references {parent.name}, which cannot be created on the "
+                f"partitioned table {parent.table_name}; add the partition key to both sides or "
+                "drop the foreign key"
+            )
+            continue
         if parent is None:
             by_table[(con.owner, con.table_name)].append(
                 f"-- TODO {con.name}: referenced constraint {con.r_constraint_name} not in "
@@ -210,4 +265,8 @@ def suggest_ddl(inventory: Inventory) -> str:
         )
     for key in sorted(by_table):
         out += by_table[key]
+    for plan in plans.values():
+        procedure = maintenance_sql(plan)
+        if procedure:
+            out += ["", *procedure]
     return "\n".join(out) + "\n"

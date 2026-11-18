@@ -577,3 +577,34 @@ def equiv_record_cmd(cases_path: Path, oracle_dsn: str, setup: bool, write: bool
     click.echo(results_table(results))
     if not all(r.passed for r in results):
         raise SystemExit(1)
+
+
+# --------------------------------------------------------------------------------------
+# partitions
+# --------------------------------------------------------------------------------------
+
+
+@main.command("partitions")
+@click.argument("inventory", type=click.Path(exists=True, dir_okay=False, path_type=Path))
+@click.option(
+    "--output",
+    "-o",
+    type=click.Path(dir_okay=False, path_type=Path),
+    help="Write the report here. Default: stdout.",
+)
+def partitions_cmd(inventory: Path, output: Path | None) -> None:
+    """Explain how each Oracle partitioned table in INVENTORY maps to PostgreSQL.
+
+    o2pg map-types creates the partitions; this report lists every decision:
+    MAXVALUE partitions that become DEFAULT because the key can be NULL,
+    interval tables that need partitions created ahead of time, unique indexes
+    that cannot be enforced across partitions, and reference or system
+    partitioning that has no PostgreSQL equivalent.
+    """
+    from o2pg.partitions import plan_partitions, report_markdown
+
+    inv = _load(inventory)
+    plans = plan_partitions(inv)
+    _write(report_markdown(inv, plans), output)
+    todo = sum(1 for p in plans for f in p.findings if f.level == "todo")
+    click.echo(f"{len(plans)} partitioned tables, {todo} decisions needed", err=True)

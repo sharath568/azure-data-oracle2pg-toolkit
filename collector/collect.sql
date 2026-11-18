@@ -1,5 +1,5 @@
 REM ============================================================================
-REM  o2pg collector 0.3.0
+REM  o2pg collector 0.4.0
 REM
 REM  Read-only inventory of one or more Oracle schemas, written as a single JSON
 REM  file that `o2pg assess` can analyse offline.
@@ -52,7 +52,7 @@ SPOOL o2pg_inventory.json
 PROMPT {
 PROMPT "metadata":
 SELECT JSON_OBJECT(
-         'collector_version'    VALUE '0.3.0',
+         'collector_version'    VALUE '0.4.0',
          'collected_at'         VALUE TO_CHAR(SYS_EXTRACT_UTC(SYSTIMESTAMP), 'YYYY-MM-DD"T"HH24:MI:SS"Z"'),
          'db_name'              VALUE SYS_CONTEXT('USERENV', 'DB_NAME'),
          'db_version'           VALUE v.version,
@@ -288,7 +288,8 @@ SELECT CASE WHEN ROWNUM > 1 THEN ',' END || JSON_OBJECT(
          'partition_count'      VALUE x.partition_count,
          'interval'             VALUE x.interval_expr,
          'ref_constraint_name'  VALUE x.ref_ptn_constraint_name,
-         'partition_keys'       VALUE x.key_list
+         'partition_keys'       VALUE x.key_list,
+         'subpartition_keys'    VALUE x.subkey_list
          RETURNING CLOB)
   FROM (SELECT p.owner, p.table_name, p.partitioning_type, p.subpartitioning_type,
                p.partition_count, p."INTERVAL" AS interval_expr, p.ref_ptn_constraint_name,
@@ -296,10 +297,92 @@ SELECT CASE WHEN ROWNUM > 1 THEN ',' END || JSON_OBJECT(
                   FROM all_part_key_columns k
                  WHERE k.owner = p.owner
                    AND k.name = p.table_name
-                   AND k.object_type = 'TABLE') AS key_list
+                   AND k.object_type = 'TABLE') AS key_list,
+               (SELECT LISTAGG(k.column_name, ',') WITHIN GROUP (ORDER BY k.column_position)
+                  FROM all_subpart_key_columns k
+                 WHERE k.owner = p.owner
+                   AND k.name = p.table_name
+                   AND k.object_type = 'TABLE') AS subkey_list
           FROM all_part_tables p
          WHERE (p.owner, p.table_name) IN (&o2pg_tables)
          ORDER BY p.owner, p.table_name) x;
+PROMPT ]
+
+REM HIGH_VALUE is a LONG column, which JSON_OBJECT cannot read. A function
+REM declared in the WITH clause (12c and later) copies it into a VARCHAR2.
+REM These statements end with "/" because the function body contains ";".
+
+PROMPT ,"partitions": [
+WITH
+  FUNCTION o2pg_part_hv(p_owner IN VARCHAR2, p_table IN VARCHAR2, p_part IN VARCHAR2)
+    RETURN VARCHAR2
+  IS
+    l_hv LONG;
+  BEGIN
+    SELECT high_value INTO l_hv
+      FROM all_tab_partitions
+     WHERE table_owner = p_owner AND table_name = p_table AND partition_name = p_part;
+    RETURN SUBSTR(l_hv, 1, 4000);
+  END;
+SELECT CASE WHEN ROWNUM > 1 THEN ',' END || JSON_OBJECT(
+         'owner'              VALUE x.table_owner,
+         'table_name'         VALUE x.table_name,
+         'partition_name'     VALUE x.partition_name,
+         'partition_position' VALUE x.partition_position,
+         'high_value'         VALUE o2pg_part_hv(x.table_owner, x.table_name, x.partition_name),
+         'subpartition_count' VALUE x.subpartition_count
+         RETURNING CLOB)
+  FROM (SELECT p.table_owner, p.table_name, p.partition_name, p.partition_position,
+               p.subpartition_count
+          FROM all_tab_partitions p
+         WHERE (p.table_owner, p.table_name) IN (&o2pg_tables)
+         ORDER BY p.table_owner, p.table_name, p.partition_position) x
+/
+PROMPT ]
+
+PROMPT ,"subpartitions": [
+WITH
+  FUNCTION o2pg_subpart_hv(p_owner IN VARCHAR2, p_table IN VARCHAR2, p_sub IN VARCHAR2)
+    RETURN VARCHAR2
+  IS
+    l_hv LONG;
+  BEGIN
+    SELECT high_value INTO l_hv
+      FROM all_tab_subpartitions
+     WHERE table_owner = p_owner AND table_name = p_table AND subpartition_name = p_sub;
+    RETURN SUBSTR(l_hv, 1, 4000);
+  END;
+SELECT CASE WHEN ROWNUM > 1 THEN ',' END || JSON_OBJECT(
+         'owner'                 VALUE x.table_owner,
+         'table_name'            VALUE x.table_name,
+         'partition_name'        VALUE x.partition_name,
+         'subpartition_name'     VALUE x.subpartition_name,
+         'subpartition_position' VALUE x.subpartition_position,
+         'high_value'            VALUE o2pg_subpart_hv(x.table_owner, x.table_name,
+                                                       x.subpartition_name)
+         RETURNING CLOB)
+  FROM (SELECT s.table_owner, s.table_name, s.partition_name, s.subpartition_name,
+               s.subpartition_position
+          FROM all_tab_subpartitions s
+         WHERE (s.table_owner, s.table_name) IN (&o2pg_tables)
+         ORDER BY s.table_owner, s.table_name, s.partition_name, s.subpartition_position) x
+/
+PROMPT ]
+
+PROMPT ,"part_indexes": [
+SELECT CASE WHEN ROWNUM > 1 THEN ',' END || JSON_OBJECT(
+         'owner'             VALUE x.table_owner,
+         'index_name'        VALUE x.index_name,
+         'table_name'        VALUE x.table_name,
+         'locality'          VALUE x.locality,
+         'partitioning_type' VALUE x.partitioning_type
+         RETURNING CLOB)
+  FROM (SELECT i.table_owner, pi.index_name, pi.table_name, pi.locality,
+               pi.partitioning_type
+          FROM all_part_indexes pi
+          JOIN all_indexes i ON i.owner = pi.owner AND i.index_name = pi.index_name
+         WHERE (i.table_owner, i.table_name) IN (&o2pg_tables)
+         ORDER BY i.table_owner, pi.table_name, pi.index_name) x;
 PROMPT ]
 
 PROMPT ,"lobs": [

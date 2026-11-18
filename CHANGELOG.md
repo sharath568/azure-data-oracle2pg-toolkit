@@ -4,6 +4,39 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [0.4.0] - 2026-11-18
+
+### Added
+
+- Collector: `partitions` and `subpartitions` (with `HIGH_VALUE`, read from the
+  LONG column through a `WITH FUNCTION` clause), `part_indexes` (LOCAL or
+  GLOBAL) and `subpartition_keys`. Inventories without them still load.
+- `o2pg map-types` creates every partition and subpartition: range (including
+  multi-column and `MAXVALUE`), list (including `NULL` and `DEFAULT`), hash
+  (`MODULUS`/`REMAINDER`) and range/list/hash composites. Interval partitions
+  are named like pg_partman 5 (`orders_p20250101`), and interval tables get a
+  `<table>_add_partitions` procedure that creates partitions ahead of time.
+- `o2pg partitions`: a report of every partitioning decision.
+- `labs/partitioning`: six measured experiments on PostgreSQL (NULL keys,
+  global uniqueness, pruning, DEFAULT partitions, archiving, row movement).
+- `tests/fixtures/partitions`: Oracle DDL, rows, a matching inventory and the
+  partition each row lands in; the CI job `partitions` runs the real collector
+  on Oracle Database Free and compares rows per partition with PostgreSQL 16.
+- The sample inventory now has partitions, so `o2pg sample` users can try
+  `o2pg partitions` (`examples/partitions-report.md`).
+
+### Changed
+
+- A `MAXVALUE` range partition becomes the DEFAULT partition when a key column
+  is nullable (Oracle stores NULL keys there; PostgreSQL range partitions do not
+  accept NULL).
+- A primary or unique key that does not include every partitioning column is
+  written as a comment with a TODO instead of failing the whole script, and
+  foreign keys that reference it become TODOs too.
+- Multi-column LIST tables are created unpartitioned (PostgreSQL does not
+  support them) instead of with an invalid `PARTITION BY` clause.
+- Collector version string is now 0.4.0.
+
 ## [0.3.0] - 2026-11-16
 
 ### Added

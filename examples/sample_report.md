@@ -1,6 +1,6 @@
 # o2pg assessment: ORCLPDB1
 
-Generated 2026-11-16T17:48:56Z by o2pg 0.3.0. Source: Oracle 19.0.0.0.0; schemas HR, SALES; character set WE8MSWIN1252; collected 2026-10-01T14:05:11Z.
+Generated 2026-11-18T12:09:52Z by o2pg 0.4.0. Source: Oracle 19.0.0.0.0; schemas HR, SALES; character set WE8MSWIN1252; collected 2026-10-01T14:05:11Z.
 
 ## Summary
 
@@ -37,6 +37,9 @@ Objects in the inventory:
 | Database links | 1 |
 | Materialized views | 2 |
 | Partitioned tables | 3 |
+| partitions | 208 |
+| subpartitions | 160 |
+| part_indexes | 4 |
 | LOB columns | 2 |
 | User-defined types | 3 |
 | Scheduler jobs | 3 |
