@@ -67,7 +67,9 @@ def _basic_partitioning(inventory: Inventory) -> Iterator[Hit]:
 )
 def _interval_partitioning(inventory: Inventory) -> Iterator[Hit]:
     for part in inventory.part_tables:
-        if part.interval:
+        # A reference-partitioned child of an interval table reports INTERVAL = 'YES'; it is
+        # covered by O2PG-PT-003, not here.
+        if part.interval and part.partitioning_type.upper() != "REFERENCE":
             yield Hit(
                 f"{part.owner}.{part.table_name}",
                 "TABLE",

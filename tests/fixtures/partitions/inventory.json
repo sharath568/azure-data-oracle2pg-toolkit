@@ -420,10 +420,10 @@
    "table_name": "EVENT_DETAILS",
    "partitioning_type": "REFERENCE",
    "subpartitioning_type": "NONE",
-   "partition_count": 3,
-   "interval": null,
+   "partition_count": 2,
+   "interval": "YES",
    "ref_constraint_name": "EVENT_DETAILS_FK",
-   "partition_keys": null,
+   "partition_keys": "EVENT_ID",
    "subpartition_keys": null
   },
   {
@@ -518,16 +518,8 @@
   {
    "owner": "PART",
    "table_name": "EVENT_DETAILS",
-   "partition_name": "SYS_P1001",
-   "partition_position": 2,
-   "high_value": "",
-   "subpartition_count": 0
-  },
-  {
-   "owner": "PART",
-   "table_name": "EVENT_DETAILS",
    "partition_name": "SYS_P1002",
-   "partition_position": 3,
+   "partition_position": 2,
    "high_value": "",
    "subpartition_count": 0
   },

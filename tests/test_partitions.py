@@ -308,3 +308,14 @@ def test_cli_partitions(tmp_path: Path) -> None:
     assert result.exit_code == 0, result.output
     assert "7 partitioned tables, 3 decisions needed" in result.output
     assert out.read_text().startswith("# o2pg partitioning report")
+
+
+def test_reference_child_of_interval_parent_is_not_an_interval_table(inv: Inventory) -> None:
+    """Oracle reports INTERVAL = 'YES' on a reference child of an interval table."""
+    from o2pg.assessment import assess
+
+    findings = {f.rule.id: f for f in assess(inv).findings}
+    interval = [h.object_name for h in findings["O2PG-PT-002"].hits]
+    reference = [h.object_name for h in findings["O2PG-PT-003"].hits]
+    assert interval == ["PART.EVENTS"]
+    assert reference == ["PART.EVENT_DETAILS"]
